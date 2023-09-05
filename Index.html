@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Declan Cullen's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #16212f; /* Dark Navy Background */
+            color: #ffffff; /* White Text */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #0A2E4E, #0c3452); /* Dark Blue Header Gradient */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* New CSS for the navigation bar */
+        .navbar {
+            background-color: #0c3452; /* Dark Blue Background for Navigation Bar */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            margin: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-box {
+            background: linear-gradient(to bottom, #1c293a, #1e3143); /* Darker Navy Section Gradient */
+            border: 2px solid #3498db; /* Light Blue Border */
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Removed hover effect */
+        /* .main-box:hover {
+            transform: scale(1.02); Scale up on hover 
+        } */
+
+        .section-box {
+            background: linear-gradient(to bottom, #1c293a, #1e3143); /* Darker Navy Section Gradient */
+            border: 2px solid #3498db; /* Light Blue Border */
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Removed hover effect */
+        /* .section-box:hover {
+            transform: scale(1.02); Scale up on hover 
+        } */
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db; /* Light Blue Links */
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #ff5733; /* Change color on hover */
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border: 2px solid #3498db; /* Light Blue Border */
+            margin-right: 10px;
+            /* Removed hover effect */
+        }
+
+        .procedural-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .procedural-images {
+            max-width: 50%;
+            border: 2px solid #3498db; /* Light Blue Border */
+            margin-right: 20px;
+        }
+
+        .procedural-text {
+            max-width: 50%;
+        }
+
+        /* Styling for Playable Demos and Playable Game Jams */
+        .horizontal-images {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .horizontal-images a {
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .horizontal-images img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #3498db; /* Light Blue Border */
+            /* Removed hover effect */
+        }
+
+        /* Styling for Social Media Links */
+        .social-media {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #3498db; /* Light Blue Social Media Links */
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-media a:hover {
+            color: #ff5733; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Declan Cullen's Portfolio</h1>
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <a href="Index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Portfolio.html">Portfolio</a>
+        </div>
+        <div class="social-media">
+            <!-- Replace the links with your social media profiles -->
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">GitHub</a>
+        </div>
+    </header>
+    </div>
+    <div class="container">
+        <div class="main-box">
+            <section class="section-box">
+                <h2>About Me</h2>
+                <p>Welcome to my portfolio! I'm <strong>Declan Cullen,</strong> a game designer who studied at <strong>South Essex College</strong> and later studied at the <strong>University of Ipswich</strong>. I have experience with systems like <strong>Unreal Engine</strong> and <strong>Unity's C#</strong>. I'm also learning advanced skills like procedural generation algorithms such as binary space partitioning.</p>
+                <p>Check out my games and projects below!</p>
+            </section>
+
+            <section class="section-box">
+                <h2>Playable Demos</h2>
+                <div class="horizontal-images">
+                    <a href="https://declancullen.itch.io/modular-spaceship">
+                        <img src="https://img.itch.zone/aW1nLzEzMjkyMzcyLnBuZw==/original/6ZBKIo.png" alt="Modular Spaceship" style="width: 100%; height: auto;">
+                    </a>
+                    <a href="https://declancullen.itch.io/dwarf-fortress-defense">
+                        <img src="https://img.itch.zone/aW1nLzEzMzA1MzgwLnBuZw==/original/PdQzsG.png" alt="Dwarf Fortress Defense" style="width: 100%; height: auto;">
+                    </a>
+                    <a href="https://declancullen.itch.io/spacecore">
+                        <img src="https://img.itch.zone/aW1nLzEzMzA1MzgzLnBuZw==/original/rbjijH.png" alt="Spacecore" style="width: 100%; height: auto;">
+                    </a>
+                </div>
+            </section>
+
+            <section class="section-box">
+                <h2>Playable Game Jams</h2>
+                <div class="horizontal-images">
+                    <a href="https://declancullen.itch.io/dungeon-jam">
+                        <img src="https://img.itch.zone/aW1nLzEzMzA1ODMxLnBuZw==/original/yPXhff.png" alt="Dungeon Jam" style="width: 100%; height: auto;">
+                    </a>
+                    <a href="https://declancullen.itch.io/the-bomb">
+                        <img src="https://img.itch.zone/aW1nLzEzMzA1ODUzLmpwZw==/original/5E4GJv.jpg" alt="The Bomb" style="width: 100%; height: auto;">
+                    </a>
+                    <a href="https://declancullen.itch.io/zephyrstrike">
+                        <img src="https://img.itch.zone/aW1nLzEzMzA2MjI0LnBuZw==/original/JjTfKI.png" alt="Zephyr Strike" style="width: 100%; height: auto;">
+                    </a>
+                </div>
+            </section>
+
+            <section class="section-box">
+                <h2>Procedural Generation</h2>
+                <div class="procedural-section">
+                    <div class="procedural-images">
+                        <table border="0" cellpadding="10">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="https://img.itch.zone/aW1nLzEzMzA1OTg5LnBuZw==/original/tff74%2F.png" alt="Procedural Image 1" style="width: 100%; max-width: 400px; height: auto; border: 2px solid black;">
+                                    </td>
+                                    <td>
+                                        <img src="https://img.itch.zone/aW1nLzEzMzA2MDA0LnBuZw==/original/LLTnzd.png" alt="Procedural Image 2" style="width: 100%; max-width: 400px; height: auto; border: 2px solid black;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://img.itch.zone/aW1nLzEzMzA1OTk3LnBuZw==/original/LFYc%2F%2F.png" alt="Procedural Image 3" style="width: 100%; max-width: 400px; height: auto; border: 2px solid black;">
+                                    </td>
+                                    <td>
+                                        <img src="https://img.itch.zone/aW1nLzEzMzA1OTkzLnBuZw==/original/CsFtzm.png" alt="Procedural Image 4" style="width: 100%; max-width: 400px; height: auto; border: 2px solid black;">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="procedural-text">
+                        <h3>Using Perlin Noise</h3>
+                        <p>I use Perlin noise to create different terrains, from hills to mountains, by adjusting its settings.</p>
+                        <h3>Creating Islands</h3>
+                        <p>To craft islands, I shape terrain edges with Perlin noise, by laying noise on top of the base noise.</p>
+                        <h3>Exploring Perlin Worms</h3>
+                        <p>I considered using Perlin worms for rivers, which add more variety to designs, but I ran into a few problems.</p>
+                        <h3>Crafting Rivers with Sine Waves</h3>
+                        <p>I made rivers of all sizes, from meandering streams to rushing rapids, using sine waves to create their paths.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
