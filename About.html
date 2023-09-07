@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Declan Cullen's Portfolio</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #16212f; /* Dark Navy Background */
+            color: #ffffff; /* White Text */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #0A2E4E, #0c3452); /* Dark Blue Header Gradient */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* New CSS for the navigation bar */
+        .navbar {
+            background-color: #0c3452; /* Dark Blue Background for Navigation Bar */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            margin: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-box {
+            background: linear-gradient(to bottom, #1c293a, #1e3143); /* Darker Navy Section Gradient */
+            border: 2px solid #3498db; /* Light Blue Border */
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Removed hover effect */
+        /* .main-box:hover {
+            transform: scale(1.02); Scale up on hover 
+        } */
+
+        .section-box {
+            background: linear-gradient(to bottom, #1c293a, #1e3143); /* Darker Navy Section Gradient */
+            border: 2px solid #3498db; /* Light Blue Border */
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Removed hover effect */
+        /* .section-box:hover {
+            transform: scale(1.02); Scale up on hover 
+        } */
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db; /* Light Blue Links */
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #ff5733; /* Change color on hover */
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border: 2px solid #3498db; /* Light Blue Border */
+            margin-right: 10px;
+            /* Removed hover effect */
+        }
+
+        .procedural-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .procedural-images {
+            max-width: 50%;
+            border: 2px solid #3498db; /* Light Blue Border */
+            margin-right: 20px;
+        }
+
+        .procedural-text {
+            max-width: 50%;
+        }
+
+        /* Styling for Playable Demos and Playable Game Jams */
+        .horizontal-images {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .horizontal-images a {
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .horizontal-images img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #3498db; /* Light Blue Border */
+            /* Removed hover effect */
+        }
+
+        /* Styling for Social Media Links */
+        .social-media {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #3498db; /* Light Blue Social Media Links */
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-media a:hover {
+            color: #ff5733; /* Change color on hover */
+        }
+ 
+        /* Two-Column Layout */
+        .two-column {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Declan Cullen's Portfolio</h1>
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <a href="Index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Portfolio.html">Portfolio</a>
+        </div>
+        <div class="social-media">
+            <!-- Replace the links with your social media profiles -->
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">GitHub</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main-box">
+            <!-- About Me section -->
+            <section class="section-box">
+                <h2>About Me</h2>
+                <p>I'm Declan Cullen, a passionate game designer hailing from Essex, UK. With a degree in game design from the University of Suffolk, I've delved deep into the world of game development, particularly focusing on crafting games with intriguing procedural elements.</p>
+                
+                <p>My game design philosophy centers on creating captivating gameplay experiences that are both challenging and unpredictable. This drive for innovation and immersion leads me to incorporate dynamic systems, such as procedural generation techniques like Perlin noise and sine waves, to craft unique and aesthetically pleasing game worlds.</p>
+
+                <p>When I'm not immersed in the world of game design, I find inspiration in history and mythology. These passions often find their way into my projects, adding layers of depth and storytelling to the player experience. One notable example is "The King's Servant," a project where historical and mythological elements merge to create a rich and immersive narrative.</p>
+
+                <p>Alongside game design, I enjoy exploring various forms of art, music, and outdoor adventures—all of which contribute to my creative process. If you're searching for a game designer who can breathe life into innovative and procedurally generated gameplay, your search ends here.</p>
+            </section>
+        </div>
+        <div class="main-box">
+            <!-- Skills section -->
+            <section class="section-box">
+                <h2>Skills</h2>
+                <ul>
+                    <li><strong>C#:</strong> Proficient in C# programming for game development.</li>
+                    <li><strong>Unity Scripting:</strong> Experienced in scripting and game development in Unity.</li>
+                    <li><strong>Unreal Blueprints:</strong> Skilled in using Unreal Blueprints for game logic and scripting.</li>
+                    <li><strong>Construct 2:</strong> Proficient in using Construct 2 for 2D game development.</li>
+                    <li><strong>GameMaker 2 - 3:</strong> Experienced in using GameMaker for game development.</li>
+                    <li><strong>Blender:</strong> Skilled in 3D modeling and animation using Blender.</li>
+                    <li><strong>Autodesk Maya:</strong> Proficient in Autodesk Maya for 3D modeling and character animation.</li>
+                    <li><strong>Autodesk Mudbox:</strong> Experienced in digital sculpting and texture painting with Autodesk Mudbox.</li>
+                    <li><strong>Substance Designer:</strong> Capable of creating realistic materials and textures using Substance Designer.</li>
+                    <li><strong>Zbrush:</strong> Skilled in digital sculpting and character design using Zbrush.</li>
+                    <li><strong>Photoshop:</strong> Proficient in image editing and graphic design with Photoshop.</li>
+                    <li><strong>Trello:</strong> Experienced in project management and collaboration using Trello.</li>
+                    <li><strong>Jira:</strong> Familiar with project management and issue tracking using Jira.</li>
+                    <li><strong>Microsoft Word:</strong> Proficient in word processing with Microsoft Word.</li>
+                    <li><strong>Microsoft Excel:</strong> Skilled in data analysis and spreadsheet management with Microsoft Excel.</li>
+                </ul>
+            </section>
+        </div>
+        <div class="main-box">
+            <!-- Social Media Links section -->
+            <section class="section-box">
+                <p>Feel free to connect with me on <a href="https://www.linkedin.com/in/declan-cullen-023699231/" target="_blank">LinkedIn</a>, <a href="https://twitter.com/Icetheicebear" target="_blank">Twitter</a>, and <a href="https://github.com/declan0077" target="_blank">GitHub</a> to stay updated on my latest projects and endeavors.</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
