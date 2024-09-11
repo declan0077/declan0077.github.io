@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkcarmic Descent</title>
+    <style>
+        /* Professional black and gray color scheme */
+        body {
+            font-family: 'Cinzel', serif;
+            background-color: #1a1a1a;
+            color: #d0d0d0;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        header {
+            background-image: url('ExpoHead.png');
+            background-size: cover;
+            background-position: center;
+            padding: 130px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 48px;
+            color: #a08040;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            background-color: #2d2d2d;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            color: #a08040;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: #3d3d3d;
+        }
+
+        .about {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .about-text p {
+            font-family: Arial, sans-serif; /* Arial font for About section */
+            font-size: 18px; /* Adjust as needed */
+            color: #ffffff; /* White color */
+            font-weight: normal; /* Normal font weight */
+            text-align: justify; /* Justified text alignment */
+        }
+
+        .about-text h2 {
+            color: #a08040;
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        .about img {
+            max-width: 300px;
+            height: auto;
+            border: 1px solid #a08040;
+        }
+
+        .all-projects {
+            background-color: #2d2d2d;
+            border: 1px solid #a08040;
+            padding: 10px;
+           text-align: justified;
+            margin-bottom: 20px;
+        }
+
+        .all-projects h2 {
+            color: #a08040;
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        .all-projects .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+  .all-projects .project:hover {
+            transform: translateY(-5px);
+        }
+        .all-projects .project img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .all-projects .project h3 {
+            color: #a08040;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        footer {
+            background-color: #2d2d2d;
+            color: #a08040;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            header {
+                padding: 40px;
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            .about-text h2,
+            .all-projects h2 {
+                font-size: 28px;
+            }
+
+            .all-projects .project h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            
+        </header>
+        <nav>
+            <a href="Index.html">Home</a>
+            <a href="#overview">Overview</a>
+            <a href="#objectives">Objectives</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#features">Features</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    <section id="video" class="all-projects" style="display: flex; justify-content: Center;">
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/NZiu5HbadkI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+<section id="video" style="display: flex; justify-content: Center;">
+<iframe frameborder="0" src="https://itch.io/embed/2664826?border_width=0&amp;bg_color=1a1a1a&amp;fg_color=ffffff&amp;link_color=fa5c5c&amp;border_color=a08040" width="550" height="165"><a href="https://declancullen.itch.io/arkcarmic-descent">Arkcarmic Descent by DeclanCullen</a></iframe>
+        </section>
+
+        <section id="overview" class="about">
+            <div class="about-text">
+                <h2>Overview</h2>
+                <p>As part of my master's course, I took on the role of lead designer for "Arkcamic Descent," a first-person adventure action game inspired by cult classics like Arx Fatalis. Our goal was to create a more immersive and simulation-focused experience, reminiscent of Arx Fatalis' innovative approach to gameplay, while pushing the boundaries of modern adventure games. My primary responsibility was designing the physics and destruction system, which formed a core part of the game's unique gameplay mechanics.</p>
+<p>The project resulted in a vertical slice demonstrating what a larger game could look like. In this short demo, players control an adventurer tasked with escaping a dungeon, echoing the subterranean setting of Arx Fatalis. As they progress, they discover relics that grant magical powers, adding depth to the gameplay and story. This slice showcases the potential for a full game that combines intense action with intricate environmental interactions, much like how Arx Fatalis allowed players to interact with the world in innovative ways.</p>
+<p>Throughout the development process, I focused on creating systems that would allow players to engage with the game world in emergent ways, drawing inspiration from Arx Fatalis' emphasis on player agency and environmental interaction. The physics-based interactions and destructible environments I designed aim to provide players with a sense of agency and encourage creative problem-solving, much like the rune-based magic system in Arx Fatalis did. This project not only honed my skills in game design but also allowed me to explore innovative approaches to player engagement in the action-adventure genre, carrying forward the legacy of games like Arx Fatalis that pushed the boundaries of immersive gameplay.</p>
+            </div>
+            <img src="KnightCharacter.png" alt="IVR Safety Training">
+        </section>
+        <section id="objectives" class="all-projects">
+            <h2>Objectives</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <h3>My Role</h3>
+                    <p>One of my principal design tasks for this project involved creating and prototyping the initial physics and combat scenarios.</p>
+<p> Challenge: Developing systems that foster player creativity and emergent gameplay. </p>
+<p> Solution: My approach centered on crafting interactive physics objects that could be kicked, shattered, and set ablaze, coupled with a versatile magic system that interacts with these objects. This design enables players to engage with the environment in novel ways, thereby boosting replay value and promoting exploration. </p>
+<p> Despite the constraints of our six-week development timeline, which led to the reduction of the magic system, the interactive object mechanics were retained and became integral to our project.</p>
+                </div>
+                <div class="project">
+                    <h3>Team Collaboration</h3>
+<p>Declan Cullen (Level Designer, Designer, Programmer)<br>
+Ben Halling (Character Artist, Environmental Designer)<br>
+Roxanne Sadauskas (Prop Artist, Environmental Artist)<br>
+Kelly Imhanlahimi (UI/UX Designer, Concept Artist)<br>
+Roald Naeri (AI Programmer, Animator, Gameplay Designer).</p>
+
+<p>The small size of our team allowed for flexibility with the scope and developmental iterations, and our focus for the vertical slice was on polish.</p>
+
+<p>We managed to work effectively without experiencing crunch or internal issues by sticking to our weekly sprints and helping each other with blockers. Communication was key, and we utilized Discord to keep each other informed about each stage of development. This allowed for multidisciplinary ideation and improved our overall development process.</p>
+                </div>
+                           </div>
+        </section>
+        <section id="gallery" class="all-projects">
+            <h2>Gallery</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <img src="Screenshot.png" alt="Gallery Image 1" style="width: 100%;">
+                </div>
+                <div class="project">
+                    <img src="Screenshot1.png" alt="Gallery Image 2" style="width: 100%;">
+                </div>
+                <div class="project">
+                    <img src="Screenshot2.png" alt="Gallery Image 4" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="all-projects">
+            <h2>Features</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Awards</h3>
+  <img src="DeclanCullen.png" alt="Gallery Image 2" style="width: 50%;">
+
+                    <p>Rookie Contestant Award.</p>
+                </div>
+            </div>
+        </section>
+      
+        <section id="contact" class="all-projects">
+            <h2>Contact</h2>
+            <p>For more information or to request a demo, please contact:</p>
+            <p>Email:  <a href="mailto:Declanmichaelcullen@gmail.com">Declanmichaelcullen@gmail.com</a></p>
+        </section>
+        <footer>
+            <p>© 2024 Declan Cullen. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
