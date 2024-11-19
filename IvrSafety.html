@@ -5,240 +5,324 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IVR Safety Training Project</title>
     <style>
-        /* Professional black and gray color scheme */
-        body {
-            font-family: 'Cinzel', serif;
-            background-color: #1a1a1a;
-            color: #d0d0d0;
-            padding: 0;
+        /* Modern styling with improved typography and spacing */
+        :root {
+            --primary: #2196F3;
+            --primary-dark: #1976D2;
+            --background: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray: #e9ecef;
+            --text: #212529;
+            --transition: all 0.2s ease;
+
+        }
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 0 20px;
         }
 
+        /* Modern sticky header */
         header {
-            background-image: url('Cover.png');
-            background-size: cover;
-            background-position: center;
-            padding: 100px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 48px;
-            color: #a08040;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background-color: white);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(160, 128, 64, 0.2);
         }
 
         nav {
-            background-color: #2d2d2d;
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         nav a {
-            color: #a08040;
+            color: var(--primary);
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 500;
         }
 
         nav a:hover {
-            background-color: #3d3d3d;
+            background-color: var(--gray);
+            transform: translateY(-2px);
         }
 
-        .about {
+        /* Modern sections */
+        section {
+            padding: 10px 0;
+            scroll-margin-top: 10px;
+        }
+
+        .hero {
+            min-height: 60vh;
             display: flex;
             align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .about-text {
-            flex: 1;
-            padding-right: 40px;
-        }
-
-        .about-text p {
-            font-family: Arial, sans-serif; /* Arial font for About section */
-            font-size: 18px; /* Adjust as needed */
-            color: #ffffff; /* White color */
-            font-weight: normal; /* Normal font weight */
-            text-align: justify; /* Justified text alignment */
-        }
-
-        .about-text h2 {
-            color: #a08040;
-            margin-top: 0;
-            font-size: 32px;
-        }
-
-        .about img {
-            max-width: 300px;
-            height: auto;
-            border: 1px solid #a08040;
-        }
-
-        .all-projects {
-            background-color: #2d2d2d;
-            border: 1px solid #a08040;
-            padding: 20px;
+            justify-content: center;
             text-align: center;
-            margin-bottom: 40px;
+            background: url('Cover.png');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px;
         }
 
-        .all-projects h2 {
-            color: #a08040;
-            margin-top: 0;
-            font-size: 32px;
+
+        /* Modern cards */
+        .card {
+            background-color: var(--gray);
+            border-radius: 12px;
+            padding: 30px;
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(160, 128, 64, 0.1);
         }
 
-        .all-projects .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-        }
-  .all-projects .project:hover {
+        .card:hover {
             transform: translateY(-5px);
-        }
-        .all-projects .project img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 5px;
+            border-color: var(--primary);
         }
 
-        .all-projects .project h3 {
-            color: #a08040;
-            margin-top: 0;
-            font-size: 20px;
+        /* Modern grid layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
         }
 
-        footer {
-            background-color: #2d2d2d;
-            color: #a08040;
-            padding: 20px;
+        /* Download section styling */
+        .download-section {
+            background-color: var(--gray);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .download-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(160, 128, 64, 0.3);
+        }
+
+        /* Modern image gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Typography improvements */
+        h2 {
+            color: var(--primary);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 30px;
             text-align: center;
         }
 
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Modern footer */
+        footer {
+            background-color: var(--gray);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
+            section {
+                padding: 60px 0;
             }
 
-            header {
-                padding: 40px;
+            .grid {
+                gap: 20px;
             }
 
-            header h1 {
-                font-size: 36px;
-            }
-
-            .about-text h2,
-            .all-projects h2 {
-                font-size: 28px;
-            }
-
-            .all-projects .project h3 {
-                font-size: 18px;
+            nav {
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            
-        </header>
+    <header>
         <nav>
-  <a href="index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="#overview">Overview</a>
             <a href="#objectives">Objectives</a>
             <a href="#gallery">Gallery</a>
             <a href="#features">Features</a>
+            <a href="#download">Download</a>
             <a href="#contact">Contact</a>
         </nav>
-        <section id="overview" class="about">
-            <div class="about-text">
-                <h2>Overview</h2>
-                <p>As part of my MA in Game Design at Falmouth University, I developed a prototype titled "Enhancing Learning through Gamification: Applying Goal-Setting Theory in IVR" for my final major project. This research-driven initiative explores the intersection of immersive virtual reality (IVR), gamification, and educational theory to revolutionize site safety training.
-My project addresses a crucial question: "Can integrating Goal-Setting Theory into an immersive virtual reality (IVR) environment enhance learner engagement and effectiveness in site safety training?"</p>
-<p>To answer this, I designed and implemented a gamified IVR training module that incorporates clear, attainable goals to intrinsically motivate learners. The prototype simulates various workplace scenarios, allowing users to interact with potential hazards in a safe, controlled environment. By leveraging the immersive nature of VR and the motivational aspects of Goal-Setting Theory, I aimed to create a more engaging and effective learning experience compared to traditional training methods.</p>
-<p>A key feature of my approach was the implementation of a progressive Bloom's Taxonomy framework. I designed interactive modules that gradually increase in cognitive complexity, starting from basic recall tasks and advancing to more complex evaluation scenarios. This structured progression aims to deepen learning and enhance knowledge retention across various aspects of site safety.
-Throughout the development process, I conducted extensive research into learning theories, game design principles, and VR best practices. I then applied these insights to create the interactive modules. The project involved collaboration with industry professionals to ensure the scenarios were realistic and relevant.</p>
-<p>This prototype represents a step towards more innovative, engaging, and effective safety training methods. It demonstrates the potential of combining advanced technology with established educational theories to address real-world learning challenges in high-risk industries.</p>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+       
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="overview">
+            <h2>Overview</h2>
+            <div class="card">
+                <p>As part of my MA in Game Design at Falmouth University, I research learning through gamifcation so I looked into "Enhancing Learning through Gamification: Applying Goal-Setting Theory in IVR" for my final major project. This research-driven initiative explores the intersection of immersive virtual reality (IVR), gamification, and educational theory to revolutionize site safety training.</p>
+                <p>To answer this, I designed and implemented a gamified IVR training module that incorporates clear, attainable goals to intrinsically motivate learners. The prototype simulates various workplace scenarios, allowing users to interact with potential hazards in a safe, controlled environment.</p>
             </div>
-            <img src="7.png" alt="IVR Safety Training">
         </section>
- <section id="video" style="display: flex; justify-content: center;"><iframe frameborder="0" src="https://itch.io/embed/2886744?border_width=1&amp;bg_color=1a1a1a&amp;fg_color=ffffff&amp;border_color=a08040" width="550" height="165"><a href="https://declancullen.itch.io/ivr-safety-training-project">IVR safety training Project by DeclanCullen</a></iframe></section>
-        <section id="objectives" class="all-projects">
+<section id="results">
+    <h2>Research Results</h2>
+    <div class="card">
+        <h2>Key Findings</h3>
+        <p>The research demonstrated several promising outcomes for VR-based safety training:</p>
+        <ul>
+            <li><strong>High Realism Score:</strong> Participants rated the simulation's realism and practicality at 5.63 out of 7, indicating strong potential for real-world skill transfer.</li>
+            <li><strong>Strong Immersion:</strong> The experience achieved an immersion rating of 5.50 out of 7, suggesting effective learner engagement.</li>
+            <li><strong>Effective for Kinaesthetic Learners:</strong> The study revealed particularly positive responses from hands-on learners, suggesting VR training may be especially beneficial for practical skill development.</li>
+            <li><strong>Goal-Setting Integration:</strong> Immediate feedback mechanisms scored 5 out of 7, supporting the effectiveness of our goal-setting theory implementation.</li>
+        </ul>
+        <h2>Future Research Opportunities</h3>
+        <p>While initial results are promising, several areas warrant further investigation:</p>
+        <ul>
+            <li>Long-term knowledge retention and real-world skill transfer</li>
+            <li>Adaptive learning systems that respond to individual learning styles</li>
+            <li>Integration with existing training frameworks</li>
+            <li>Large-scale implementation studies across different industries</li>
+        </ul>
+    </div>
+</section>
+
+        <section id="download" class="download-section">
+            <h2>Download Research Document</h2>
+            <p>Access the complete research paper on IVR Safety Training and Goal-Setting Theory</p>
+            <a href="IVR_researchdocument.pdf" class="download-button" download>
+                Download Research Paper (PDF)
+            </a>
+        </section>
+
+        <section id="objectives">
             <h2>Objectives</h2>
-            <div class="project-grid">
-                <div class="project">
+            <div class="grid">
+                <div class="card">
                     <h3>Improve Safety Training</h3>
                     <p>To improve safety training effectiveness through immersive VR technology.</p>
                 </div>
-                <div class="project">
+                <div class="card">
                     <h3>Reduce Workplace Accidents</h3>
                     <p>To reduce workplace accidents by providing realistic training scenarios.</p>
                 </div>
-                <div class="project">
+                <div class="card">
                     <h3>Flexible Training Solution</h3>
                     <p>To offer a flexible and customizable training solution for various industries.</p>
                 </div>
             </div>
         </section>
-        <section id="gallery" class="all-projects">
+
+        <section id="gallery">
             <h2>Gallery</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <img src="1.png" alt="Gallery Image 1" style="width: 100%;">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="1.png" alt="Gallery Image 1">
                 </div>
-                <div class="project">
-                    <img src="2.png" alt="Gallery Image 2" style="width: 100%;">
+                <div class="gallery-item">
+                    <img src="2.png" alt="Gallery Image 2">
                 </div>
-                <div class="project">
-                    <img src="3.png" alt="Gallery Image 3" style="width: 100%;">
+                <div class="gallery-item">
+                    <img src="3.png" alt="Gallery Image 3">
                 </div>
-                <div class="project">
-                    <img src="4.png" alt="Gallery Image 4" style="width: 100%;">
+                <div class="gallery-item">
+                    <img src="4.png" alt="Gallery Image 4">
                 </div>
-                <div class="project">
-                    <img src="5.png" alt="Gallery Image 5" style="width: 100%;">
+                <div class="gallery-item">
+                    <img src="5.png" alt="Gallery Image 5">
                 </div>
-                <div class="project">
-                    <img src="6.png" alt="Gallery Image 6" style="width: 100%;">
+                <div class="gallery-item">
+                    <img src="6.png" alt="Gallery Image 6">
                 </div>
             </div>
         </section>
-        <section id="features" class="all-projects">
+
+        <section id="features">
             <h2>Features</h2>
-            <div class="project-grid">
-                <div class="project">
+            <div class="grid">
+                <div class="card">
                     <h3>Immersive VR Experience</h3>
                     <p>Users can engage in realistic safety training scenarios.</p>
                 </div>
-                <div class="project">
+                <div class="card">
                     <h3>Interactive Learning</h3>
                     <p>Hands-on activities and simulations to enhance learning.</p>
                 </div>
-                <div class="project">
+                <div class="card">
                     <h3>Customizable Modules</h3>
                     <p>Tailored training modules to suit different industries and safety requirements.</p>
                 </div>
             </div>
         </section>
-                <section id="contact" class="all-projects">
+
+        <section id="contact" class="card">
             <h2>Contact</h2>
             <p>For more information or to request a demo, please contact:</p>
-            <p>Email:  <a href="mailto:Declanmichaelcullen@gmail.com">Declanmichaelcullen@gmail.com</a></p>
+            <p>Email: <a href="mailto:Declanmichaelcullen@gmail.com">Declanmichaelcullen@gmail.com</a></p>
         </section>
-        <footer>
-            <p>© 2024 Declan Cullen. All rights reserved.</p>
-        </footer>
     </div>
+
+    <footer>
+        <p>© 2024 Declan Cullen. All rights reserved.</p>
+    </footer>
 </body>
 </html>
