@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedural Terrain Generation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Original Header Styling */
+        .hero {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Modern Navigation */
+        .modern-nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .modern-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 15px 0;
+        }
+
+        .modern-nav ul li {
+            margin: 0 15px;
+        }
+
+        .modern-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .modern-nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .modern-nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .modern-nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 30px 0;
+            background: white;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Gallery Styling */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            flex: 0 1 calc(33.333% - 20px);
+            max-width: 350px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100;
+            object-fit: cover;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modern-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modern-nav ul li {
+                margin: 10px 0;
+            }
+
+            .gallery-item {
+                flex: 0 1 100%;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+.river-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.river-pair {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+
+.river-pair .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .river-pair {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .river-pair .gallery-item {
+        flex: 0 1 100%;
+        max-width: 100%;
+    }
+    
+    .river-pair .gallery-item img {
+        height: auto;
+    }
+}
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .video-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Modify gallery layout for specific sections */
+        .perlin-noise-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .perlin-noise-gallery .gallery-item:first-child {
+            flex: 0 1 100%;
+            max-width: 100%;
+        }
+
+        .perlin-noise-gallery .gallery-item:first-child img {
+            width: 100%;
+            height: auto;
+        }
+        /* Modify gallery layout for specific sections */
+        .Islands-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .Islands-gallery .gallery-item:first-child {
+            flex: 0 1 100%;
+            max-width: 100%;
+        }
+
+        .Islands-gallery .gallery-item:first-child img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Original Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Procedural Terrain Generation</h1>
+            <p>Exploring the Art of Landscape Creation</p>
+        </div>
+    </div>
+
+    <!-- Modern Navigation -->
+    <nav class="modern-nav">
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#perlin-noise">Perlin Noise</a></li>
+            <li><a href="#island-generation">Island Generation</a></li>
+            <li><a href="#river-generation">River Generation</a></li>
+            <li><a href="#3d-terrain">3D Terrain</a></li>
+        </ul>
+    </nav>
+    <section id="overview" class="section">
+        <div class="container">
+            <h2>Project Overview</h2>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p>This project explores my attempt at replicating Rimworlds procedural terrain generation before getting sidetracked onto learning mesh generation, for this project I made use of perlin noise to create natural-looking landscapes and river generation to break up some of sameness by making use of sine waves. Starting from basic noise mapping to simulating landscape terrain features.</p>
+                </div>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="LandGen.Gif" alt="Land Generation 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="LandGen2.Gif" alt="Land Generation 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="perlin-noise" class="section">
+        <div class="container">
+            <h2 class="section-title">Perlin Noise Exploration</h2>
+            <p>Perlin noise is a versatile algorithm for creating natural-looking gradients. It generates a smooth, cloud-like pattern, where values range from 0 (black) to 1 (white), and it checks the values of neighboring points to ensure smooth transitions. This makes it ideal for terrain generation because it produces patterns that are coherent and not chaotic—something to avoid in terrain generation as it can make landscapes look unnatural. However, some randomness or "messiness" is necessary to make the noise appear more realistic. To introduce more detail and complexity, you can add octaves, which combine multiple layers of Perlin noise at different frequencies and amplitudes. 
+
+<br><br>By mapping these noise values to colors, I simulated terrain features: values above 0.72 became mountains, values between 0.2 and 0.7 represented plains, and values below 0.2 were designated as water.</p>
+<p> below you can see some images playing with scale</p>
+            <div class="gallery">
+                <div class="gallery-item"><img src="HeightCode.png" alt="Code Example"></div>
+                <div class="gallery-item"><img src="PerlinNoise1.png" alt="Perlin Noise Terrain 1"></div>
+                <div class="gallery-item"><img src="PerlinNoise2.png" alt="Perlin Noise Terrain 2"></div>
+                <div class="gallery-item"><img src="PerlinNoise3.png" alt="Perlin Noise Terrain 3"></div>
+            </div>
+        </div>
+
+        <div id="Islands"class="container">
+            <h2 class="section-title">Island Generation</h2>
+            <p>So far, creating a square of Perlin noise with colors mapped to it has been fairly easy. However, to create islands, we need to introduce some contrast into the noise. To do this, I added a falloff effect to the edges by lowering the values near the edges. This helps concentrate the higher values in the center, simulating the shape of an island.</p>
+           <br> <p>Below, you can see images of my first attempt, where I accidentally inverted the noise. After fixing it, I got the shape right, but the effect was too strong.</p>            
+            <div class="gallery">
+                <div class="gallery-item"><img src="PerlinNoiseWave.png" alt="Example"></div>
+                <div class=""><img src="HeightCode2.png" alt="Code Example"></div>
+                <div class="gallery-item"><img src="IslandAttempt.png" alt="Island Attempt 1"></div>
+                <div class="gallery-item"><img src="IslandAttempt2.png" alt="Island Attempt 2"></div>
+            </div>
+            <h2 class="section-title">Better Islands</h3>
+                <p>Now that I've got the falloff to work and create more natural-looking islands, you can see the results. These might work well for a survival island-style game, but they lack interesting features.</p>
+            <div class="gallery">
+                <div class="gallery-item"><img src="Island0.png" alt="Island Generation 1"></div>
+                <div class="gallery-item"><img src="Island1.png" alt="Island Generation 2"></div>
+                <div class="gallery-item"><img src="Island2.png" alt="Island Generation 3"></div>
+            </div>
+        </div>
+
+    <div class="container">
+        <h2 class="section-title">River Generation</h2>
+        <p>So, what's an interesting feature that could add depth or challenge to a game? Rivers! To create these rivers, I added a sine wave at the middle of the map's edge and used it to carve a path to the other side. By adjusting the frequencies, I was able to generate rivers with features such as oxbow lakes. Rivers are naturally bendy so sine waves made a good choice to carve paths that mimicked the natural flow of water. This approach produced features like meandering and oxbow lakes.</p>
+        <div class="gallery river-gallery">
+            <div class="river-pair">
+                <div class="gallery-item"><img src="RiverClear.png" alt="River Generation 1"></div>
+                <div class="gallery-item"><img src="Height.png" alt="River Height Map 1"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="section-title">Final</h2>
+        <p>My main goal for this project was to replicate something similar to RimWorld's style of terrain generation. I think I achieved that in the earlier images; however, for the gameplay coding, I simplified everything. In hindsight, I should have programmed it with gameplay in mind, which led to some issues.</p>
+        <div class="Video">
+        <center>  <video width="640" height="480" controls="" source src="VideoGame.mov" type="video/mov"></video> </center>
+        </div>
+    </div>
+</section>
+    <section id="TakeTwo" class="section">
+        <div class="container">
+            <h2 class="section-title">Take two</h2>
+            <p>After taking a break from this project, I revisited my work to reflect on what I had learned. As I prepared to start my Master’s program and dive into mesh generation, I decided to begin by creating basic shapes, such as squares and octahedrons. Once I got comfortable with these simple shapes, I revisited terrain generation. Surprisingly, terrain generation was much simpler than I had anticipated. By using the x and y coordinates to define the vertices of triangles, I was able to form a mesh grid. These triangles are then connected to create the terrain, with the elevation (z-axis) being determined by the Perlin noise values applied at each vertex. I recreated the terrain generation process, using meshes to represent the terrain's surface.</p>
+            <div class="gallery">
+                <div class="gallery-item"><img src="Shape.png" alt="Plain"></div>
+                <div class="gallery-item"><img src="Shape1.png" alt="Cube"></div>
+                <div class="gallery-item"><img src="Shape2.png" alt="Shapes"></div>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item"><img src="Images.png" alt="Island Bright Colour"></div>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="section-title">3D Terrain Generation</h2>
+            <p>Here are the final results of the project. Initially, the 3D mesh appeared flat and lacked detail, but by adding shading and lighting effects, I was able to enhance the depth and make the terrain stand out visually, although it looked worse than from an old 90's game. maybe adding textures? could make it better</p>
+            <div class="gallery">
+                <div class="gallery-item"><img src="Island3D1.png" alt="3D Terrain 1"></div>
+                <div class="gallery-item"><img src="Island3D2.png" alt="3D Terrain 2"></div>
+                <div class="gallery-item"><img src="Island3D3.png" alt="3D Terrain 3"></div>
+            </div>
+        </div>
+    </section>
+    <section id="l-Systems" class="section">
+        <div class="container">
+            <h2 class="section-title">3D Terrain Generation</h2>
+            <p>Well... this project was done, or so I thought. During my Master's course, I had the opportunity to explore many different topics, one of which was L-systems (Lindenmayer systems). L-systems are a way of generating recursive patterns and are often used for modeling plants. Inspired by this, I wanted to apply my mesh creation knowledge to generate plants. My goal was to create a tomato plant. While the result didn't turn out as expected, it does have tomatoes on it, so that's a start!</p>
+            <div class="gallery">
+                <div class="gallery-item"><img src="Plants1.png" alt="3D Terrain 1"></div>
+                <div class="gallery-item"><img src="Plants2.png" alt="3D Terrain 2"></div>
+                <div class="gallery-item"><img src="Plants3.png" alt="3D Terrain 3"></div>
+            </div>
+            <p>"But wait, what do tomatoes have in common with terrain?" I hear you ask. Well, not much, to be fair. However, I was getting frustrated with how my plants would spawn all at once, and I started looking into ways to delay their growth in stages. This led me to using coroutines, which worked out well. But then, I thought, what if I revisited the terrain project and allowed the terrain to change and evolve smoothly over time?</p>
+            <div class="gallery">
+              <center>
+                 <div >
+                    <img src="LandGen.Gif" alt="Land Generation 1">
+                    <img src="LandGen2.Gif" alt="Land Generation 2">
+                </div>
+               </center> 
+               <p>and <strong><b>bam!</b></strong> using those coroutines I could change the terrain in realtime</p>
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 Procedural Terrain Generation. All rights reserved.</p>
+    </footer>
+</body>
+</html>
