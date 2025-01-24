@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkcarmic Descent | Game Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0f1117;
+            --bg-secondary: #1a1e24;
+            --text-primary: #e0e6ed;
+            --text-secondary: #8a94a6;
+            --accent-color: #4a90e2;
+            --accent-hover: #6ab0ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Header & Navigation */
+        .header {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.9));
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--bg-secondary);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+            background-color: var(--bg-dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+     
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-title {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .card-content {
+            color: var(--text-secondary);
+        }
+
+        /* List Styles */
+        .card ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card ul li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .card ul ul {
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">Gam706</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+        </nav>
+    </header>
+<br><br><br><br>
+    <section class="centered-section">
+     
+        <div style="text-align: center;">
+   <h2>What I learned during my first few months</h2>
+            <iframe src="https://falmouthac-my.sharepoint.com/personal/dc303354_falmouth_ac_uk/_layouts/15/Doc.aspx?sourcedoc={7b4281a7-63b5-4b08-a921-87ccae9bf9e4}&action=embedview&wdAr=1.7777777777777777" width="1248px" height="720px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+        </div>
+    </section>
+ <div class="container">
+        <section class="section">
+            <div class="section-header">
+                <h1 class="section-title">Projects & Learning Journey</h1>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">BOIDS Project</h2>
+                <div class="card-content">
+                    <p>Simulating flocking behaviors using a distributed behavioral model inspired by Craig W. Reynolds' 1987 paper.</p>
+                    <ul>
+                        <li><strong>Alignment:</strong> Synchronizing agent movement directions</li>
+                        <li><strong>Cohesion:</strong> Maintaining group formation</li>
+                        <li><strong>Separation:</strong> Preventing agent collisions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">L-System Project</h2>
+                <div class="card-content">
+                    <p>Procedural content generation using grammar-based techniques for modeling organic structures.<br> One idea I had while creating this was a game where you controlled the mutations of the planets and the game would be a calm gardening game where the player could control how the plants grew</p>
+                    <ul>
+                        <li><strong>Grammar Rules:</strong> Iterative symbol replacement</li>
+                        <li><strong>Applications:</strong>
+                            <ul>
+                                <li>Generating lifelike vegetation</li>
+                                <li>Creating organic level design elements</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Mesh Generation Techniques</h2>
+                <div class="card-content">
+                    <p>Programmatic 3D model creation with focus on runtime efficiency and dynamic environment generation.<br> You can check out what I made using it here         <a href="PCGterrain.html" class="btn">View Project</a></p>
+                    <ul>
+                        <li><strong>Custom Algorithms:</strong> Dynamic mesh generation</li>
+                        <li><strong>Optimization:</strong> Reducing computational overhead</li>
+                        <li><strong>Use Cases:</strong>
+                            <ul>
+                                <li>Procedural level creation</li>
+                                <li>Dynamic terrain generation</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+</body>
+</html>
