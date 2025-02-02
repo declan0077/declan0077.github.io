@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Rest Below - Game Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 0.25rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-sidebar {
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .top-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .top-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-sidebar {
+                max-width: none;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .screenshots {
+            margin-bottom: 1rem;
+        }
+
+        .main-screenshot {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .thumbnail-grid {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .thumbnail.active {
+            border: 2px solid #1976d2;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1976d2;
+        }
+
+        .details-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .detail-item dt {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .detail-item dd {
+            font-weight: 500;
+        }
+
+        .controls-list {
+            list-style-position: inside;
+            margin-top: 1rem;
+        }
+
+        .controls-list li {
+            margin-bottom: 0.5rem;
+        }
+
+kbd {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-family: monospace, sans-serif;
+  color: #333;
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>No Rest Below</h1>
+            <div class="tags">
+                <span class="tag">3D</span>
+                <span class="tag">First-Person</span>
+                <span class="tag">Simulation</span>
+                <span class="tag">Strategy</span>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <div class="top-section">
+                <div class="screenshots-section">
+                    <div class="card">
+                        <img src="NoRestBelow4.png" alt="Main Screenshot" class="main-screenshot" id="mainImage">
+                        <div class="thumbnail-grid">
+                            <img src="NoRestBelow4.png" alt="Thumbnail 1" class="thumbnail active" onclick="changeImage(this)">
+                            <img src="NoRestBelow2.png" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+                            <img src="NoRestBelow.png" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+                            <img src="NoRestBelow1.png" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-sidebar">
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="card-title">Game Details</h2>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <dt>Jam Theme</dt>
+                                    <dd>Bubble</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Platform</dt>
+                                    <dd>MS Windows</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Engine</dt>
+                                    <dd>Unreal Engine</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Language</dt>
+                                    <dd>English</dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="card-title">Team Member</h2>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <dt>Members</dt>
+                                    <dd>Declan Cullen - Design</dd>
+			            <dd>Bogdan Radoi - Programming</dd>
+                                    <dd>Willoughby Axtell- Programming</dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="card-title">About</h2>
+                    <p>You're stuck in a high-tech submarine, hundreds of miles deep in the ocean, with nothing but darkness and the cold pressure of the deep surrounding you. Oxygen's running out fast, and a deadly computer virus is eating away at your systems, causing everything to malfunction.</p>
+                    
+                    <h3 style="margin-top: 1rem; font-size: 1.1rem;">Controls</h3>
+                     <ul class="controls-list">
+   			 <li><kbd>Q</kbd><kbd>E</kbd> - Rotate around compartments</li>
+  			  <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> - Computer Control Panel</li>
+  			  <li><kbd>A</kbd><kbd>W</kbd><kbd>D</kbd> - Movement Control Panel</li>
+  			  <li><kbd>Spacebar</kbd> - Deploy buoy</li>
+ 	             </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeImage(thumbnail) {
+            // Update main image
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+    </script>
+</body>
+</html>

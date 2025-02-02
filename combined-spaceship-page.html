@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Spaceship Builder - Game Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #4a4aff;
+            color: #ffffff;
+            padding: 0.25rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-sidebar {
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .top-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .top-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-sidebar {
+                max-width: none;
+            }
+        }
+
+        .card {
+            background: #1a1a2e;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(74, 74, 255, 0.3);
+            overflow: hidden;
+            border: 2px solid #4a4aff;
+        }
+
+        .screenshots {
+            margin-bottom: 1rem;
+        }
+
+        .main-screenshot {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        .thumbnail-grid {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            background-color: #0f0f1f;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            border: 2px solid #4a4aff;
+        }
+
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .thumbnail.active {
+            border: 2px solid #ffffff;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #4a4aff;
+        }
+
+        .details-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .detail-item dt {
+            color: #4a4aff;
+            font-size: 0.875rem;
+        }
+
+        .detail-item dd {
+            font-weight: 500;
+            color: #e0e0ff;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .feature-list {
+            margin: 0.5rem 0 1rem 1.5rem;
+            list-style-type: none;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            margin: 0.5rem 0;
+            background: #0f0f1f;
+            border-radius: 6px;
+            border-left: 4px solid #4a4aff;
+        }
+
+        .feature-list li::before {
+            content: "•";
+            color: #4a4aff;
+            position: absolute;
+            left: 0.5rem;
+        }
+
+        .section-heading {
+            color: #4a4aff;
+            font-size: 1.1rem;
+            margin: 1.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4a4aff;
+        }
+
+        .card-content p {
+            padding: 0 0.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>Modular Spaceship Builder</h1>
+            <div class="tags">
+                <span class="tag">2D</span>
+                <span class="tag">Space</span>
+                <span class="tag">Building</span>
+                <span class="tag">Combat</span>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <div class="top-section">
+                <div class="screenshots-section">
+                    <div class="card">
+                        <div class="video-container"><p>Click to play the game</p>
+                            <iframe src="https://itch.io/embed-upload/8611079?color=0a0a1a" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-sidebar">
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="card-title">Game Details</h2>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <dt>Platform</dt>
+                                    <dd>Web Browser</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Engine</dt>
+                                    <dd>Unity</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Controls</dt>
+                                    <dd>Left Mouse - Select & Drag</dd>
+                                    <dd>Right Mouse - Connect</dd>
+                                    <dd>Spacebar - Move Forward</dd>
+                                    <dd>Q E - Rotate</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Status</dt>
+                                    <dd>Indefinite hold</dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="card-title">About</h2>
+                    <div class="content-section">
+                        <p>Modular Spaceship Builder is a physics-based spaceship construction and combat game inspired by Captain Forever. Players can construct their own unique spacecraft by connecting various modules and engage in strategic space battles where mobility and tactical decisions are key to success.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3 class="section-heading">Development Journey</h3>
+                        <p>The project began as an homage to Captain Forever but evolved into its own unique challenge. The development process revealed the complexities of creating a physics-based modular building system, particularly when dealing with Unity's Rigidbody spring system for component connections. While the project didn't achieve its original vision, it proved to be an invaluable learning experience in managing complex physical interactions in a modular design system.</p>
+                        
+                        <center><img src="CaptainForever.jpg" alt="Captain Forever" style="width: 50%; border-radius: 2rem;  border: 2px solid #4a4aff; margin-top: 2%;"></center> 
+                    </div>
+
+                    <div class="content-section">
+                        <h3 class="section-heading">Combat System</h3>
+                        <p><p>When designing the game, I envisioned three distinct types of weapons.  The goal was to create a weapon trifecta, where rapid-firing weapons shine in the early game but are gradually outclassed by slower, more powerful spread weapons as enemy blocks gain increased health.<br><br> Another weapon is a missile launcher that locks onto the enemy ship's "heart." Once locked, the missile homes in on the target. Destroying an enemy's heart allows players to salvage all undestroyed blocks connected to it and integrate them into their own ship.<br><br>  As shown in the GIFs below, mobility is a critical aspect of combat. Staying in the line of fire is rarely effective; instead, outmaneuvering enemies to target their weak points is often the best strategy.</p>
+
+                      <center> <img src="Modular4.gif" alt="Movement Mechanics" style="width: 50%; border-radius: 2rem;  border: 2px solid #4a4aff; margin-top: 2%;"></center> 
+                        <br>   <p>I had mixed feelings about the autofiring feature. If I were to recreate this project, I would remove it, as it detracts from the mobility-focused combat. Positioning your ship strategically was intended to be a more critical aspect of gameplay.</p></p>
+                    
+                        <br>   <p>Combat in the game emphasizes mobility and strategic positioning. The game features four distinct weapon types, each serving different tactical purposes:</p>
+                     
+                        <ul class="feature-list">
+                            <li>Basic single-shot laser: Entry-level weapon with balanced damage, perfect for slow combat</li>
+                            <li>Rapid-firing laser: Low damage per shot but excellent for quickly eliminating weaker targets</li>
+                            <li>Spread-shot shotgun: Powerful close-range weapon that becomes increasingly effective against higher health enemies</li>
+                            <li>Homing missile system: Advanced weapon that locks onto enemy ships' "hearts" for critical damage</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h3 class="section-heading">Technical Challenges</h3>
+                    <p>Initially, I used Unity's built-in Rigidbody spring system to connect ship components, which seemed like a practical solution. However, this approach revealed significant limitations. As more physics objects were added, the ship's structural integrity became increasingly unstable. Each new component would cause unexpected interactions, ultimately causing the entire ship to destabilize.</p>
+                        <ul class="feature-list">
+                            <li>Physics Integration: Maintaining structural integrity as more components were added to ships</li>
+                            <li>Save System Complexity: Issues with the save/load feature when new modular pieces were added</li>
+                            <li>Movement Balance: Auto-firing feature impacts on mobility-based combat focus</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="card-title">Development Images</h2>
+                    <p>Below are some development images from the project:</p>
+                    <div class="screenshots">
+                        <img src="ModularEarly.gif" alt="Main Screenshot" class="main-screenshot" id="mainImage">
+                        <div class="thumbnail-grid">
+                            <img src="Modular2.gif" alt="Combat Mechanics" class="thumbnail active" onclick="changeImage(this)">
+                            <img src="Modular3.gif" alt="Building System" class="thumbnail" onclick="changeImage(this)">
+                            <img src="Modular4.gif" alt="Space Combat" class="thumbnail" onclick="changeImage(this)">
+                            <img src="SpaceConstruction.gif" alt="Development Challenges" class="thumbnail" onclick="changeImage(this)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+    </script>
+</body>
+</html>
