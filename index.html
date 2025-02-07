@@ -377,6 +377,109 @@
                 font-size: 1.2rem;
             }
         }
+
+        .game-slider {
+            background-color: var(--secondary);
+            padding: 4rem 0;
+            overflow: hidden;
+        }
+
+        .slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; /* Prevent projects from going off-screen */
+    border-radius: 15px;
+    padding: auto;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+    gap: 1.5rem;
+    width: 100%; /* Ensure full width */
+}
+
+.slide {
+    flex: 0 0 calc(33.333% - 1.5rem);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    background: var(--primary);
+    min-width: 300px; /* Ensure minimum width */
+}
+
+@media (max-width: 768px) {
+    .slider {
+        justify-content: flex-start; /* Align slides to the start on smaller screens */
+    }
+
+    .slide {
+        flex: 0 0 80%; /* Adjust slide width for mobile */
+        min-width: 250px;
+    }
+}
+ 
+
+        .slide:hover {
+            transform: scale(1.05);
+        }
+
+        .slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .slide-content h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .slider-btn {
+            background-color: var(--accent);
+            color: var(--text);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background-color: color-mix(in srgb, var(--accent) 80%, white);
+        }
+
+        @media (max-width: 768px) {
+            .slider {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .slide {
+                flex: 0 0 80%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -419,7 +522,7 @@
                     <div class="project-content">
                         <h3>Arkcarmic Descent</h3>
                         <p>This vertical slice of an action-adventure game draws inspiration from late '90s to early 2000s immersive sims. The game emphasizes player-driven interaction through dynamic environments, physics-based puzzles, and complex system-based gameplay.</p>
-                        <a href="ArkcarmicDescent.html" class="btn">View Project</a>
+                        <a href="ArkcarmicDescent.html" class="btn">View Game</a>
                     </div>
                 </div>
 
@@ -428,7 +531,7 @@
                     <div class="project-content">
                         <h3>The Last Catch</h3>
                         <p>Is a new take on the classic Minesweeper game. It adds layers of environmental awareness to the puzzles and teaches players about issues like bycatching. The game aims to raise awareness about marine conservation through fun and thoughtful gameplay.</p>
-                        <a href="TheLastCatch.html" class="btn">View Project</a>
+                        <a href="TheLastCatch.html" class="btn">View Game</a>
                     </div>
                 </div>
 
@@ -456,16 +559,95 @@
                         <a href="CardGame.html" class="btn">View Project</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-container">
-                <div class="about-text">
-              <h2 class="section-title">About Me</h2>
+
+    <section class="game-slider">
+        <div class="slider-container">
+            <h2 class="section-title">Other Game Projects</h2>
+            <div class="slider" id="gameSlider">
+                <div class="slide">
+                    <img src="NoRestBelow.png" alt="No Rest Below - Survival Game">
+                    <div class="slide-content">
+                        <h3>No Rest Below</h3>
+                        <p>A survival game exploring underground exploration and resource management in a challenging environment.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/InspectorGhost.png" alt="InspectorGhost">
+                    <div class="slide-content">
+                        <h3>InspectorGhost</h3>
+                        <p>Solve the case of your death and resurrect yourself.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/KingdomCombat.png" alt="KingdomCombat">
+                    <div class="slide-content">
+                        <h3>Kingdom Combat</h3>
+                        <p>Fight Monsters - made in a day for a game jam</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/DontShootEmUp.png" alt="DontShootEmUp">
+                    <div class="slide-content">
+                        <h3>DontShootEmUp</h3>
+                        <p>after playing too many retro games your stuck with a gun and constantly shooting, dont shoot people and make it to the exit, made in two days as a game jam.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/TheKing'sServant.png" alt="TheKing'sServant">
+                    <div class="slide-content">
+                        <h3>The King's Servant</h3>
+                        <p>The princess is missing, you must save her... sword and sandals style of combat</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/SpaceCore.png" alt="SpaceCore">
+                    <div class="slide-content">
+                        <h3>SpaceCore</h3>
+                        <p>A project inspired by starsector, way overly complicated so cancelled</p>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" onclick="moveSlide(-1)">Previous</button>
+                <button class="slider-btn" onclick="moveSlide(1)">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function moveSlide(direction) {
+            const slider = document.getElementById('gameSlider');
+            const slides = Array.from(slider.children);
+            const slideWidth = slides[0].offsetWidth + parseInt(window.getComputedStyle(slider).gap);
+
+            // Move slides
+            slider.style.transition = 'transform 0.5s ease-in-out';
+            slider.style.transform = `translateX(${direction * -slideWidth}px)`;
+
+            // Reset position after transition
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                if (direction > 0) {
+                    slider.appendChild(slides[0]);
+                } else {
+                    slider.insertBefore(slides[slides.length - 1], slides[0]);
+                }
+                slider.style.transform = 'translateX(0)';
+            }, 500);
+        }
+    </script>
+
+    
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-container">
+            <div class="about-text">
+                <h2 class="section-title">About Me</h2>
 <p>Hello, I'm Declan Cullen, a passionate game designer and developer based in the UK. My journey into the world of game design began at South Essex College and further deepened during my studies at the University of Ipswich. Over the years, I’ve cultivated a strong foundation in creating interactive entertainment that combines narrative depth with engaging mechanics.</p>
 
 <p>I recently graduated from Falmouth University with <b>distinction</b>, focusing on technical design. My studies centered around areas such as boids, procedural generation, L-systems, and pooling techniques. Additionally, I explored learning games, culminating in my final project, an <a href="IvrSafety.html">immersive IVR training experience</a>. My approach to game development emphasizes merging storytelling with innovative systems, resulting in projects that push the boundaries of conventional game experiences while maintaining accessibility and player engagement.</p>
@@ -509,3 +691,4 @@
     </footer>
 </body>
 </html>
+ 
