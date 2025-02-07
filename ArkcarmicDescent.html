@@ -204,6 +204,14 @@
 .thumbnail.active {
   border: 2px solid #3f51b5;
 }
+.card {
+  background: #1e1e1e; /* Slightly darker gray */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for dark mode */
+  padding: 2rem; /* Add padding for better spacing */
+  margin-bottom: 2rem; /* Add margin to separate cards */
+}
+
 
 /* Responsive design: stack columns on smaller screens */
 @media (max-width: 768px) {
@@ -216,7 +224,37 @@
     max-width: 100%;
   }
 }
+.video-comparison {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
+  .video-wrapper {
+    flex: 1;
+    max-width: 45%;
+    text-align: center;
+  }
+
+  .video-wrapper h3 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    height: 300px; /* Ensure consistent height */
+    border-radius: 4px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .video-wrapper {
+      max-width: 100%;
+    }
+  }
 
         /* Features & Team Section */
         .features-grid {
@@ -352,7 +390,27 @@
             </div>
             <img src="KnightCharacter.png" alt="Knight Character">
         </section>
-<!-- Example: Action Gif's Gallery -->
+        <section id="comparison" class="card">
+          <h2 class="section-title">Before and After Comparison</h2>
+          <p>I made a simple mock up, showing we could create some cutscenes and add to the polish of our game. This involved creating animations, setting up camera angles, and integrating these sequences seamlessly into the gameplay. The goal was to enhance the narrative experience and provide players with a more immersive and cinematic feel. By comparing the before and after videos, you can see the significant improvements in visuals after the art pass.</p>
+          <div class="video-comparison">
+            <div class="video-wrapper">
+              <h3>Before</h3>
+              <video controls>
+                <source src="videobefore.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper">
+              <h3>After</h3>
+              <video controls>
+                <source src="videoafter.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </section>
+        
 <section class="card" id="actiongifs">
   <div class="gallery-container">
     <div class="gallery-images">
@@ -378,7 +436,7 @@
 </section>
 
 <!-- Example: Gallery (Level Design) -->
-<section id="gallery">
+<section id="gallery" class="card" >
   <div class="gallery-container">
     <div class="gallery-images">
       <img src="Screenshot.png" alt="Screenshot 1" class="main-screenshot" id="mainImageGallery" />
@@ -399,7 +457,7 @@
 </section>
 
 <!-- Example: Experimenting with Art Styles Gallery -->
-<section id="artstyles">
+<section id="artstyles" class="card">
   <div class="gallery-container">
     <div class="gallery-images">
       <img src="ArkcarmicDescentArtstyle1.png" alt="Screenshot 1" class="main-screenshot" id="mainImageArt" />
@@ -420,7 +478,7 @@
 </section>
 
 <!-- Example: Old Images and WIP Gallery -->
-<section id="old">
+<section id="old" class="card">
   <div class="gallery-container">
     <div class="gallery-images">
       <img src="oldArk.png" alt="Screenshot 1" class="main-screenshot" id="mainImageOld" />
@@ -443,6 +501,45 @@
   </div>
 </section>
 
+<section id="comparison" class="card">
+  <h2 class="section-title">Before and After Comparison</h2>
+  <p>I didn't create the combat system for the game; that was our talented programmer <a href="https://uk.linkedin.com/in/roald-naeri-a40a80216" target="_blank">Roald Naeri</a>. Our combat system changed throughout the project. We started with a more fluid style of combat, allowing the player to change direction swiftly. However, having that kind of advanced combat, which requires many more animations, would have taken too much of our time, and we most likely wouldn't have had a game. So, we simplified it into a Mount and Blade style of directional combat, but still packing a punch and focusing on physical interactions.</p>
+  <div class="video-comparison">
+    <div class="video-wrapper">
+      <h3>Before</h3>
+      <video controls>
+        <source src="ArkActionVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>In this version, the idea was you could make use of simple attacks but also two-sword combat. However, it would also work standalone with a sword and shield.</p>
+    </div>
+    <div class="video-wrapper">
+      <h3>After</h3>
+      <video controls>
+        <source src="ArkActionVideoAfter.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>Here we refined the combat and added unconventional methods like kicking. You can see that the AI anticipates when the player is going to attack in order to shield.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="team" class="card"></section>
+  <h2 class="section-title">Team Members</h2>
+  <ul class="feature-list">
+    <li>Declan Cullen - Technical Design</li>
+    <li>Ben Halling - Environmental Artist</li>
+    <li>Roxanne Sadauskas - Prop Artist</li>
+    <li>Kelly Imhanlahimi - UI/UX</li>
+    <li>Roald Naeri - AI Programmer</li>
+  </ul>
+</section>
+
+
+<footer>
+  <p>&copy; 2023 Arkcarmic Descent. All rights reserved.</p>
+</footer>
 <!-- JavaScript remains the same -->
 <script>
   function changeImage(thumbnail, mainId) {

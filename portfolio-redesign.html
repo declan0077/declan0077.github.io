@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declan Cullen - Game Designer & Developer Portfolio</title>
+    <meta name="description" content="Declan Cullen, a UK-based game designer specializing in technical design portfolio page">
+    <meta name="keywords" content="game designer, game developer, VR games, educational games, Unity developer, Unreal Engine, UK game designer, Declan Cullen">
+    
+    <!-- Keep existing meta tags -->
+    <style>
+        :root {
+            --primary: #0a0f1c;
+            --secondary: #1a1f2c;
+            --accent: #4e85ff;
+            --accent-hover: #3d6cd9;
+            --text: #ffffff;
+            --text-secondary: #b4b8c0;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 0;
+            background: rgba(10, 15, 28, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-brand::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-brand:hover::after {
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            animation: heroBackground 20s infinite;
+            z-index: 1;
+        }
+
+        @keyframes heroBackground {
+            0%, 15% { background-image: url("/api/placeholder/1920/1080"); opacity: 0.4; }
+            20%, 35% { background-image: url("/api/placeholder/1920/1080"); opacity: 0.4; }
+            40%, 55% { background-image: url("/api/placeholder/1920/1080"); opacity: 0.4; }
+            60%, 75% { background-image: url("/api/placeholder/1920/1080"); opacity: 0.4; }
+            80%, 95% { background-image: url("/api/placeholder/1920/1080"); opacity: 0.4; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: var(--accent);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(78, 133, 255, 0.3);
+        }
+
+        .hero-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(78, 133, 255, 0.4);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 8rem 0;
+            background: var(--secondary);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: var(--primary);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+            background: var(--primary);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-item {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+            background: var(--secondary);
+            text-align: center;
+        }
+
+        .contact-email {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 2.5rem;
+            text-decoration: none;
+            margin-top: 3rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-email::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .contact-email:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="nav-brand">Declan Cullen</a>
+            <div class="nav-links">
+                <a href="DeclanCullenCV.pdf">CV</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Crafting Immersive Game Experiences</h1>
+            <p>Technical Game Designer specializing in VR and interactive systems</p>
+            <a href="#projects" class="hero-btn">Explore My Work</a>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/280" alt="IVR Safety Training Project" class="project-image">
+                    <div class="project-content">
+                        <h3>IVR Safety Training</h3>
+                        <p>An innovative VR training simulation leveraging Bloom's Taxonomy to create progressive, hands-on learning experiences in workplace safety.</p>
+                        <a href="IvrSafety.html" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="/api/placeholder/400/280" alt="Arkcarmic Descent Project" class="project-image">
+                    <div class="project-content">
+                        <h3>Arkcarmic Descent</h3>
+                        <p>A vertical slice inspired by classic immersive sims, featuring dynamic environments and physics-based gameplay systems.</p>
+                        <a href="ArkcarmicDescent.html" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="/api/placeholder/400/280" alt="The Last Catch Project" class="project-image">
+                    <div class="project-content">
+                        <h3>The Last Catch</h3>
+                        <p>A reimagining of Minesweeper that raises awareness about marine conservation through engaging puzzle mechanics.</p>
+                        <a href="TheLastCatch.html" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Game designer and developer with a passion for creating meaningful interactive experiences. Graduate of Falmouth University with distinction, specializing in technical design and VR development.</p>
+                    <p>My work focuses on merging innovative gameplay systems with compelling narratives, creating experiences that engage players while pushing technical boundaries.</p>
+                    <div class="skills-grid">
+                        <div class="skill-item">Unity</div>
+                        <div class="skill-item">Unreal Engine</div>
+                        <div class="skill-item">VR Development</div>
+                        <div class="skill-item">Maya</div>
+                        <div class="skill-item">Blender</div>
+                        <div class="skill-item">Photon Networking</div>
+                    </div>
+                </div>
+                <img src="/api/placeholder/600/800" alt="Declan Cullen" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Create Something Amazing</h2>
+            <p>Ready to collaborate on your next game project?</p>
+            <a href="mailto:Declanmichaelcullen@gmail.com" class="contact-email">Declanmichaelcullen@gmail.com</a>
+        </div>
+    </section>
+</body>
+</html>
