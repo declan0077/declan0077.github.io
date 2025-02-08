@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVR Safety Training - Project Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 0.25rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-sidebar {
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .top-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .top-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-sidebar {
+                max-width: none;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .screenshots {
+            margin-bottom: 1rem;
+        }
+
+        .main-screenshot {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .thumbnail-grid {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .thumbnail.active {
+            border: 2px solid #1976d2;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1976d2;
+        }
+
+        .details-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .detail-item dt {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .detail-item dd {
+            font-weight: 500;
+        }
+
+        .research-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        footer {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            margin-top: 2rem;
+            border-top-left-radius: 25%;
+            border-top-right-radius: 25%;
+        }
+
+        footer a {
+            color: #e3f2fd;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-top: 1rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<header style="position: fixed; top: 0; left: 0; background: #1976d2; color: white; padding: 1rem; z-index: 1000;">
+    <a href="index.html" style="color: #e3f2fd; text-decoration: none;">Return to portfolio</a>
+</header>
+
+<div class="container" style="margin-top: 4rem;">
+    <section class="hero">
+        <h1>IVR Safety Training Project</h1>
+        <div class="tags">
+            <span class="tag">Virtual Reality</span>
+            <span class="tag">Education</span>
+            <span class="tag">Safety Training</span>
+            <span class="tag">Research</span>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <div class="top-section">
+            <div class="screenshots-section">
+                <div class="card">
+                    <img src="1.png" alt="Main Screenshot" class="main-screenshot" id="mainImage">
+                    <div class="thumbnail-grid">
+                        <img src="1.png" alt="Thumbnail 1" class="thumbnail active" onclick="changeImage(this)">
+                        <img src="2.png" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+                        <img src="3.png" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+                        <img src="4.png" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
+                        <img src="5.png" alt="Thumbnail 5" class="thumbnail" onclick="changeImage(this)">
+                        <img src="6.png" alt="Thumbnail 6" class="thumbnail" onclick="changeImage(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-sidebar">
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="card-title">Project Details</h2>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <dt>Institution</dt>
+                                <dd>Falmouth University</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Degree</dt>
+                                <dd>MA Game Design</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Project Type</dt>
+                                <dd>Research & Development</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Technology</dt>
+                                <dd>Immersive Virtual Reality (IVR)</dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="card-title">Contact Information</h2>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <dt>Email</dt>
+                                <dd>Declanmichaelcullen@gmail.com</dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">About</h2>
+                <p>This MA research project in Game Design at Falmouth University explores <strong>"Enhancing Learning through Gamification: Applying Goal-Setting Theory in IVR"</strong>, investigating how immersive virtual reality can transform workplace safety training through psychological engagement strategies.</p>
+                
+                <h3 style="margin-top: 1.5rem;">Participant Interaction</h3>
+                <p>Participants were introduced to a Unity-based IVR environment simulating a warehouse with realistic hazard scenarios. They interacted with five safety modules, each designed to target specific cognitive levels outlined in Bloom's Taxonomy:</p>
+                <ul>
+                    <li><strong>Remember:</strong> Identifying correct personal protective equipment (PPE).</li>
+                    <li><strong>Understand/Apply:</strong> Demonstrating proper manual handling techniques.</li>
+                    <li><strong>Apply:</strong> Recognizing hazards in riser rooms.</li>
+                    <li><strong>Evaluate:</strong> Assessing ladder safety compliance.</li>
+                </ul>
+              
+                <p>Objective: I focused on how participants engaged with these tasks, observing their ability to recall, apply, and critically assess safety protocols based on the cognitive complexity of each module.</p>
+                <h3 style="margin-top: 1.5rem;">Theoretical Foundation</h3>
+                <ul>
+                    <li>Goal-Setting Theory (Locke & Latham, 2015) for motivation design</li>
+                    <li>Bloom's Taxonomy (Revised 2001) for cognitive level progression</li>
+                    <li>Kolb's Experiential Learning Cycle for hands-on engagement</li>
+                </ul>
+
+                <h3 style="margin-top: 1.5rem;">Prototype Features</h3>
+                <div class="two-column">
+                    <ul>
+                        <li>5 interactive safety modules targeting different cognitive levels to engage deeper learning</li>
+                        <li>Realistic warehouse environment with hazard simulations</li>
+                        <li>Multi-sensory feedback system (visual/audio/haptic)</li>
+                        <li>Non-punitive learning environment with guided retries</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h2>Objectives</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-content">
+                <h3>Improve Safety Training</h3>
+                <p>To improve safety training effectiveness through immersive VR technology.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h3>Reduce Workplace Accidents</h3>
+                <p>To reduce workplace accidents by providing realistic training scenarios.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h3>Flexible Training Solution</h3>
+                <p>To offer a flexible and customizable training solution for various industries.</p>
+            </div>
+        </div>
+    </div>
+
+<div class="card">
+    <div class="card-content">
+        <h2 class="card-title">Methodology</h2>
+        <div class="methodology-grid">
+            <div class="phase">
+                <h3>🛠 Development</h3>
+                <ul>
+                    <li>Collaboration with safety professionals</li>
+                    <li>Unity-based IVR environment development</li>
+                    <li>Cognitive load management through modular design</li>
+                </ul>
+            </div>
+            <div class="phase">
+                <h3>🧪 Testing</h3>
+                <ul>
+                    <li>8 participants (industry professionals & novices)</li>
+                    <li>post safety knowledge assessments</li>
+                    <li>Post-experience interviews for qualitative feedback</li>
+                </ul>
+            </div>
+            <div class="phase">
+                <h3>🔄 Iteration</h3>
+                <ul>
+                    <li>3 design iterations based on user feedback</li>
+                    <li>UI improvements for VR newcomers</li>
+                    <li>Hazard salience enhancements</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-content">
+        <h2 class="card-title">Research Results</h2>
+        <div class="research-stats">
+            <div class="stat-item">
+                <div class="stat-value">5.63/7</div>
+                <div>Scenario Realism</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5.50/7</div>
+                <div>Immersion Level</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">4.63/7</div>
+                <div>Control Usability</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 2rem;">Key Insights</h3>
+        <div class="insights-grid">
+            <div class="insight positive">
+                <h4>✅ Effective Engagement</h4>
+                <p>62.5% of participants reported higher motivation compared to traditional training methods</p>
+            </div>
+            <div class="insight positive">
+                <h4>👐 Kinaesthetic Advantage</h4>
+                <p>87% of self-identified hands-on learners showed better knowledge retention</p>
+            </div>
+            <div class="insight improvement">
+                <h4>🎮 Control Challenges</h4>
+                <p>42% reported initial difficulties with object interaction mechanics</p>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+<style>
+    .insights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .insight {
+        padding: 1rem;
+        border-radius: 8px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .insight:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .insight.positive {
+        background-color: #e8f5e9;
+        color: #388e3c;
+    }
+
+    .insight.improvement {
+        background-color: #fff3e0;
+        color: #f57c00;
+    }
+
+    .cognitive-levels {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .level {
+        background: #f5f5f5;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .level-name {
+        padding: 0.5rem 1rem;
+        background: #1976d2;
+        color: white;
+        font-weight: bold;
+    }
+
+    .level-bar {
+        padding: 0.5rem 1rem;
+        background: #e3f2fd;
+        color: #1976d2;
+        font-weight: bold;
+        position: relative;
+        animation: growBar 2s ease-out;
+    }
+
+    @keyframes growBar {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+</style>
+<section id="features">
+    <h2>Features</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-content">
+                <h3>Immersive VR Experience</h3>
+                <p>Users can engage in realistic safety training scenarios.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h3>Interactive Learning</h3>
+                <p>Hands-on activities and simulations to enhance learning.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h3>Customizable Modules</h3>
+                <p>Tailored training modules to suit different industries and safety requirements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <p>Download the complete research paper <a href="IVR_researchdocument.pdf">here</a>!</p>
+    </footer>
+
+    <script>
+        function changeImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+    </script>
+</body>
+</html>
