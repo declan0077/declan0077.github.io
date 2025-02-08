@@ -230,6 +230,7 @@
 
         .project-card:hover {
             transform: translateY(-10px);
+            outline: 2px solid var(--accent);
         }
 
         .project-image {
@@ -377,7 +378,6 @@
                 font-size: 1.2rem;
             }
         }
-
         .game-slider {
             background-color: var(--secondary);
             padding: 4rem 0;
@@ -385,47 +385,36 @@
         }
 
         .slider-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden; /* Prevent projects from going off-screen */
-    border-radius: 15px;
-    padding: auto;
-}
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden; /* Prevent projects from going off-screen */
+            border-radius: 15px;
+            padding: auto;
+        }
 
-.slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s ease-in-out;
-    gap: 1.5rem;
-    width: 100%; /* Ensure full width */
-}
+        .slider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease-in-out;
+            gap: 1.5rem;
+            width: 100%; /* Ensure full width */
+        }
 
-.slide {
-    flex: 0 0 calc(33.333% - 1.5rem);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-    background: var(--primary);
-    min-width: 300px; /* Ensure minimum width */
-}
-
-@media (max-width: 768px) {
-    .slider {
-        justify-content: flex-start; /* Align slides to the start on smaller screens */
-    }
-
-    .slide {
-        flex: 0 0 80%; /* Adjust slide width for mobile */
-        min-width: 250px;
-    }
-}
- 
+        .slide {
+            flex: 0 0 calc(33.333% - 1.5rem);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: var(--primary);
+            min-width: 300px; /* Ensure minimum width */
+        }
 
         .slide:hover {
             transform: scale(1.05);
+            outline: 2px solid var(--accent);
         }
 
         .slide img {
@@ -471,15 +460,13 @@
         }
 
         @media (max-width: 768px) {
-            .slider {
-                flex-direction: column;
-                align-items: center;
-            }
-
             .slide {
-                flex: 0 0 80%;
+            flex: 0 0 calc(80% - 1.5rem); /* Adjust slide width for mobile */
+            min-width: 80%; /* Ensure minimum width for mobile */
             }
         }
+
+       
     </style>
 </head>
 <body>
@@ -568,43 +555,43 @@
         <div class="slider-container">
             <h2 class="section-title">Other Game Projects</h2>
             <div class="slider" id="gameSlider">
-                <div class="slide">
-                    <img src="NoRestBelow.png" alt="No Rest Below - Survival Game">
+                <a href="NoRestBelow.html"> <div class="slide">
+                    <img src="NoRestBelow.png" alt="No Rest Below - Survival Game"></a>  
                     <div class="slide-content">
                         <h3>No Rest Below</h3>
                         <p>A survival game exploring underground exploration and resource management in a challenging environment.</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="Images/InspectorGhost.png" alt="InspectorGhost">
+                    <a href="https://declancullen.itch.io/investigator-ghost-projecttwo-cullen">  <img src="Images/InspectorGhost.png" alt="InspectorGhost"></a> 
                     <div class="slide-content">
                         <h3>InspectorGhost</h3>
                         <p>Solve the case of your death and resurrect yourself.</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="Images/KingdomCombat.png" alt="KingdomCombat">
+                    <a href="https://declancullen.itch.io/kingdom-combat">   <img src="Images/KingdomCombat.png" alt="KingdomCombat"></a> 
                     <div class="slide-content">
                         <h3>Kingdom Combat</h3>
                         <p>Fight Monsters - made in a day for a game jam</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="Images/DontShootEmUp.png" alt="DontShootEmUp">
+                    <a href="https://tolu-ogbaro.itch.io/dont-shoot-em-up">  <img src="Images/DontShootEmUp.png" alt="DontShootEmUp"></a> 
                     <div class="slide-content">
                         <h3>DontShootEmUp</h3>
                         <p>after playing too many retro games your stuck with a gun and constantly shooting, dont shoot people and make it to the exit, made in two days as a game jam.</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="Images/TheKing'sServant.png" alt="TheKing'sServant">
+                    <a href="https://declancullen.itch.io/the-kings-servant">  <img src="Images/TheKing'sServant.png" alt="TheKing'sServant"></a> 
                     <div class="slide-content">
                         <h3>The King's Servant</h3>
                         <p>The princess is missing, you must save her... sword and sandals style of combat</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="Images/SpaceCore.png" alt="SpaceCore">
+                    <a href="https://declancullen.itch.io/spacecore">    <img src="Images/SpaceCore.png" alt="SpaceCore"></a>
                     <div class="slide-content">
                         <h3>SpaceCore</h3>
                         <p>A project inspired by starsector, way overly complicated so cancelled</p>
