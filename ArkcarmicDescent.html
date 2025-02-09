@@ -42,7 +42,6 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
         }
-
         .nav {
             display: flex;
             justify-content: space-between;
@@ -73,6 +72,47 @@
             color: var(--primary);
         }
 
+        /* Mobile Navigation */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            height: 2px;
+            width: 25px;
+            background: var(--light);
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: var(--dark);
+          position: absolute;
+          top: 100%;
+          left: 0;
+          padding: 1rem 0;
+            }
+
+            .nav-links a {
+          padding: 1rem;
+          text-align: center;
+          width: 100%;
+            }
+
+            .nav-links.active {
+          display: flex;
+            }
+
+            .nav-toggle {
+          display: flex;
+            }
+        }
 
         /* Hero Section */
         .hero {
@@ -104,7 +144,7 @@
 
         /* Sections */
         section {
-            padding: 2rem 0;
+            padding: 1rem 0;
         }
 
         .section-title {
@@ -145,6 +185,13 @@
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
+.ImageStyle {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 
 /* New styling for switching gallery layouts */
 .gallery-container {
@@ -410,7 +457,38 @@
             </div>
           </div>
         </section>
-        
+
+        <section>
+          <img src="CoolArk.png" alt="Cool Ark Image" class="ImageStyle">
+        </section>
+
+<section id="comparison" class="card">
+  <h2 class="section-title">Level Design Progression</h2>
+  <p style="text-align: left; text-justify: inter-word;">I was in charge of designing and creating the environment. I first instructed the artists to create a modular set of cave pieces to act as a base, which allowed me to experiment with materials and the structure of how the player would progress through the levels. <br> In our initial levels, I focused on giving the player the ability to learn about the movement mechanics, as that was what we had in the game. Once the combat and physical interactions were added, I could experiment with giving the mechanics a purpose.</p><br> 
+
+  <p style="text-align: left; text-justify: inter-word;">As the project progressed, I began to refine the level design to incorporate more complex interactions and challenges. This included adding environmental hazards such as exploding barrels, secret areas that could be unlocked by the barrels, and puzzles that required the player to use their abilities creatively, such as using flaming arrows to destroy sealed exits. The goal was to create a sense of discovery and reward players for exploring and experimenting with the game mechanics.</p><br>
+
+  <p style="text-align: left; text-justify: inter-word;">One of the key aspects of the level design was ensuring that the environment felt cohesive and immersive. I worked closely with the artists to ensure that the visual style and atmosphere of the levels matched the overall tone of the game. This involved creating detailed lighting setups, adding ambient sounds, and placing props strategically to guide the player's attention and enhance the storytelling.</p><br>
+
+  <p style="text-align: left; text-justify: inter-word;">Throughout the development process, I also gathered feedback from playtesting sessions to identify areas where players struggled or felt frustrated. One such problem was how the testers interacted with ropes; we majorly changed how the player attached themselves. This feedback was invaluable in iterating on the level design and making adjustments to improve the overall player experience. By the end of the project, the levels had evolved significantly from their initial concepts, resulting in a more polished and engaging gameplay experience.</p>
+  <div class="video-comparison">
+    <div class="video-wrapper">
+      <h3>Week 1</h3>
+      <iframe src="https://www.youtube.com/embed/O4DRqJwOqNg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p style="text-align: left; text-justify: inter-word;">This was the starting point for the cave levels. We quickly mocked up some modular pieces to get a feel of how the environment might look. You can see we started with old school graphics. I really liked the glowing lichen material I created for the walls.</p>
+    </div>
+    <div class="video-wrapper">
+      <h3>Week 2</h3>
+      <iframe src="https://www.youtube.com/embed/4GmwW8KGHEs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p style="text-align: left; text-justify: inter-word;">I started to refine the levels and personally modeled some larger cave pieces so that we could have some space for the combat. As we progressed, we started adding larger and larger rooms, which did remove some of the constriction of levels but added more possible depth.</p>
+    </div>
+    <div class="video-wrapper">
+      <h3>Just before first Demo</h3>
+      <iframe src="https://www.youtube.com/embed/utO4XElcTgQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p style="text-align: left; text-justify: inter-word;">This was just before the first Demo day we had. We were anxious about how it would go, but all of the team could feel that we were starting to make progress. We started to conceptualize a storyline along with an end goal of escaping this dungeon.</p>
+    </div>
+  </div>
+</section>
 <section class="card" id="actiongifs">
   <div class="gallery-container">
     <div class="gallery-images">
@@ -469,7 +547,7 @@
       </div>
     </div>
     <div class="gallery-text">
-      <h2 class="section-title">Experimenting with Art Styles</h2>
+      <h2 class="section-title">Experimenting with Styles</h2>
       <p>
         To enhance the game's visual and immersive experience, I experimented with full screen effects. These dynamic visual elements added depth to player interactions—for instance, taking damage triggers a blood screen effect, while underwater environments generate a distinct underwater visual. In addition to full screen shaders, I was also responsible for all of the particle effects.
       </p>
@@ -503,7 +581,7 @@
 
 <section id="comparison" class="card">
   <h2 class="section-title">Before and After Comparison</h2>
-  <p>I didn't create the combat system for the game; that was our talented programmer <a href="https://uk.linkedin.com/in/roald-naeri-a40a80216" target="_blank">Roald Naeri</a>. Our combat system changed throughout the project. We started with a more fluid style of combat, allowing the player to change direction swiftly. However, having that kind of advanced combat, which requires many more animations, would have taken too much of our time, and we most likely wouldn't have had a game. So, we simplified it into a Mount and Blade style of directional combat, but still packing a punch and focusing on physical interactions.</p>
+  <p style="text-align: left; text-justify: inter-word;">I didn't create the combat system for the game; that was our talented programmer <a href="https://uk.linkedin.com/in/roald-naeri-a40a80216" target="_blank">Roald Naeri</a>. Our combat system changed throughout the project. We started with a more fluid style of combat, allowing the player to change direction swiftly. However, having that kind of advanced combat, which requires many more animations, would have taken too much of our time, and we most likely wouldn't have had a game. So, we simplified it into a Mount and Blade style of directional combat, but still packing a punch and focusing on physical interactions.</p>
   <div class="video-comparison">
     <div class="video-wrapper">
       <h3>Before</h3>
@@ -511,7 +589,7 @@
         <source src="ArkActionVideo.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p>In this version, the idea was you could make use of simple attacks but also two-sword combat. However, it would also work standalone with a sword and shield.</p>
+      <p style="text-align: left; text-justify: inter-word;">In this version, the idea was you could make use of simple attacks but also two-sword combat. However, it would also work standalone with a sword and shield.</p>
     </div>
     <div class="video-wrapper">
       <h3>After</h3>
@@ -519,7 +597,7 @@
         <source src="ArkActionVideoAfter.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p>Here we refined the combat and added unconventional methods like kicking. You can see that the AI anticipates when the player is going to attack in order to shield.</p>
+      <p style="text-align: left; text-justify: inter-word;">Here we refined the combat and added unconventional methods like kicking. You can see that the AI anticipates when the player is going to attack in order to shield.</p>
     </div>
   </div>
 </section>
