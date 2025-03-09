@@ -3,265 +3,776 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Last Catch by Declan Cullen</title>
+    <title>The Last Catch - Game Showcase</title>
     <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            background-color: #001f3f;
-            color: #e0f2ff;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-size: medium;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: url('FishBackground.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #000000;
             line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem;
         }
 
-        header {
-            background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)), url('Bubbles.png');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            padding: 80px 20px;
-            color: #4dd0e1;
+        .hero {
+            margin-bottom: 2rem;
         }
 
-        header h1 {
-            font-size: 48px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin: 0;
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        nav {
-            background-color: #003366;
-            padding: 15px;
-            text-align: center;
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
-        nav a {
-            color: #4dd0e1;
-            text-decoration: none;
-            padding: 10px 15px;
-            margin: 0 5px;
-            transition: background-color 0.3s ease;
+        .tag {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 0.25rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
         }
 
-        nav a:hover {
-            background-color: #004080;
-            border-radius: 5px;
-        }
-
-        .section-wrapper {
-            background-color: rgba(0, 51, 102, 0.7);
-            border-radius: 10px;
-            margin: 20px 0;
-            padding: 20px;
-        }
-
-        .about {
+        .main-content {
             display: flex;
             flex-direction: column;
+            gap: 2rem;
         }
 
-        @media (min-width: 768px) {
-            .about {
-                flex-direction: row;
-                align-items: center;
-            }
-            .about-text {
-                padding-right: 40px;
-            }
-        }
-.gameplay-fill {
-    background-color: rgba(0, 51, 102, 0.9); /* Adjust the color and opacity as needed */
-    border-radius: 10px; /* Rounds the corners of the section */
-    padding: 20px; /* Adds some space inside the section */
-    margin-bottom: 40px; /* Spacing below the section */
-}
-        .about-text h2 {
-            color: #4dd0e1;
-            font-size: 32px;
-            margin-top: 0;
+        .info-sidebar {
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .about img {
-            max-width: 100%;
-            border: 2px solid #4dd0e1;
-            border-radius: 10px;
-        }
-
-        .video-section {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .video-section iframe {
-            width: 100%;
-            max-width: 1100px;
-            height: auto;
-            aspect-ratio: 16 / 9;
-        }
-
-        .all-projects {
-            text-align: center;
-        }
-
-        .project-grid {
+        .top-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .project {
-            background-color: rgba(0, 31, 63, 0.5);
-            border-radius: 10px;
-            padding: 15px;
-            transition: transform 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-        }
-
-        .project img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-
-        .project h3 {
-            color: #4dd0e1;
-            margin-top: 0;
-            font-size: 20px;
-        }
-
-        footer {
-            background-color: #003366;
-            color: #4dd0e1;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 36px;
+            .top-section {
+                grid-template-columns: 1fr;
             }
+            
+            .info-sidebar {
+                max-width: none;
+            }
+        }
 
-            .about-text h2,
-            .all-projects h2 {
-                font-size: 28px;
-            }
+        .card {
+            background: rgb(158, 202, 255);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
 
-            .project h3 {
-                font-size: 18px;
+        .screenshots {
+            margin-bottom: 1rem;
+        }
+
+        .main-screenshot {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            background-color: #e0e0e0;
+            position: relative;
+        }
+
+        .main-screenshot.loading::before,
+        .gameplay-item img.loading::before,
+        .thumbnail.loading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.75rem;
+            padding: 1.25rem;
+            overflow-x: auto;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            background-color: #e0e0e0;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .thumbnail.active {
+            border: 2px solid #FF8C00;
+            box-shadow: 0 0 0 2px rgba(255,140,0,0.3);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1976d2;
+        }
+
+        .details-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .detail-item dt {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .detail-item dd {
+            font-weight: 500;
+        }
+
+        .gameplay-grid {
+            display: ;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .gameplay-grid {
+                grid-template-columns: 1fr;
             }
+        }
+
+        .gameplay-item {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .gameplay-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gameplay-item h3 {
+            margin-bottom: 0.5rem;
+            color: #1976d2;
+        }
+
+        .gameplay-item img {
+            flex-grow: 1;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: box-shadow 0.3s ease;
+            position: relative;
+            background-color: #e0e0e0;
+        }
+
+        .gameplay-item:hover img {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        figure {
+            margin: 0;
+            width: 100%;
+        }
+
+        figcaption {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            padding: 0.5rem 0;
+            font-style: italic;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        .itch-embed {
+            margin: 2rem 0;
+        }
+
+        footer {
+            background: #1976d2;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-top-left-radius: 25%;
+            border-top-right-radius: 25%;
+        }
+
+        footer a {
+            color: #e3f2fd;
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            font-size: 30px;
+            color: white;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .image-comparison {
+            margin: 2rem 0;
+        }
+
+        .comparison-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            user-select: none;
+            touch-action: none;
+        }
+
+        .comparison-before,
+        .comparison-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .comparison-after {
+            width: 50%;
+            overflow: hidden;
+        }
+
+        .comparison-slider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #FF8C00;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .comparison-slider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: #FF8C00;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .comparison-caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: #666;
+        }
+
+        .development-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: 200px;
+            grid-auto-flow: dense;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .development-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .development-image:hover {
+            transform: scale(1.02);
+        }
+
+        .development-image.tall {
+            grid-row: span 2;
+        }
+
+        .development-image.wide {
+            grid-column: span 2;
+        }
+
+        .development-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .development-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .development-image .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .development-image:hover .image-overlay {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>The Last Catch</h1>
-        </header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="#overview">Overview</a>
-            <a href="#features">Features</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#gameplay">Gameplay</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <section id="overview" class="section-wrapper about">
-            <div class="about-text">
-                <h2>Overview</h2>
-                <p>"The Last Catch" is a puzzle game that combines the strategic elements of Minesweeper with a sustainable fishing narrative. You take the role of a fisher, navigating oceans fraught with environmental disasters. Use your Lidar system to detect endangered fish and avoid bycatching them.</p>
-                <p>Navigate through a grid-based ocean floor, using your wit and specialized equipment to detect and mark endangered areas while uncovering safe fishing zones teeming with marine life. Each successfully cleared area brings you one step closer to your goal of paying off your debt while managing different faction relations.</p>
-<div style="display: flex; justify-content: center;">
-    <iframe 
-        width="1100" 
-        height="515" 
-        src="https://www.youtube.com/embed/4mo09nSULsg?si=nv1Ww0ggDgBJrdVi&autoplay=1&mute=1&fs=0" 
-        title="YouTube video player" 
-        frameborder="0" 
-        style="border-radius: 10px; pointer-events: none;"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
-</div>
+        <section class="hero">
+            <h1 style="color: #ffffff; font-family: 'Comic Sans MS', cursive, sans-serif;">The Last Catch</h1>
+            <div class="tags">
+                <span class="tag">Puzzle</span>
+                <span class="tag">Strategy</span>
+                <span class="tag">Environmental</span>
+                <span class="tag">Educational</span>
             </div>
         </section>
 
- <section id="gameplay" class="all-projects gameplay-fill">
-    <h2>Gameplay</h2>
-    <div class="project-grid">
-        <div class="project">
-            <h3>Mine Sweeping</h3>
-            <p>Use logic and deduction to safely fish the underwater areas without bycatching.</p>
-        </div>
-        <div class="project">
-            <h3>Resource Management</h3>
-            <p>Manage your relations with the different factions in order to fish sustainably. <br>Reaching 0 is Game over</p>
-        </div>
-        <div class="project">
-            <h3>Environmental Narrative</h3>
-            <p>Learn the ways that accidental fishing can upset the balance of the ocean.</p>
-        </div>
-        <div class="project">
-            <h3>PowerUps</h3>
-            <p>Use power-ups at the cost of damaging your relation with the factions.</p>
-        </div>
-    </div>
-</section>
-
-        <section id="features" class="section-wrapper all-projects">
-    <h2>Development</h2>
-                    <h3>My Role</h3>
-                    <p style="text-align: justify;">In the early stages of development, I experimented with the mechanics and framework of the game. Initially, I built a prototype that felt too similar to existing fishing games, so I shifted the focus from traditional gear upgrades to a more abstract, yet engaging approach inspired by the mechanics of Minesweeper. By introducing "world events," such as oil spills and algae blooms, I created a dynamic game environment that balanced entertainment with an educational message. These events served to emphasize the importance of sustainable fishing practices and how environmental factors can impact marine ecosystems.</p>
-
-<p style="text-align: justify;">Feedback was an integral part of my development process. I regularly tested the game with peers and external audiences, incorporating their insights to improve usability, gameplay balance, and overall coherence. Some of the key changes included adjusting the game’s difficulty curve, refining the user interface, and adding visual effects that improved player feedback. For example, I changed the way fish spawned from the tiles to provide clearer connections between player actions and game outcomes, making the gameplay feel smoother and more intuitive.</p>
-
-<p style="text-align: justify;">To make the game more engaging, I also explored different art styles and incorporated AI-generated assets, which I later refined to match the game’s theme. This allowed me to create visually appealing elements without sacrificing the project’s timeline. Throughout development, I also focused on adding pop-up dialogues to introduce different perspectives on overfishing, such as those from environmentalists, government officials, and workers. This provided players with multiple viewpoints and encouraged reflection on the trade-offs of different solutions to overfishing.</p>
-
-<p style="text-align: justify;">As the game evolved, I continued to polish and refine various features, particularly focusing on making the gameplay more interactive and accessible. I incorporated feedback from playtests to improve aspects like the game timer, tutorial design, and difficulty progression, ensuring that the learning experience was as smooth and engaging as possible. Additionally, I experimented with mechanics such as rogue fishing boats and real-world events like illegal fishing to make the game more dynamic and reflective of real-life challenges in the fishing industry.</p>
-
-        </section>
-        <section id="overview" class="section-wrapper about">
-<section id="video" style="display: flex; justify-content: Center;"><iframe frameborder="0" src="https://itch.io/embed/2530424?bg_color=003eab&amp;fg_color=ffffff&amp;link_color=fa5c5c&amp;border_color=cccccc" width="552" height="167"><a href="https://declancullen.itch.io/thelastcatch">The Last Catch by DeclanCullen</a></iframe></section>
-
-        </section>
-
-      <section id="overview" class="section-wrapper about">
-        <section id="gallery" class="all-projects">
-            <h2>Gallery</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <img src="Complete.png" alt="Underwater Minesweeper Grid">
+        <div class="main-content">
+            <div class="top-section">
+                <div class="screenshots-section">
+                    <div class="card">
+                        <img src="Bubbles.png" alt="Main Screenshot" class="main-screenshot" id="mainImage" loading="lazy">
+                        <div class="thumbnail-grid">
+                            <img src="Complete.png" alt="Complete grid view" class="thumbnail active" onclick="changeImage(this)" loading="lazy">
+                            <img src="Wind.png" alt="Wind effects" class="thumbnail" onclick="changeImage(this)" loading="lazy">
+                            <img src="FishBad.png" alt="Fish encounters" class="thumbnail" onclick="changeImage(this)" loading="lazy">
+                            <img src="Power.png" alt="Power-ups" class="thumbnail" onclick="changeImage(this)" loading="lazy">
+                        </div>
+                    </div>
                 </div>
-                <div class="project">
-                    <img src="Wind.png" alt="Marine Life Discovery">
-                </div>
-                <div class="project">
-                    <img src="FishBad.png" alt="Deep Sea Equipment">
-                </div>
-                <div class="project">
-                    <img src="Power.png" alt="Ocean Floor Landscape">
+
+                <div class="info-sidebar">
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="card-title">Game Details</h2>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <dt>Genre</dt>
+                                    <dd>Puzzle Strategy</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Theme</dt>
+                                    <dd>Sustainable Fishing</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Platform</dt>
+                                    <dd>Web Browser</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Language</dt>
+                                    <dd>English</dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="card-title">Team Member</h2>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <dt>Developer</dt>
+                                    <dd>Declan Cullen</dd>
+                                </div>
+                                <div class="detail-item">
+                                    <dt>Contact</dt>
+                                    <dd>Declanmichaelcullen@gmail.com</dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </section>
-             <section id="contact" class="all-projects">
-            <h2>Contact</h2>
-            <p>For more information or to report any issues, please contact:</p>
-            <p>Email: <a href="mailto:Declanmichaelcullen@gmail.com">Declanmichaelcullen@gmail.com</a></p>
-        </section>
-        <footer>
-            <p>© 2024 Declan Cullen. All rights reserved.</p>
-        </footer>
+            <div class="card">
+                <div class="card-content">
+                    <div class="itch-embed">
+                         <iframe frameborder="0" src="https://itch.io/embed/2530424?bg_color=1976d2&amp;fg_color=ffffff&amp;link_color=e3f2fd&amp;border_color=cccccc" width="552" height="167" style="display: block; margin: 0 auto;"><a href="https://declancullen.itch.io/thelastcatch">The Last Catch by DeclanCullen</a></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="card-title">About</h2>
+                    <p>"The Last Catch" is an innovative puzzle game that merges the strategic depth of Minesweeper with a compelling narrative about sustainable fishing. Players assume the role of a fisher navigating treacherous waters filled with environmental hazards. Utilizing a Lidar system, players must identify and avoid endangered species while maximizing their catch of sustainable fish.</p>
+                    <p style="margin-top: 1rem;">Players will work out a grid-based ocean floor, using their skills and equipment to detect and mark endangered zones while uncovering safe fishing areas. Each successful mission helps players pay off their debts and manage relationships with various factions, all while promoting sustainable fishing practices.</p>
+                    <p style="margin-top: 1rem;">Work with factions to introduce new legislation that will offer up limits and rewards</p>
+                   
+                    <div class="gameplay-grid">
+                        <div class="gameplay-item">
+                              <figure>
+                                 <img src="Legislation.png" alt="Legislation" loading="lazy">
+                                 <figcaption>Establishing Protected Areas would take space on the grid and passively give you fish</figcaption>
+                              </figure>
+                        </div>
+                    </div>
+                    <div class="video-container" style="margin-top: 2rem;">
+                        <iframe 
+                            src="https://www.youtube.com/embed/4mo09nSULsg?si=nv1Ww0ggDgBJrdVi&mute=1&fs=0" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="card-title">Development</h2>
+                    <div class="gameplay-grid">
+                        <div class="gameplay-item">
+                            <h3>My Role</h3>
+                            <p>During the initial development phase, I focused on experimenting with game mechanics and frameworks. The first prototype felt too similar to existing fishing games and was about running out of fish, so I pivoted towards a unique approach inspired by Minesweeper, but with the focus on avoiding catching endangered fish, I learned that the term for incorrectly catching the fish your aiming for was called bycatching.</p>
+                            
+                            <div class="image-comparison">
+                                <div class="comparison-container">
+                                    <img src="Old1.png" class="comparison-before" alt="Early prototype" loading="lazy">
+                                    <div class="comparison-after">
+                                        <img src="TheLastCatchWIP.png" alt="Refined version" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div class="comparison-slider"></div>
+                                </div>
+                                <p class="comparison-caption">Drag to compare early prototype with refined version</p>
+                            </div>
+                            
+                            <p>By incorporating "world events" like oil spills and algae blooms, I created a dynamic environment that balanced entertainment with an educational message about sustainable fishing practices.</p>
+                        </div>
+                        <div class="gameplay-item">
+                            <h3>Feedback and Iteration</h3>
+                            <p>Feedback played a crucial role in the development process. Regular testing with peers and external audiences helped refine the game's usability, balance, and coherence.</p>
+                            
+                            <div class="development-images">
+                                <div class="development-image">
+                                    <img src="TheLastCatchWIP.png" alt="Early build" loading="lazy">
+                                    <div class="image-overlay">Early build</div>
+                                </div>
+                                <div class="development-image wide">
+                                    <img src="Complete.png" alt="Polished version" loading="lazy">
+                                    <div class="image-overlay">Polished version</div>
+                                </div>
+                            </div>
+                            
+                            <p>Key changes included adjusting the difficulty curve, enhancing the user interface, and adding visual effects for better player feedback.</p>
+                        </div>
+                        <div class="gameplay-item">
+                            <h3>Art and Visuals</h3>
+                            <p>To enhance engagement, I explored various art styles and incorporated AI-generated assets, which were later refined to match the game's theme. This approach allowed for visually appealing elements without compromising the project timeline.</p>
+                            <p>For the PowerUps, my feedback was to make it clearer what they would do without using any words. I thought of using an eye icon to give a hint of what it might do, revealing the hidden tiles.</p>
+                            
+                            <div class="image-comparison">
+                                <div class="comparison-container">
+                                    <img src="WipEye.png" class="comparison-before" alt="PowerUp Initial Design" loading="lazy">
+                                    <div class="comparison-after">
+                                        <img src="wipEye1.png" alt="PowerUp Final Design" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div class="comparison-slider"></div>
+                                </div>
+                                <p class="comparison-caption">PowerUp icon evolution from concept to final design</p>
+                            </div>
+                        </div>
+                        <div class="gameplay-item">
+                            <h3>Polishing and Refinement</h3>
+                            <p>As development progressed, I focused on polishing and refining features to make the gameplay more interactive and accessible. Feedback from playtests informed improvements to the game timer, tutorial design, and difficulty progression, ensuring a smooth and engaging learning experience.</p>
+                            <figure>
+                                <img src="Bubbles.png" alt="Visual polish example" loading="lazy">
+                                <figcaption>Visual effects were added to enhance feedback and player engagement</figcaption>
+                            </figure>
+                        </div>
+                        <div class="gameplay-item">
+                            <h3>Future Development</h3>
+                            <p>If I had more time to develop I would of introduced plastic as a slow build up, which would require faction support to remove.<br> I also had a fun Power-up TNT however I felt it was a little silly and decided not to include it in my submission, if I had I would have fished in a large area similar to how the oil spills are generated and would provide double fish at the cost of the environment faction.</p>
+                            <figure>
+                                <img src="oil.png" alt="Visual polish example" loading="lazy">
+                                <figcaption>Oil spill pattern, which the TNT would have revealed</figcaption>
+                            </figure>
+                            <p>I possibly got carried away with making it feel smooth. I focused a lot on the little things, such as the fish getting reeled to the top. In hindsight, the time would have been better spent refining the ecosystem damage from the overfishing system. I was going to make events such as oil spills and algae blooms start off small, but as the ecosystem damage increased, so would the size of the disasters, making it harder to win.<br><br>It's a shame that my laptop died, which had the sprites I would have liked to include them in this</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <p id="lightboxCaption" class="lightbox-caption"></p>
+            <button class="lightbox-close">&times;</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Declan Cullen. All rights reserved. | <a href="mailto:Declanmichaelcullen@gmail.com">Contact</a></p>
+    </footer>
+
+    <script>
+        // Image gallery functionality
+        function changeImage(thumbnail) {
+            // Update main image
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const closeBtn = document.querySelector('.lightbox-close');
+            
+            // Add double-click event to all images
+            const images = document.querySelectorAll('.main-screenshot, .gameplay-item img, .thumbnail');
+            images.forEach(img => {
+                img.addEventListener('dblclick', function() {
+                    openLightbox(this);
+                });
+                
+                // Also add regular click for better mobile support
+                img.addEventListener('click', function(e) {
+                    // Only open lightbox on regular images, not thumbnails used for gallery navigation
+                    if (!this.classList.contains('thumbnail')) {
+                        openLightbox(this);
+                    }
+                });
+            });
+            
+            function openLightbox(image) {
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.alt;
+                lightboxCaption.textContent = image.alt;
+                lightbox.classList.add('active');
+            }
+            
+            // Close lightbox when clicking outside image or on close button
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+                    lightbox.classList.remove('active');
+                }
+            });
+            
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        });
+
+        // Image comparison slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('.comparison-container');
+            
+            sliders.forEach(slider => {
+                const sliderBtn = slider.querySelector('.comparison-slider');
+                const afterImage = slider.querySelector('.comparison-after');
+                
+                // Mouse & Touch events for slider
+                let isDown = false;
+                
+                // Set initial position
+                sliderBtn.style.left = '50%';
+                afterImage.style.width = '50%';
+                
+                // Function to handle the slider movement
+                function moveSlider(clientX) {
+                    const rect = slider.getBoundingClientRect();
+                    let pos = clientX - rect.left;
+                    
+                    // Limit position to stay within the container
+                    if (pos < 0) pos = 0;
+                    if (pos > rect.width) pos = rect.width;
+                    
+                    // Convert to percentage for responsive design
+                    const percentage = (pos / rect.width) * 100;
+                    
+                    // Update positions
+                    sliderBtn.style.left = `${percentage}%`;
+                    afterImage.style.width = `${percentage}%`;
+                }
+                
+                // Mouse Events
+                sliderBtn.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    isDown = true;
+                });
+                
+                document.addEventListener('mouseup', function() {
+                    isDown = false;
+                });
+                
+                document.addEventListener('mousemove', function(e) {
+                    if (!isDown) return;
+                    moveSlider(e.clientX);
+                });
+                
+                // Touch Events
+                sliderBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    isDown = true;
+                });
+                
+                document.addEventListener('touchend', function() {
+                    isDown = false;
+                });
+                
+                document.addEventListener('touchmove', function(e) {
+                    if (!isDown) return;
+                    moveSlider(e.touches[0].clientX);
+                });
+                
+                // Allow clicking anywhere on the container to move the slider
+                slider.addEventListener('click', function(e) {
+                    moveSlider(e.clientX);
+                });
+            });
+        });
+
+        // Image loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            
+            images.forEach(img => {
+                // Add loading class initially
+                img.classList.add('loading');
+                
+                // Remove loading class when image loads
+                img.addEventListener('load', function() {
+                    this.classList.remove('loading');
+                });
+                
+                // Remove loading class if image errors
+                img.addEventListener('error', function() {
+                    this.classList.remove('loading');
+                });
+                
+                // If image is already loaded from cache
+                if (img.complete) {
+                    img.classList.remove('loading');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
