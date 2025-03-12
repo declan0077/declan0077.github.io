@@ -427,6 +427,30 @@
         .development-image:hover .image-overlay {
             opacity: 1;
         }
+
+        .SideBySide {
+        display: flex; /* Use Flexbox to align items side by side */
+        justify-content: space-between; /* Distribute space between items */
+        align-items: flex-start; /* Align items at the top */
+        gap: 20px; /* Add space between the figures */
+    }
+
+    .SideBySide figure {
+        flex: 1; /* Allow figures to grow and take equal space */
+        margin: 0; /* Remove default margin */
+        text-align: center; /* Center-align the caption */
+    }
+
+    .SideBySide img {
+        max-width: 100%; /* Ensure images are responsive and fit within their container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .SideBySide figcaption {
+        margin-top: 10px; /* Add space between the image and caption */
+        font-size: 14px; /* Adjust caption font size */
+        color: #333; /* Set caption text color */
+    }
     </style>
 </head>
 <body>
@@ -537,33 +561,42 @@
                     <div class="gameplay-grid">
                         <div class="gameplay-item">
                             <h3>My Role</h3>
-                            <p>During the initial development phase, I focused on experimenting with game mechanics and frameworks. The first prototype felt too similar to existing fishing games and was about running out of fish, so I pivoted towards a unique approach inspired by Minesweeper, but with the focus on avoiding catching endangered fish, I learned that the term for incorrectly catching the fish your aiming for was called bycatching.</p>
-                            
-                            <div class="image-comparison">
-                                <div class="comparison-container">
-                                    <img src="Old1.png" class="comparison-before" alt="Early prototype" loading="lazy">
-                                    <div class="comparison-after">
-                                        <img src="TheLastCatchWIP.png" alt="Refined version" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <div class="comparison-slider"></div>
-                                </div>
-                                <p class="comparison-caption">Drag to compare early prototype with refined version</p>
+                            <p>During the initial development phase, I focused on experimenting with game mechanics and learning potential. Which lead me to my first prototype it felt too similar to existing fishing games and was about running out of fish</p>
+                            <center><div class="development-image">
+                                <img src="Old1.png" alt="Ontology of the game" loading="lazy">
+                                <div class="image-overlay">Early build</div>
+                            </div></center>
+                            <p>So I pivoted towards a unique approach inspired by Minesweeper, but with the focus on avoiding catching endangered fish, I learned that the term for incorrectly catching the fish your aiming for was called bycatching and wanted to teach that. I was thinking how I could develop and expand on minesweeper</p>
+                            <p>By incorporating "world events" like oil spills, algae blooms and storms, I created a dynamic environment that balanced entertainment with an educational message about sustainable fishing practices.</p>
+                              
+                            <center><div class="development-image">
+                                <img src="Ontology.png" alt="Ontology of the game" loading="lazy">
+                                <div class="image-overlay">Early build</div>
+                            </div></center>
+                                <p class="comparison-caption">Click to view</p>
                             </div>
-                            
-                            <p>By incorporating "world events" like oil spills and algae blooms, I created a dynamic environment that balanced entertainment with an educational message about sustainable fishing practices.</p>
                         </div>
                         <div class="gameplay-item">
                             <h3>Feedback and Iteration</h3>
-                            <p>Feedback played a crucial role in the development process. Regular testing with peers and external audiences helped refine the game's usability, balance, and coherence.</p>
-                            
-                            <div class="development-images">
-                                <div class="development-image">
-                                    <img src="TheLastCatchWIP.png" alt="Early build" loading="lazy">
-                                    <div class="image-overlay">Early build</div>
-                                </div>
-                                <div class="development-image wide">
-                                    <img src="Complete.png" alt="Polished version" loading="lazy">
-                                    <div class="image-overlay">Polished version</div>
+                            <p>Feedback played a crucial role in the development process. Regular testing with peers and external audiences helped me refine the game's usability, balance, and coherence.</p>
+                            <center><div class="development-image">
+                                <img src="Wind.png" alt="Ontology of the game" loading="lazy">
+                                <div class="image-overlay">Each round of the game would take (60 secounds) a storm event would half the playable time forcing the player to click without thinking or risk missing quotas.</div>
+                            </div></center>
+                            <div class="gameplay-grid">
+                                <div class="SideBySide">
+                                      <figure>
+                                         <img src="OldTLC.png" alt="TNT Powerup" loading="lazy">
+                                         <div class="image-overlay">Early Prototype</div>
+                                      </figure>
+                                      <figure>
+                                        <img src="OldTLC1.png" alt="Plastic plague" loading="lazy">
+                                        <div class="image-overlay">Starting with art</div>
+                                     </figure>
+                                     <figure>
+                                        <img src="Complete.png" alt="Plastic plague" loading="lazy">
+                                        <div class="image-overlay">Polished version</div>
+                                     </figure>
                                 </div>
                             </div>
                             
@@ -572,19 +605,21 @@
                         <div class="gameplay-item">
                             <h3>Art and Visuals</h3>
                             <p>To enhance engagement, I explored various art styles and incorporated AI-generated assets, which were later refined to match the game's theme. This approach allowed for visually appealing elements without compromising the project timeline.</p>
+                            <p>However for all of the sprites on the board I created them as I felt that over using AI would distract and be unclear of what the tiles should be</p>
                             <p>For the PowerUps, my feedback was to make it clearer what they would do without using any words. I thought of using an eye icon to give a hint of what it might do, revealing the hidden tiles.</p>
-                            
-                            <div class="image-comparison">
-                                <div class="comparison-container">
-                                    <img src="WipEye.png" class="comparison-before" alt="PowerUp Initial Design" loading="lazy">
-                                    <div class="comparison-after">
-                                        <img src="wipEye1.png" alt="PowerUp Final Design" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <div class="comparison-slider"></div>
+                            <div class="gameplay-grid">
+                                <div class="SideBySide">
+                                      <figure>
+                                         <img src="WipEye.png" alt="Eye without Iconography" loading="lazy">
+                                         <div class="image-overlay">Eye without Iconography</div>
+                                      </figure>
+                                      <figure>
+                                        <img src="wipEye1.png" alt="Eye with Iconography" loading="lazy">
+                                        <div class="image-overlay">Eye with Iconography</div>
+                                     </figure>
                                 </div>
-                                <p class="comparison-caption">PowerUp icon evolution from concept to final design</p>
                             </div>
-                        </div>
+                            
                         <div class="gameplay-item">
                             <h3>Polishing and Refinement</h3>
                             <p>As development progressed, I focused on polishing and refining features to make the gameplay more interactive and accessible. Feedback from playtests informed improvements to the game timer, tutorial design, and difficulty progression, ensuring a smooth and engaging learning experience.</p>
@@ -600,7 +635,44 @@
                                 <img src="Oil.png" alt="Visual polish example" loading="lazy">
                                 <figcaption>Oil spill pattern, which the TNT would have revealed</figcaption>
                             </figure>
-                            <p>I possibly got carried away with making it feel smooth. I focused a lot on the little things, such as the fish getting reeled to the top. In hindsight, the time would have been better spent refining the ecosystem damage from the overfishing system. I was going to make events such as oil spills and algae blooms start off small, but as the ecosystem damage increased, so would the size of the disasters, making it harder to win.<br><br>It's a shame that my laptop died, which had the sprites I would have liked to include them in this</p>
+                            <p>I possibly got carried away with making it feel smooth. I focused a lot on the little things, such as the fish getting reeled to the top. In hindsight, the time would have been better spent refining the ecosystem damage from the overfishing system. I was going to make events such as oil spills and algae blooms start off small, but as the ecosystem damage increased, so would the size of the disasters, making it harder to win.<br>
+                            <br>I managed to find some of the images they were out of scale and I do not have access to the orignal</p>
+                            <div class="gameplay-grid">
+                                <div class="SideBySide">
+                                      <figure>
+                                         <img src="tnt.png" alt="TNT Powerup" loading="lazy">
+                                         <figcaption>The logic for the dynamite would have been a large explosion that kills the fish requiring the play to move their mouse over the fish to collect them, contrasting the normal line to the top method. It would of make the Workers (+10) happy but serious upset the Conservationists (-20), and slightly upset the Government (-5). </figcaption>
+                                      </figure>
+                                      <figure>
+                                        <img src="Plastic.png" alt="Plastic plague" loading="lazy">
+                                        <figcaption>The logic for the plastic would have been a tile that can drift and expand and kill whatever fish including the endangered fish, it would not add to the player’s fish count and would remove the tile from play. However, it could be removed at a cost of time (-2 seconds) for each tile.</figcaption>
+                                     </figure>
+                                </div>
+                        </div>
+                        </div>
+                        <p>During the development of the game, I discovered that while many people have heard of Minesweeper, few have actually played it. As a result, I had to create some guides to help players understand the mechanics. Here are some examples of the tutorials:</p>
+                        <div class="gameplay-grid">
+                            <div class="SideBySide">
+                                  <figure>
+                                     <img src="Tutorial1.png" alt="TNT Powerup" loading="lazy">
+                                  </figure>
+                                  <figure>
+                                    <img src="Tutorial2.png" alt="Plastic plague" loading="lazy">
+                                 </figure>
+                                 <figure>
+                                    <img src="Tutorial3.png" alt="Plastic plague" loading="lazy">
+                                 </figure>
+                            </div>
+                        </div>
+                        <div class="gameplay-grid">
+                            <div class="SideBySide">
+                                  <figure>
+                                     <img src="Mark1.png" alt="TNT Powerup" loading="lazy">
+                                  </figure>
+                                  <figure>
+                                    <img src="Mark2.png" alt="Plastic plague" loading="lazy">
+                                 </figure>
+                            </div>
                         </div>
                     </div>
                 </div>
