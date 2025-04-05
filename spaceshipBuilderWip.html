@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Spaceship Builder - Game Design Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #0a0a23 0%, #1a1a3b 100%);
+            color: #e0e0ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 35, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(74, 74, 255, 0.3);
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4a4aff;
+            text-transform: uppercase;
+        }
+
+        .navbar .nav-links a {
+            color: #e0e0ff;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #4a4aff;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('GameScreenshot4.png') no-repeat center/cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(74, 74, 255, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tags {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #4a4aff;
+            color: #ffffff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            box-shadow: 0 0 10px rgba(74, 74, 255, 0.5);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #4a4aff;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #4a4aff;
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: rgba(26, 26, 62, 0.9);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 0 25px rgba(74, 74, 255, 0.2);
+            border: 1px solid #4a4aff;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 1rem;
+            background: rgba(15, 15, 31, 0.7);
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            position: relative;
+            border-left: 5px solid #4a4aff;
+        }
+
+
+        .screenshot-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .screenshot {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #4a4aff;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid #4a4aff;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .status-badge {
+            background: #4a4aff;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 10, 35, 0.95);
+            border-top: 1px solid #4a4aff;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        .modal-content {
+            max-width: 90vw; /* Max 90% of viewport width */
+            max-height: 90vh; /* Max 90% of viewport height */
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .gameplay-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .gameplay-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gameplay-item {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .gameplay-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gameplay-item h3 {
+            margin-bottom: 0.5rem;
+            color: #1976d2;
+        }
+
+        .gameplay-item img {
+            flex-grow: 1;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: box-shadow 0.3s ease;
+            position: relative;
+            background-color: #e0e0e0;
+        }
+
+        .gameplay-item:hover img {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        figure {
+            margin: 0;
+            width: 100%;
+        }
+
+        figcaption {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            padding: 0.5rem 0;
+            font-style: italic;
+        }
+
+        .development-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: 200px;
+            grid-auto-flow: dense;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .development-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .development-image:hover {
+            transform: scale(1.02);
+        }
+
+        .development-image.tall {
+            grid-row: span 2;
+        }
+
+        .development-image.wide {
+            grid-column: span 2;
+        }
+
+        .development-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .development-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .development-image .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .development-image:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .SideBySide {
+        display: flex; /* Use Flexbox to align items side by side */
+        justify-content: space-between; /* Distribute space between items */
+        align-items: flex-start; /* Align items at the top */
+        gap: 20px; /* Add space between the figures */
+    }
+
+    .SideBySide figure {
+        flex: 1; /* Allow figures to grow and take equal space */
+        margin: 0; /* Remove default margin */
+        text-align: center; /* Center-align the caption */
+    }
+
+    .SideBySide img {
+        max-width: 100%; /* Ensure images are responsive and fit within their container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .SideBySide figcaption {
+        margin-top: 10px; /* Add space between the image and caption */
+        font-size: 14px; /* Adjust caption font size */
+        color: #333; /* Set caption text color */
+    }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Modular Spaceship Builder</div>
+        <div class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#gameplay">Gameplay</a>
+            <a href="#technical">Technical</a>
+            <a href="#media">Media</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Modular Spaceship Builder</h1>
+            <p>A physics-based space adventure where creativity meets strategy in the vastness of the cosmos</p>
+            <div class="tags">
+                <span class="tag">2D Space</span>
+                <span class="tag">Modular Building</span>
+                <span class="tag">Combat</span>
+                <span class="tag">Factions</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section" id="overview">
+            <h2 class="section-title">Game Overview</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>About the Game</h3>
+                    <p>"Modular Spaceship Builder" is an evolved 2D space game where players design and pilot custom spacecraft using a modular component system. Engage in dynamic combat, manage resources, and navigate faction relationships in a procedurally generated universe.</p>
+                    <p>Inspired by classics like Captain Forever, this reimagined version introduces advanced ship mechanics, faction dynamics, and resource management, built from the ground up with lessons learned from my previous attempt.</p>
+                </div>
+                <div class="card">
+                    <h3>Game Details</h3>
+                    <ul class="feature-list">
+                        <li><strong>Platform:</strong> Web Browser</li>
+                        <li><strong>Engine:</strong> Unity</li>
+                        <li><strong>Status:</strong> In Active Development</li>
+                        <li><strong>Controls:</strong> Mouse (Drag/Connect), Space (Thrust), Q/E (Rotate), F (Collect Cargo), T (Weapons) S (Shields) Right click on ships (AI ship AutoBattle)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="gameplay">
+            <h2 class="section-title">Gameplay Mechanics</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Ship Construction</h3>
+                    <p>Build unique spacecraft using a snap-based modular system, tailoring your ship’s design to your playstyle:</p>
+                    <ul class="feature-list">
+                        <li>Drag-and-drop ship parts with connection points for intuitive assembly</li>
+                        <li>Dynamic physics-based assembly ensures realistic movement and stability</li>
+                        <li>Modules: Thrusters, Weapons, Shields, Cargo Bays—each with unique functions</li>
+                        <li>Station construction with trading capabilities to establish your presence in space</li>
+                        <li>Attach thrusters strategically for precise control, enabling tactical dodging and positioning in combat</li>
+                        <li>Customize thruster placement to balance speed, agility, and maneuverability</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Combat System</h3>
+                    <p>Engage in tactical space battles where strategy and skill determine victory:</p>
+                    <ul class="feature-list">
+                        <li>Multiple weapon types (Lasers, Turrets, Missiles) offer varied combat options</li>
+                        <li>Mobility-focused combat mechanics emphasize thruster-driven movement for outmaneuvering foes</li>
+                        <li>Shield and energy management require careful balancing to survive intense encounters</li>
+                        <li>Faction-based AI responses bring dynamic enemies that patrol, hunt, engage in combat, or collect resources</li>
+                        <li>AI ships switch behaviors—patrolling stations, hunting targets, or defending allies—based on faction goals</li>
+                        <li>Energy allocation is critical: power weapons, reinforce shields, or boost systems under pressure</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Faction & Resources WIP</h3>
+                    <p>Interact with a living universe where factions and resources shape your journey:</p>
+                    <ul class="feature-list">
+                        <li>Faction relationships (Friendly/Neutral/Hostile) influence AI behavior </li>
+                        <li>Cargo trading and refinery systems let you profit from resources or supply your fleet - wip</li>
+                        <li>Faction-based AI ships dynamically adapt to the environment, responding to threats and opportunities</li>
+                        <li>Ship spawning via trader stations creates a bustling, faction-driven economy - wip</li>
+                        <li>AI ships actively collect cargo, defend stations, or attack based on faction needs and hostility</li>
+                        <li>Stations switch between refining resources and mounting defenses, adapting to threats</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="technical">
+            <h2 class="section-title">Technical Overview</h2>
+            <div class="card">
+                <h3>Core Systems</h3>
+                <p>The game leverages Unity's 2D physics engine with custom implementations:</p>
+                <ul class="feature-list">
+                    <li><strong>Faction System:</strong> Dictionary-based relationship management with dynamic updates</li>
+                    <li><strong>Ship Mechanics:</strong> Modular component system with energy and cargo handling</li>
+                    <li><strong>Physics:</strong> Rigidbody2D integration with custom connection logic</li>
+                    <li><strong>AI:</strong> Responsive faction-based AI behaviors</li>
+                </ul>
+                <h3>Development Challenges</h3>
+                <p>Key improvements from the original version:</p>
+                <ul class="feature-list">
+                    <li>Replaced unstable spring joints with rigid connections</li>
+                    <li>Optimized module caching for better performance</li>
+                    <li>Enhanced faction system with potential reputation mechanics</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="media">
+            <h2 class="section-title">Game</h2>
+            <div class="card">
+                <h3>Gameplay Demo</h3>
+                <div class="video-container">
+                    <iframe frameborder="0" src="https://itch.io/embed-upload/13057523?color=161616" allowfullscreen="" width="1920" height="1080"><a href="https://declancullen.itch.io/modular-spaceship">Play Modular Spaceship on itch.io</a></iframe>       
+                </div>
+                <br>
+            <center>   <h3>Development Screenshots</h3> </center>  
+                    <div class="screenshot-grid">
+                    <img src="Grapple.png" alt="Grapple Gun" class="screenshot" loading="lazy">
+                    <img src="LazerbeamWeapons.png" alt="LazerbeamWeapons active" class="screenshot" loading="lazy">
+                    <img src="Drills.png" alt="Ship with drills" class="screenshot" loading="lazy">
+                    <img src="WeaponUpgrades.png" alt="Weapon upgrades" class="screenshot" loading="lazy">
+                </div>
+              <center><h3>Older Development Screenshots</h3> </center>  
+                    <div class="screenshot-grid">
+                    <img src="GameScreenshot1.png" alt="Asteroid Field" class="screenshot" loading="lazy">
+                    <img src="GameScreenshot2.png" alt="Ship At Station" class="screenshot" loading="lazy">
+                    <img src="GameScreenshot3.png" alt="Ship In Combat" class="screenshot" loading="lazy">
+                    <img src="GameScreenshot4.png" alt="Ship In Combat" class="screenshot" loading="lazy">
+                </div>
+            </div>
+        </section>
+            <div class="card">
+                <h2 class="section-title">Media</h2>
+                <h3>Class Diagrams</h3>
+                <div class="screenshot-grid">
+                    <img src="ShipDiagram.png" alt="Ship Diagram" class="screenshot" loading="lazy">
+                    <img src="ShipPartDiagram.png" alt="Ship parts Diagram" class="screenshot" loading="lazy">
+                </div>
+            </div>
+        <section class="section" id="media">
+            <div class="card">
+               <h3>Screenshots</h3>
+            <div class="screenshot-grid">
+                <img src="Asteroids.png" alt="Asteroid Field" class="screenshot" loading="lazy">
+                <img src="ShipAtStation.png" alt="Ship At Station" class="screenshot" loading="lazy">
+                <img src="ShipInCombat.png" alt="Ship In Combat" class="screenshot" loading="lazy">
+            </div>
+        </div>
+            <div class="card">
+             <center>   <h3>Old Screenshots of previous attempt</h3> </center>
+             <p> These are from a previous attempt at the game, which was scrapped due to performance issues and issuses with connecting parts, however if there is something of this prototype I liked was how the parts had this wiggle to them as they were connect using springs.</p>
+                <div class="screenshot-grid">
+                    <img src="ModularEarly.gif" alt="Early Ship Building" class="screenshot" loading="lazy">
+                    <img src="Modular2.gif" alt="Combat Demo" class="screenshot" loading="lazy">
+                    <img src="Modular3.gif" alt="Module Assembly" class="screenshot" loading="lazy">
+                    <img src="Modular4.gif" alt="Space Maneuvers" class="screenshot" loading="lazy">
+                    <img src="SpaceConstruction.gif" alt="Construction Process" class="screenshot" loading="lazy">
+                </div>
+            </div>
+
+         
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">Future Plans</h3>
+            <div class="card">
+                <p>Possible Future updates:</p>
+                <ul class="feature-list">
+                    <li>Faction reputation system affecting relationships</li>
+                    <li>Procedural galaxy generation</li>
+                    <li>Enhanced AI behaviors with patrol and trade routes</li>
+                    <li>Persistent save system for ship designs</li>
+                </ul>
+                <span class="status-badge">Currently in Development - March 2025</span>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Modular Spaceship Builder | Developed with Unity | Designed by Declan Cullen</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all screenshot images
+            const screenshots = document.querySelectorAll('.screenshot');
+            
+            // Create modal elements dynamically
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            const modalContent = document.createElement('img');
+            modalContent.className = 'modal-content';
+            const closeBtn = document.createElement('span');
+            closeBtn.className = 'close';
+            closeBtn.innerHTML = '×'; // HTML entity for "×"
+            modal.appendChild(closeBtn);
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+
+            // Add click event to each screenshot
+            screenshots.forEach(function(img) {
+                img.addEventListener('click', function() {
+                    modal.style.display = 'flex'; // Use flex for centering
+                    modalContent.src = this.src; // Set modal image to clicked image’s source
+                });
+            });
+
+            // Close modal when clicking the close button
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

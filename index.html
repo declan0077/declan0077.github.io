@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!-- Primary Meta Tags -->
-    <title>Declan Cullen - Game Designer & Developer Portfolio </title>
+    <!-- Primary Meta Tags -->
+    <title>Declan Cullen - Game Designer & Developer Portfolio</title>
     <meta name="title" content="Declan Cullen Game Designer & Developer Portfolio">
     <meta name="description" content="Declan Cullen, a UK-based game designer specializing in technical design portfolio page">
     <meta name="keywords" content="game designer, game developer, VR games, educational games, Unity developer, Unreal Engine, UK game designer, Declan Cullen">
@@ -32,13 +31,13 @@
     <meta name="theme-color" content="#1a1a1a">
     <link rel="canonical" href="https://declan0077.github.io/">
 
-<link rel="icon" href="Favicon.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" href="Favicon.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
 
-<meta name="google-site-verification" content="_QWBQd_Y4e4lRH8e-Lt1M3HqNVqdDoWGknEvTAdFpFg" />
+    <meta name="google-site-verification" content="_QWBQd_Y4e4lRH8e-Lt1M3HqNVqdDoWGknEvTAdFpFg" />
     <style>
         :root {
             --primary: #1a1a1a;
@@ -108,96 +107,85 @@
             color: var(--accent);
         }
 
+        a:focus, button:focus {
+            outline: 2px solid var(--accent);
+        }
+
         /* Hero Section */
-       .hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
-  animation: fadeBackground 15s infinite;
-  z-index: -1;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            animation: fadeBackground 15s infinite;
+            z-index: -1;
+        }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  z-index: -1;
-}
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
 
-@keyframes fadeBackground {
-  0%, 18% {
-    background-image: url("Screenshot.png");
-    opacity: 1;
-  }
-  26%, 38% {
-    background-image: url("Screenshot1.png");
-    opacity: 1;
-  }
-  46%, 58% {
-    background-image: url("Screenshot2.png");
-    opacity: 1;
-  }
-  66%, 78% {
-    background-image: url("FishBad.png");
-    opacity: 1;
-  }
-  86%, 98% {
-    background-image: url("4.png");
-    opacity: 1;
-  }
-  19%, 26%, 59%, 79%, 99% {
-    opacity: 0.8; /* Increased opacity for softer transitions */
-  }
-}
-.hero-content {
-  text-align: center;
-  color: white;
-  padding: 2rem;
-  z-index: 1;
-}
+        @keyframes fadeBackground {
+            0%, 18% { background-image: url("Screenshot.png"); opacity: 1; }
+            26%, 38% { background-image: url("Screenshot1.png"); opacity: 1; }
+            46%, 58% { background-image: url("Screenshot2.png"); opacity: 1; }
+            66%, 78% { background-image: url("FishBad.png"); opacity: 1; }
+            86%, 98% { background-image: url("4.png"); opacity: 1; }
+            19%, 26%, 59%, 79%, 99% { opacity: 0.8; }
+        }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            z-index: 1;
+        }
 
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
 
-.hero-btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: #2196F3;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-}
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
 
-.hero-btn:hover {
-  background: #1976D2;
-}
+        .hero-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background: #1976D2;
+        }
+
         /* Featured Projects */
         .featured-projects {
             padding: 6rem 0;
@@ -242,12 +230,7 @@
         .project-content {
             padding: 2rem;
         }
-.project-content p {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    text-align: justify;
-}
+
         .project-content h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -258,6 +241,19 @@
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
+        }
+
+        .project-tags {
+            margin-bottom: 1rem;
+        }
+
+        .project-tags span {
+            background: var(--accent);
+            color: var(--text);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
         }
 
         .btn {
@@ -361,23 +357,7 @@
             background: var(--secondary);
         }
 
-        @media (max-width: 768px) {
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-        }
+        /* Game Slider */
         .game-slider {
             background-color: var(--secondary);
             padding: 4rem 0;
@@ -388,9 +368,8 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            overflow: hidden; /* Prevent projects from going off-screen */
+            overflow: hidden;
             border-radius: 15px;
-            padding: auto;
         }
 
         .slider {
@@ -399,7 +378,7 @@
             align-items: center;
             transition: transform 0.5s ease-in-out;
             gap: 1.5rem;
-            width: 100%; /* Ensure full width */
+            width: 100%;
         }
 
         .slide {
@@ -409,7 +388,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
             background: var(--primary);
-            min-width: 300px; /* Ensure minimum width */
+            min-width: 300px;
         }
 
         .slide:hover {
@@ -460,13 +439,27 @@
         }
 
         @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
             .slide {
-            flex: 0 0 calc(80% - 1.5rem); /* Adjust slide width for mobile */
-            min-width: 80%; /* Ensure minimum width for mobile */
+                flex: 0 0 calc(80% - 1.5rem);
+                min-width: 80%;
             }
         }
-
-       
     </style>
 </head>
 <body>
@@ -485,7 +478,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Game Designer & Developer</h1>
-            <p></p>
+            <p>Specializing in VR, educational games, and immersive experiences</p>
             <a href="#projects" class="hero-btn">View My Work</a>
         </div>
     </section>
@@ -493,56 +486,95 @@
     <section class="featured-projects" id="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">A showcase of some of my most impactful and innovative contributions in game design and development</p>
+            <p class="section-subtitle">A showcase of my most impactful and innovative contributions in game design and development</p>
             <div class="project-grid">
                 <div class="project-card">
-                    <img src="IVRtraining.png" alt="IVR Safety Training Project Screenshot" class="project-image">
+                    <img src="ModularSpaceshipImg.png" alt="New Modular Spaceship Prototype Screenshot" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <h3>Modular Spaceship Builder</h3>
+                        <div class="project-tags">
+                            <span>Prototype</span>
+                            <span>Programming</span>
+                        </div>
+                        <p>A recreation of my old prototype developed with better knowledge of programming and making use of better principles.</p>
+                        <a href="ModularSpaceshipBuilder.html" class="btn">View Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="IVRtraining.png" alt="IVR Safety Training Project Screenshot" class="project-image" loading="lazy">
                     <div class="project-content">
                         <h3>IVR Safety Training</h3>
-                        <p>This project was designed to improve workplace safety using immersive Virtual Reality (VR) simulations. It employs Bloom’s Taxonomy to stage learning outcomes, offering users progressive learning, hands-on training experiences in a controlled, simulated work environment.</p>
+                        <div class="project-tags">
+                            <span>VR</span>
+                            <span>Educational</span>
+                        </div>
+                        <p>Leveraging VR to create an immersive safety training experience, blending educational content with engaging simulations.</p>
                         <a href="IvrSafety.html" class="btn">View Project</a>
                     </div>
                 </div>
-                
+
                 <div class="project-card">
-                    <img src="ArkcarmicDescent.png" alt="Arkcarmic Descent Project Screenshot" class="project-image">
+                    <img src="ArkcarmicDescent.png" alt="Arkcarmic Descent Project Screenshot" class="project-image" loading="lazy">
                     <div class="project-content">
                         <h3>Arkcarmic Descent</h3>
-                        <p>This vertical slice of an action-adventure game draws inspiration from late '90s to early 2000s immersive sims. The game emphasizes player-driven interaction through dynamic environments, physics-based puzzles, and complex system-based gameplay.</p>
+                        <div class="project-tags">
+                            <span>Action-Adventure</span>
+                            <span>Immersive Sim</span>
+                        </div>
+                        <p>A vertical slice inspired by immersive sims, featuring dynamic environments and physics-based puzzles.</p>
                         <a href="ArkcarmicDescent.html" class="btn">View Game</a>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="TheLastCatch.png" alt="The Last Catch Project Screenshot" class="project-image">
+                    <img src="TheLastCatch.png" alt="The Last Catch Project Screenshot" class="project-image" loading="lazy">
                     <div class="project-content">
                         <h3>The Last Catch</h3>
-                        <p>Is a new take on the classic Minesweeper game. It adds layers of environmental awareness to the puzzles and teaches players about issues like bycatching. The game aims to raise awareness about marine conservation through fun and thoughtful gameplay.</p>
+                        <div class="project-tags">
+                            <span>Puzzle</span>
+                            <span>Educational</span>
+                        </div>
+                        <p>A fresh take on Minesweeper, raising awareness about marine conservation through engaging gameplay.</p>
                         <a href="TheLastCatch.html" class="btn">View Game</a>
                     </div>
                 </div>
 
-   <div class="project-card">
-                    <img src="SpaceShip.png" alt="Modular Space Ships Project Screenshot" class="project-image">
+                <div class="project-card">
+                    <img src="SpaceShip.png" alt="Modular Space Ships Project Screenshot" class="project-image" loading="lazy">
                     <div class="project-content">
-                        <h3>Modular Ship Builder</h3>
-                        <p>My Modular Spaceship Builder was an ambitious attempt to capture the spirit of Captain Forever. While the project didn't reach its full potential, it taught me valuable lessons about game design, technical complexity, and the importance of scoping realistic goals. </p>
+                        <h3>Modular Spaceship Builder (Old)</h3>
+                        <div class="project-tags">
+                            <span>Prototype</span>
+                            <span>Learning</span>
+                        </div>
+                        <p>An ambitious project inspired by Captain Forever, teaching valuable lessons in scoping and design.</p>
                         <a href="spaceshipBuilder.html" class="btn">View Project</a>
                     </div>
                 </div>
-   <div class="project-card">
-                    <img src="Images.png" alt="PCGterrain project" class="project-image">
+
+                <div class="project-card">
+                    <img src="Images.png" alt="Procedural Terrain Generation Project Screenshot" class="project-image" loading="lazy">
                     <div class="project-content">
-                        <h3>Mesh and procedural generation terrain</h3>
-                        <p>I explore the process of procedural terrain generation, focusing on techniques like Perlin noise, island creation, river carving, and 3D terrain modeling. inspired by the procedural generation seen in games like RimWorld.</p>
+                        <h3>Procedural Terrain Generation</h3>
+                        <div class="project-tags">
+                            <span>Procedural</span>
+                            <span>3D Modeling</span>
+                        </div>
+                        <p>Exploring terrain generation with Perlin noise, island creation, and river carving, inspired by RimWorld.</p>
                         <a href="PCGterrain.html" class="btn">View Project</a>
                     </div>
                 </div>
-  <div class="project-card">
-                    <img src="Itch.png" alt="Card Games Projects" class="project-image">
+
+                <div class="project-card">
+                    <img src="Itch.png" alt="Card Games Project Screenshot" class="project-image" loading="lazy">
                     <div class="project-content">
                         <h3>Card Games</h3>
-                        <p>Creating card games like Blackjack involved overcoming several challenges, such as implementing complex game logic, managing the flow of the game, and ensuring fairness in card shuffling and dealing. I also had overcome and handle edge cases like ties, blackjacks and hitting on 16. Through this process, I learned the importance of structuring code efficiently, making it reusable for similar projects such as Hi-Low.</p>
+                        <div class="project-tags">
+                            <span>Card Game</span>
+                            <span>Logic</span>
+                        </div>
+                        <p>Implementing Blackjack with reusable code, tackling complex logic and edge cases like ties and shuffles.</p>
                         <a href="CardGame.html" class="btn">View Project</a>
                     </div>
                 </div>
@@ -550,54 +582,64 @@
         </div>
     </section>
 
-
     <section class="game-slider">
         <div class="slider-container">
             <h2 class="section-title">Other Game Projects</h2>
             <div class="slider" id="gameSlider">
-                <a href="NoRestBelow.html"> <div class="slide">
-                    <img src="NoRestBelow.png" alt="No Rest Below - Survival Game"></a>  
-                    <div class="slide-content">
-                        <h3>No Rest Below</h3>
-                        <p>A survival game exploring underground exploration and resource management in a challenging environment.</p>
+                <a href="NoRestBelow.html">
+                    <div class="slide">
+                        <img src="NoRestBelow.png" alt="No Rest Below - Survival Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>No Rest Below</h3>
+                            <p>A survival game exploring underground exploration and resource management.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <a href="https://declancullen.itch.io/investigator-ghost-projecttwo-cullen">  <img src="Images/InspectorGhost.png" alt="InspectorGhost"></a> 
-                    <div class="slide-content">
-                        <h3>InspectorGhost</h3>
-                        <p>Solve the case of your death and resurrect yourself.</p>
+                </a>
+                <a href="https://declancullen.itch.io/investigator-ghost-projecttwo-cullen">
+                    <div class="slide">
+                        <img src="Images/InspectorGhost.png" alt="Inspector Ghost Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>Inspector Ghost</h3>
+                            <p>Solve the case of your death and resurrect yourself.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <a href="https://declancullen.itch.io/kingdom-combat">   <img src="Images/KingdomCombat.png" alt="KingdomCombat"></a> 
-                    <div class="slide-content">
-                        <h3>Kingdom Combat</h3>
-                        <p>Fight Monsters - made in a day for a game jam</p>
+                </a>
+                <a href="https://declancullen.itch.io/kingdom-combat">
+                    <div class="slide">
+                        <img src="Images/KingdomCombat.png" alt="Kingdom Combat Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>Kingdom Combat</h3>
+                            <p>Fight monsters in a game made in a day for a game jam.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <a href="https://tolu-ogbaro.itch.io/dont-shoot-em-up">  <img src="Images/DontShootEmUp.png" alt="DontShootEmUp"></a> 
-                    <div class="slide-content">
-                        <h3>DontShootEmUp</h3>
-                        <p>after playing too many retro games your stuck with a gun and constantly shooting, dont shoot people and make it to the exit, made in two days as a game jam.</p>
+                </a>
+                <a href="https://tolu-ogbaro.itch.io/dont-shoot-em-up">
+                    <div class="slide">
+                        <img src="Images/DontShootEmUp.png" alt="Don't Shoot Em Up Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>Don't Shoot Em Up</h3>
+                            <p>Avoid shooting people in this retro-inspired game jam entry.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <a href="https://declancullen.itch.io/the-kings-servant">  <img src="Images/TheKing'sServant.png" alt="TheKing'sServant"></a> 
-                    <div class="slide-content">
-                        <h3>The King's Servant</h3>
-                        <p>The princess is missing, you must save her... sword and sandals style of combat</p>
+                </a>
+                <a href="https://declancullen.itch.io/the-kings-servant">
+                    <div class="slide">
+                        <img src="Images/TheKing'sServant.png" alt="The King's Servant Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>The King's Servant</h3>
+                            <p>Rescue the princess in a sword-and-sandals combat adventure.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <a href="https://declancullen.itch.io/spacecore">    <img src="Images/SpaceCore.png" alt="SpaceCore"></a>
-                    <div class="slide-content">
-                        <h3>SpaceCore</h3>
-                        <p>A project inspired by starsector, way overly complicated so cancelled</p>
+                </a>
+                <a href="https://declancullen.itch.io/spacecore">
+                    <div class="slide">
+                        <img src="Images/SpaceCore.png" alt="SpaceCore Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>SpaceCore</h3>
+                            <p>An overambitious Starsector-inspired project, later canceled.</p>
+                        </div>
                     </div>
-                </div>
-            
+                </a>
             </div>
             <div class="slider-controls">
                 <button class="slider-btn" onclick="moveSlide(-1)">Previous</button>
@@ -612,11 +654,9 @@
             const slides = Array.from(slider.children);
             const slideWidth = slides[0].offsetWidth + parseInt(window.getComputedStyle(slider).gap);
 
-            // Move slides
             slider.style.transition = 'transform 0.5s ease-in-out';
             slider.style.transform = `translateX(${direction * -slideWidth}px)`;
 
-            // Reset position after transition
             setTimeout(() => {
                 slider.style.transition = 'none';
                 if (direction > 0) {
@@ -629,17 +669,13 @@
         }
     </script>
 
-    
-<section class="about" id="about">
-    <div class="container">
-        <div class="about-container">
-            <div class="about-text">
-                <h2 class="section-title">About Me</h2>
-<p>Hello, I'm Declan Cullen, a passionate game designer and developer based in the UK. My journey into the world of game design began at South Essex College and further deepened during my studies at the University of Ipswich. Over the years, I’ve cultivated a strong foundation in creating interactive entertainment that combines narrative depth with engaging mechanics.</p>
-
-<p>I recently graduated from Falmouth University with <b>distinction</b>, focusing on technical design. My studies centered around areas such as boids, procedural generation, L-systems, and pooling techniques. Additionally, I explored learning games, culminating in my final project, an <a href="IvrSafety.html">immersive IVR training experience</a>. My approach to game development emphasizes merging storytelling with innovative systems, resulting in projects that push the boundaries of conventional game experiences while maintaining accessibility and player engagement.</p>
-
-
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+                    <p>Hello, I'm Declan Cullen, a passionate game designer and developer based in the UK. My journey into game design began at South Essex College and deepened at the University of Ipswich. I recently graduated from Falmouth University with <b>distinction</b>, focusing on technical design.</p>
+                    <p>My work blends storytelling with innovative systems, as seen in projects like my <a href="IvrSafety.html">immersive IVR training experience</a>. I’m driven by a curiosity for how games can educate, entertain, and inspire, pushing boundaries while keeping experiences accessible and engaging.</p>
                     <h3 style="color: var(--accent); margin: 2rem 0 1rem;">Areas of Expertise:</h3>
                     <ul>
                         <li>Game Systems Design & Implementation</li>
@@ -648,7 +684,6 @@
                         <li>Educational and Serious Game Design</li>
                         <li>Procedural Generation Systems</li>
                     </ul>
-
                     <div class="skills-grid">
                         <div class="skill-item">Unity</div>
                         <div class="skill-item">Unreal Engine</div>
@@ -658,7 +693,7 @@
                         <div class="skill-item">Photon Networking</div>
                     </div>
                 </div>
-                <img src="Me.jpg" alt="Portrait of Declan Cullen" class="about-image">
+                <img src="Me.jpg" alt="Portrait of Declan Cullen" class="about-image" loading="lazy">
             </div>
         </div>
     </section>
@@ -678,4 +713,3 @@
     </footer>
 </body>
 </html>
- 
