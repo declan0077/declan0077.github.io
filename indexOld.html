@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Declan Cullen - Game Designer & Developer Portfolio</title>
+    <meta name="title" content="Declan Cullen Game Designer & Developer Portfolio">
+    <meta name="description" content="Declan Cullen, a UK-based game designer specializing in technical design portfolio page">
+    <meta name="keywords" content="game designer, game developer, VR games, educational games, Unity developer, Unreal Engine, UK game designer, Declan Cullen">
+    <meta name="author" content="Declan Cullen">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://declan0077.github.io/">
+    <meta property="og:title" content="Declan Cullen Game Designer & Developer Portfolio">
+    <meta property="og:description" content="Declan Cullen, a UK-based game designer specializing in technical design portfolio page">
+    <meta property="og:image" content="https://declancullen.com/portfolio-preview.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://declan0077.github.io/">
+    <meta property="twitter:title" content="Declan Cullen Game Designer & Developer Portfolio">
+    <meta property="twitter:description" content="Declan Cullen, a UK-based game designer specializing in technical design portfolio page">
+    <meta property="twitter:image" content="https://declancullen.com/portfolio-preview.jpg">
+
+    <!-- Additional SEO Tags -->
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="canonical" href="https://declan0077.github.io/">
+
+    <link rel="icon" href="Favicon.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <meta name="google-site-verification" content="_QWBQd_Y4e4lRH8e-Lt1M3HqNVqdDoWGknEvTAdFpFg" />
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2a2a2a;
+            --accent: #00b894;
+            --text: #ffffff;
+            --text-secondary: #a0a0a0;
+            --gradient: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 0;
+            background-color: rgba(26, 26, 26, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        a:focus, button:focus {
+            outline: 2px solid var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            animation: fadeBackground 15s infinite;
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        @keyframes fadeBackground {
+            0%, 18% { background-image: url("Screenshot.png"); opacity: 1; }
+            26%, 38% { background-image: url("Screenshot1.png"); opacity: 1; }
+            46%, 58% { background-image: url("Screenshot2.png"); opacity: 1; }
+            66%, 78% { background-image: url("FishBad.png"); opacity: 1; }
+            86%, 98% { background-image: url("4.png"); opacity: 1; }
+            19%, 26%, 59%, 79%, 99% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background: #1976D2;
+        }
+
+        /* Featured Projects */
+        .featured-projects {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            outline: 2px solid var(--accent);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .project-tags {
+            margin-bottom: 1rem;
+        }
+
+        .project-tags span {
+            background: var(--accent);
+            color: var(--text);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: var(--secondary);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .about-text li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .about-text li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .contact-email {
+            color: var(--accent);
+            font-size: 2rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-email:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            background: var(--secondary);
+        }
+
+        /* Game Slider */
+        .game-slider {
+            background-color: var(--secondary);
+            padding: 4rem 0;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .slider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease-in-out;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .slide {
+            flex: 0 0 calc(33.333% - 1.5rem);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: var(--primary);
+            min-width: 300px;
+        }
+
+        .slide:hover {
+            transform: scale(1.05);
+            outline: 2px solid var(--accent);
+        }
+
+        .slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .slide-content h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .slider-btn {
+            background-color: var(--accent);
+            color: var(--text);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background-color: color-mix(in srgb, var(--accent) 80%, white);
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .slide {
+                flex: 0 0 calc(80% - 1.5rem);
+                min-width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="nav-brand">Declan Cullen</a>
+            <div class="nav-links">
+                <a href="DeclanCullenCV.pdf">CV</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Game Designer & Developer</h1>
+            <p>Specializing in VR, educational games, and immersive experiences</p>
+            <a href="#projects" class="hero-btn">View My Work</a>
+        </div>
+    </section>
+
+    <section class="featured-projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A showcase of my most impactful and innovative contributions in game design and development</p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="ModularSpaceshipImg.png" alt="New Modular Spaceship Prototype Screenshot" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <h3>Modular Spaceship Builder</h3>
+                        <div class="project-tags">
+                            <span>Prototype</span>
+                            <span>Programming</span>
+                        </div>
+                        <p>A recreation of my old prototype developed with better knowledge of programming and making use of better principles.</p>
+                        <a href="ModularSpaceshipBuilder.html" class="btn">View Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="IVRtraining.png" alt="IVR Safety Training Project Screenshot" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <h3>IVR Safety Training</h3>
+                        <div class="project-tags">
+                            <span>VR</span>
+                            <span>Educational</span>
+                        </div>
+                        <p>Leveraging VR to create an immersive safety training experience, blending educational content with engaging simulations.</p>
+                        <a href="IvrSafety.html" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="ArkcarmicDescent.png" alt="Arkcarmic Descent Project Screenshot" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <h3>Arkcarmic Descent</h3>
+                        <div class="project-tags">
+                            <span>Action-Adventure</span>
+                            <span>Immersive Sim</span>
+                        </div>
+                        <p>A vertical slice inspired by immersive sims, featuring dynamic environments and physics-based puzzles.</p>
+                        <a href="ArkcarmicDescent.html" class="btn">View Game</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="TheLastCatch.png" alt="The Last Catch Project Screenshot" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <h3>The Last Catch</h3>
+                        <div class="project-tags">
+                            <span>Puzzle</span>
+                            <span>Educational</span>
+                        </div>
+                        <p>A fresh take on Minesweeper, raising awareness about marine conservation through engaging gameplay.</p>
+                        <a href="TheLastCatch.html" class="btn">View Game</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="SpaceShip.png" alt="Modular Space Ships Project Screenshot" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <h3>Modular Spaceship Builder (Old)</h3>
+                        <div class="project-tags">
+                            <span>Prototype</span>
+                            <span>Learning</span>
+                        </div>
+                        <p>An ambitious project inspired by Captain Forever, teaching valuable lessons in scoping and design.</p>
+                        <a href="spaceshipBuilder.html" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="Images.png" alt="Procedural Terrain Generation Project Screenshot" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <h3>Procedural Terrain Generation</h3>
+                        <div class="project-tags">
+                            <span>Procedural</span>
+                            <span>3D Modeling</span>
+                        </div>
+                        <p>Exploring terrain generation with Perlin noise, island creation, and river carving, inspired by RimWorld.</p>
+                        <a href="PCGterrain.html" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="Itch.png" alt="Card Games Project Screenshot" class="project-image" loading="lazy">
+                    <div class="project-content">
+                        <h3>Card Games</h3>
+                        <div class="project-tags">
+                            <span>Card Game</span>
+                            <span>Logic</span>
+                        </div>
+                        <p>Implementing Blackjack with reusable code, tackling complex logic and edge cases like ties and shuffles.</p>
+                        <a href="CardGame.html" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="game-slider">
+        <div class="slider-container">
+            <h2 class="section-title">Other Game Projects</h2>
+            <div class="slider" id="gameSlider">
+                <a href="NoRestBelow.html">
+                    <div class="slide">
+                        <img src="NoRestBelow.png" alt="No Rest Below - Survival Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>No Rest Below</h3>
+                            <p>A survival game exploring underground exploration and resource management.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://declancullen.itch.io/investigator-ghost-projecttwo-cullen">
+                    <div class="slide">
+                        <img src="Images/InspectorGhost.png" alt="Inspector Ghost Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>Inspector Ghost</h3>
+                            <p>Solve the case of your death and resurrect yourself.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://declancullen.itch.io/kingdom-combat">
+                    <div class="slide">
+                        <img src="Images/KingdomCombat.png" alt="Kingdom Combat Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>Kingdom Combat</h3>
+                            <p>Fight monsters in a game made in a day for a game jam.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://tolu-ogbaro.itch.io/dont-shoot-em-up">
+                    <div class="slide">
+                        <img src="Images/DontShootEmUp.png" alt="Don't Shoot Em Up Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>Don't Shoot Em Up</h3>
+                            <p>Avoid shooting people in this retro-inspired game jam entry.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://declancullen.itch.io/the-kings-servant">
+                    <div class="slide">
+                        <img src="Images/TheKing'sServant.png" alt="The King's Servant Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>The King's Servant</h3>
+                            <p>Rescue the princess in a sword-and-sandals combat adventure.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://declancullen.itch.io/spacecore">
+                    <div class="slide">
+                        <img src="Images/SpaceCore.png" alt="SpaceCore Game Screenshot" loading="lazy">
+                        <div class="slide-content">
+                            <h3>SpaceCore</h3>
+                            <p>An overambitious Starsector-inspired project, later canceled.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" onclick="moveSlide(-1)">Previous</button>
+                <button class="slider-btn" onclick="moveSlide(1)">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function moveSlide(direction) {
+            const slider = document.getElementById('gameSlider');
+            const slides = Array.from(slider.children);
+            const slideWidth = slides[0].offsetWidth + parseInt(window.getComputedStyle(slider).gap);
+
+            slider.style.transition = 'transform 0.5s ease-in-out';
+            slider.style.transform = `translateX(${direction * -slideWidth}px)`;
+
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                if (direction > 0) {
+                    slider.appendChild(slides[0]);
+                } else {
+                    slider.insertBefore(slides[slides.length - 1], slides[0]);
+                }
+                slider.style.transform = 'translateX(0)';
+            }, 500);
+        }
+    </script>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+                    <p>Hello, I'm Declan Cullen, a passionate game designer and developer based in the UK. My journey into game design began at South Essex College and deepened at the University of Ipswich. I recently graduated from Falmouth University with <b>distinction</b>, focusing on technical design.</p>
+                    <p>My work blends storytelling with innovative systems, as seen in projects like my <a href="IvrSafety.html">immersive IVR training experience</a>. I’m driven by a curiosity for how games can educate, entertain, and inspire, pushing boundaries while keeping experiences accessible and engaging.</p>
+                    <h3 style="color: var(--accent); margin: 2rem 0 1rem;">Areas of Expertise:</h3>
+                    <ul>
+                        <li>Game Systems Design & Implementation</li>
+                        <li>Virtual Reality (VR) Development</li>
+                        <li>Narrative Design & World Building</li>
+                        <li>Educational and Serious Game Design</li>
+                        <li>Procedural Generation Systems</li>
+                    </ul>
+                    <div class="skills-grid">
+                        <div class="skill-item">Unity</div>
+                        <div class="skill-item">Unreal Engine</div>
+                        <div class="skill-item">VR Development</div>
+                        <div class="skill-item">Maya</div>
+                        <div class="skill-item">Blender</div>
+                        <div class="skill-item">Photon Networking</div>
+                    </div>
+                </div>
+                <img src="Me.jpg" alt="Portrait of Declan Cullen" class="about-image" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Interested in collaborating or learning more? Reach out, and let’s create something amazing together.</p>
+            <a href="mailto:Declanmichaelcullen@gmail.com" class="contact-email">Declanmichaelcullen@gmail.com</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Declan Cullen Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
