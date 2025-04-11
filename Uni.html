@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arkcarmic Descent | Game Portfolio</title>
+    <title>Falmouth University | Game Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f1117;
-            --bg-secondary: #1a1e24;
-            --text-primary: #e0e6ed;
-            --text-secondary: #8a94a6;
-            --accent-color: #4a90e2;
-            --accent-hover: #6ab0ff;
+            --bg-color: #1e1e2e;
+            --card-bg: #302f42;
+            --text-color: #e2e2f0;
+            --accent-color: #f876b7;
+            --secondary-color: #a5c9ff;
+            --tertiary-color: #a5ddb8;
+            --highlight: #ffd166;
         }
 
         * {
@@ -20,27 +22,56 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
         /* Header & Navigation */
         .header {
-            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.9));
+            background: linear-gradient(to right, rgba(30, 30, 46, 0.97), rgba(48, 47, 66, 0.97));
             position: fixed;
             width: 100%;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            padding: 1.2rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--accent-color);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '{ ';
+            color: var(--secondary-color);
+        }
+
+        .logo::after {
+            content: ' }';
+            color: var(--secondary-color);
         }
 
         .nav-links {
@@ -49,115 +80,442 @@
         }
 
         .nav-links a {
-            color: var(--light);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Navigation */
-        .navbar {
-            background-color: var(--bg-secondary);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
             color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(30, 30, 46, 0.8), rgba(48, 47, 66, 0.9)), url('Falmouth.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 12rem 0 8rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--bg-color), transparent);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .university-logo {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* Sections */
         .section {
-            padding: 4rem 0;
-            background-color: var(--bg-dark);
+            padding: 6rem 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
+            position: relative;
         }
 
         .section-title {
-     
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
         }
 
+        .section-subtitle {
+            color: var(--text-color);
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
         .card {
-            background-color: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+    min-height: 0; /* Override any default min-height */
+    height: auto; /* Allow card to shrink to content size */
+    display: flex;
+    flex-direction: column;
+}
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
         }
 
         .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
         .card-title {
             color: var(--accent-color);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 1.5px;
         }
 
         .card-content {
-            color: var(--text-secondary);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .card-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Book Highlight */
+        .book-title {
+            font-style: italic;
+            background-color: rgba(255, 209, 102, 0.15);
+            color: var(--highlight);
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--highlight);
+            display: inline-block;
+        }
+
+        /* Images */
+        .image-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .image-container {
+            position: relative;
+            flex: 1 1 45%;
+            min-width: 300px;
+            max-width: 100%;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .image-container:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            aspect-ratio: 16/9;
+            object-fit: contain;
+            background: var(--bg-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Modal for expanded images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(5px);
+            overflow: auto;
+        }
+
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        .close:hover {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
         /* List Styles */
         .card ul {
             list-style-type: none;
-            padding-left: 1rem;
+            padding-left: 0.5rem;
+            margin: 1.5rem 0;
         }
 
         .card ul li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
+            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-color);
         }
 
         .card ul li::before {
-            content: '•';
+            content: '→';
             color: var(--accent-color);
             position: absolute;
             left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .card ul li strong {
+            color: var(--secondary-color);
+            font-weight: 600;
         }
 
         .card ul ul {
-            margin-top: 0.5rem;
+            margin-top: 1rem;
+            margin-left: 1rem;
+        }
+
+        .card ul ul li::before {
+            content: '•';
+            color: var(--tertiary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(26, 26, 36, 0.8);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer p {
+            color: var(--text-color);
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
+            body {
+                font-size: 0.95rem;
+            }
+            
+            .hero {
+                padding: 9rem 0 5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+
             .section-title {
+                font-size: 2.4rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card {
+                padding: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.8rem;
+            }
+            
+            .presentation-container {
+                padding: 2.5rem;
+            }
+            
+            .presentation-container h2 {
                 font-size: 2rem;
             }
+            
+            .image-container {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* Card Grid Enhancements */
+        .overall-card {
+            grid-column: 1 / -1;
+        }
+
+        .special-img-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .special-img-container img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .special-img-container img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Number indicators for cards */
+        .card {
+            counter-increment: card-counter;
+        }
+
+        .card::after {
+            content: "0" counter(card-counter);+
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 0;
         }
     </style>
 </head>
@@ -167,66 +525,221 @@
             <a href="#" class="logo">Gam706</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+            </div>
         </nav>
     </header>
-<br><br><br><br>
-    <section class="centered-section">
-     
-        <div style="text-align: center;">
-   <h2>What I learned during my first few months</h2>
-            <iframe src="https://falmouthac-my.sharepoint.com/personal/dc303354_falmouth_ac_uk/_layouts/15/Doc.aspx?sourcedoc={7b4281a7-63b5-4b08-a921-87ccae9bf9e4}&action=embedview&wdAr=1.7777777777777777" width="1248px" height="720px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+    <section class="hero">
+        <div class="container">
+            <img src="Falmouth_University_Logo.gif" alt="Falmouth University" class="university-logo">
+            <h1>Falmouth University</h1>
+            <p>Here's what I did during my masters.</p>
         </div>
     </section>
- <div class="container">
+    
+    <div class="container">
         <section class="section">
             <div class="section-header">
-                <h1 class="section-title">Projects & Learning Journey</h1>
+                <h2 class="section-title">First Module</h2>
+                <p class="section-subtitle">During my first module, we were tasked with learning as much as we could and deciding on a specialization. I focused on various projects that allowed me to explore different aspects of game development with a technical focus. Below are some of the key projects I worked on during my first module:</p>
             </div>
 
-            <div class="card">
-                <h2 class="card-title">BOIDS Project</h2>
-                <div class="card-content">
-                    <p>Simulating flocking behaviors using a distributed behavioral model inspired by Craig W. Reynolds' 1987 paper.</p>
-                    <ul>
-                        <li><strong>Alignment:</strong> Synchronizing agent movement directions</li>
-                        <li><strong>Cohesion:</strong> Maintaining group formation</li>
-                        <li><strong>Separation:</strong> Preventing agent collisions</li>
-                    </ul>
+            <div class="cards-container">
+                <div class="card">
+                    <h3 class="card-title">Optimisation</h3>
+                    <div class="card-content">
+                        <p>Since I was learning as much technical design as I could, I started looking into how to optimize code and apply SOLID principles. Specifically, I made use of:</p>
+                        <ul>
+                            <li><strong>Single Responsibility Principle (SRP):</strong> Ensuring that each class or module had a single, well-defined responsibility, making the code easier to maintain and extend.</li>
+                            <li><strong>Open/Closed Principle (OCP):</strong> Designing the system to be open for extension but closed for modification, allowing new functionality to be added without altering existing code.</li>
+                            <li><strong>Interface Segregation Principle (ISP):</strong> Splitting large interfaces into smaller, more specific ones so that implementing classes only needed to concern themselves with methods they actually used.</li>
+                        </ul>
+                        <p>These principles helped me create a more modular and maintainable codebase, which is crucial in game development where complexity can quickly escalate.</p>
+                        <p>Additionally, I started looking into how to optimize the code for performance. I found that using <strong>structs</strong> instead of classes for certain data types could help reduce memory overhead and improve performance, especially in scenarios where many instances of a type were created.</p>
+
+                        <p>I also learned how to make use of Addressables in Unity. Addressables is a system in Unity that simplifies the management of assets by allowing developers to load and unload assets dynamically at runtime. It provides an efficient way to handle large amounts of content, optimize memory usage, and reduce build size. Using Addressables, I was able to load assets asynchronously, you can even host assets remotely for better scalability such as updating a game with new puzzles.</p>
+                        <div class="image-container" onclick="openModal('Addressables.png')">
+                            <img src="Addressables.png" alt="Object Pooling">
+                        </div>
+                        <p>By using Addressables, I could load only the assets needed for a specific scene or gameplay moment, reducing memory usage and improving performance.</p>
+                        <p>Another concept I explored was Runtime-ScriptableObjects. In Unity, ScriptableObjects are a powerful tool for storing data independently of scene objects, making them reusable and shareable across different parts of a project. However, traditional ScriptableObjects are static and cannot be modified during runtime.</p>
+                        
+                        <p>Runtime-ScriptableObjects extend this functionality by allowing dynamic creation and modification of ScriptableObjects while the game is running. This makes them particularly useful for scenarios such as:</p>
+                        <ul>
+                            <li><strong>Saving Game States:</strong> Storing and managing player progress or game configurations dynamically.</li>
+                            <li><strong>Procedural Content Generation:</strong> Generating and storing data for procedurally created levels or assets.</li>
+                            <li><strong>Runtime Configurations:</strong> Adjusting game settings or behaviors without relying on pre-defined assets.</li>
+                        </ul>
+                        <div class="image-container" onclick="openModal('RuntimeScriptableobjects.png')">
+                            <img src="RuntimeScriptableobjects.png" alt="Object Pooling">
+                        </div>
+                        <p>In one of my older projects, I used ScriptableObjects to manage an inventory system. However, I encountered a limitation where the data stored in the ScriptableObjects could not persist or carry over after the game session ended. By exploring Runtime-ScriptableObjects, I learned how to overcome this limitation by dynamically creating and managing inventory data during runtime, ensuring it could be saved and reused effectively.</p>
+                    
+                        <p>Finally, I explored the concept of object pooling, which is a design pattern used to manage the reuse of objects to improve performance and reduce memory overhead. Initially, I underestimated its importance, but after deeper exploration, I realized its potential in scenarios involving frequent instantiation and destruction of objects, such as projectiles in a game.</p>
+                        
+                        <p>Object pooling operates on two main principles:</p>
+                        <ul>
+                            <li><strong>First-In-Last-Out (FILO):</strong> Objects that are added to the pool first are reused last, ensuring that the most recently used objects are prioritized for reuse.</li>
+                            <li><strong>Last-In-First-Out (LIFO):</strong> Objects that are added to the pool last are reused first, which can be useful in scenarios where the most recently used objects are likely to be needed again soon.</li>
+                        </ul>
+                        
+                        <p>To test this, I created a small project where a large number of projectiles were spawned and reused using an object pool. The pool dynamically allocated new objects when needed, using lazy loading to ensure that additional objects were only created when the pool was exhausted. This approach significantly reduced the overhead of frequent instantiation and garbage collection, leading to smoother performance.</p>
+                        <div class="image-container" onclick="openModal('ObjectPooling.png')">
+                            <img src="ObjectPooling.png" alt="Object Pooling">
+                        </div>
+                        <p>Key technical benefits I observed while implementing object pooling:</p>
+                        <ul>
+                            <li><strong>Reduced Garbage Collection:</strong> By reusing objects, the need for frequent memory allocation and deallocation was minimized, reducing the strain on the garbage collector.</li>
+                            <li><strong>Improved Performance:</strong> The reuse of pre-allocated objects eliminated the overhead of creating and destroying objects during runtime, resulting in more consistent frame rates.</li>
+                            <li><strong>Scalability:</strong> The pool could dynamically expand to accommodate additional objects when needed, ensuring flexibility without compromising performance.</li>
+                        </ul>
+                        
+                        <p>In the context of game development, object pooling is particularly useful for managing frequently used objects such as bullets, enemies, or particle effects. By implementing this pattern, I gained a deeper understanding of memory management and performance optimization, which are critical aspects of creating efficient and scalable games.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">BOIDS Project</h3>
+                    <div class="card-content">
+                        <p>I recreated a flocking simulation inspired by Craig W. Reynolds' 1987 paper, using a distributed behavioral model with three core rules:</p>
+                        <ul>
+                            <li><strong>Cohesion:</strong> Boids move toward the average position of nearby flockmates to stay grouped.</li>
+                            <li><strong>Avoidance:</strong> Boids maintain distance to prevent collisions.</li>
+                            <li><strong>Alignment:</strong> Boids align their movement with the average heading of nearby flockmates.</li>
+                        </ul>
+                        <p>These rules create emergent behaviors mimicking flocks or schools. This model was notably used in Disney’s <em>The Lion King</em> for the wildebeest stampede, simulating lifelike herd movement efficiently.</p>
+                        <div class="image-row">
+                            <div class="image-container" onclick="openModal('Boids1.png')">
+                                <img src="Boids1.png" alt="BOIDS Project">
+                            </div>
+                            <div class="image-container" onclick="openModal('Boids2.png')">
+                                <img src="Boids2.png" alt="BOIDS Project">
+                            </div>
+                        <ul>
+                            <li><strong>Alignment:</strong> Synchronizing agent movement directions</li>
+                            <li><strong>Cohesion:</strong> Maintaining group formation</li>
+                            <li><strong>Separation:</strong> Preventing agent collisions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">L-System Project</h3>
+                    <div class="card-content">
+                        <p>I was reading <span class="book-title">Procedural Content Generation in Games by Noor Shaker, Julian Togelius, Mark J. Nelson</span> and I found the L-System generation section quite interesting, so I attempted to recreate its rule-based generation approach in Unity along with attempting to generate some simple 3D shapes to visualize the plants.</p>
+                        
+                        <div class="image-row">
+                            <div class="image-container" onclick="openModal('Plants1.png')">
+                                <img src="Plants1.png" alt="L-System Project">
+                            </div>
+                            <div class="image-container" onclick="openModal('Plants2.png')">
+                                <img src="Plants2.png" alt="L-System Project">
+                            </div>
+                        </div>
+                        
+                        <p>Procedural content generation using grammar-based techniques for modeling organic structures.</p>
+                        
+                        <p>One idea I had while creating this was a game where you controlled the mutations of the plants and the game would be a calm gardening game where the player could control how the plants grew by messing with the rules. Birds would fly in and drop new seeds with their own rules of growth, and the player could mutate them with other plants.</p>
+                        
+                        <ul>
+                            <li><strong>Grammar Rules:</strong> Iterative symbol replacement</li>
+                            <li><strong>Applications:</strong>
+                                <ul>
+                                    <li>Generating lifelike vegetation</li>
+                                    <li>Creating organic level design elements</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Mesh Generation Techniques</h3>
+                    <div class="card-content">
+                        <p>I started by plotting vectors in my notepad (1,0)(1,1)(0,1)(0,0) which would generate a face—they would connect like triangles.</p>
+                        
+                        <p>I started to look into how to generate meshes in Unity. I found a few tutorials on how to do this and I was able to create a basic cube, and then I started to look into how to generate more complex shapes like the ones below.</p>
+                        
+                        <div class="image-row">
+                            <div class="image-container" onclick="openModal('Shape1.png')">
+                                <img src="Shape1.png" alt="Mesh Generation">
+                            </div>
+                            <div class="image-container" onclick="openModal('Shape4.png')">
+                                <img src="Shape4.png" alt="Mesh Generation">
+                            </div>
+                        </div>
+                        
+                        <div class="image-row">
+                            <div class="image-container" onclick="openModal('Shape2.png')">
+                                <img src="Shape2.png" alt="Mesh Generation">
+                            </div>
+                            <div class="image-container" onclick="openModal('Shape3.png')">
+                                <img src="Shape3.png" alt="Mesh Generation">
+                            </div>
+                        </div>
+                        
+                        <p>From this basic knowledge of how to plot and connect points, I wanted to see if I could make use of Perlin noise to generate the height offset of lots of faces connected together.</p>
+                        
+                        <div class="image-row">
+                            <div class="image-container" onclick="openModal('LandGen.gif')">
+                                <img src="LandGen.gif" alt="Terrain Generation">
+                            </div>
+                            <div class="image-container" onclick="openModal('LandGen2.gif')">
+                                <img src="LandGen2.gif" alt="Terrain Generation">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
+            
             <div class="card">
-                <h2 class="card-title">L-System Project</h2>
+                <h3 class="card-title">Overall</h3>
                 <div class="card-content">
-                    <p>Procedural content generation using grammar-based techniques for modeling organic structures.<br> One idea I had while creating this was a game where you controlled the mutations of the planets and the game would be a calm gardening game where the player could control how the plants grew</p>
-                    <ul>
-                        <li><strong>Grammar Rules:</strong> Iterative symbol replacement</li>
-                        <li><strong>Applications:</strong>
-                            <ul>
-                                <li>Generating lifelike vegetation</li>
-                                <li>Creating organic level design elements</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2 class="card-title">Mesh Generation Techniques</h2>
-                <div class="card-content">
-                    <p>Programmatic 3D model creation with focus on runtime efficiency and dynamic environment generation.<br> You can check out what I made using it here         <a href="PCGterrain.html" class="btn">View Project</a></p>
-                    <ul>
-                        <li><strong>Custom Algorithms:</strong> Dynamic mesh generation</li>
-                        <li><strong>Optimization:</strong> Reducing computational overhead</li>
-                        <li><strong>Use Cases:</strong>
-                            <ul>
-                                <li>Procedural level creation</li>
-                                <li>Dynamic terrain generation</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <p>Overall, I enjoyed how the first module allowed for solo learning and experimentation. I delved into optimization techniques, explored flocking behaviors, and experimented with procedural content generation. These projects not only enhanced my technical skills but also showcasses my passion for creating immersive and dynamic game experiences.</p>
+                    <p>I would <strong>recommend</strong> the university if you're looking to do your master's. All the lecturers were friendly and knowledgeable.</p>
                 </div>
             </div>
         </section>
+        <section class="presentation-container">
+            <h2>What I Learned During My First Few Months - PowerPoint</h2>
+            <div class="responsive-iframe">
+                <iframe src="https://falmouthac-my.sharepoint.com/personal/dc303354_falmouth_ac_uk/_layouts/15/Doc.aspx?sourcedoc={7b4281a7-63b5-4b08-a921-87ccae9bf9e4}&action=embedview&wdAr=1.7777777777777777"></iframe>
+            </div>
+        </section>
+    </div>
+  
+  
+    
+    <!-- Modal for expanded images -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="expandedImage">
+    </div>
+
+    <script>
+        // Image modal functionality
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('expandedImage');
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
+                        
