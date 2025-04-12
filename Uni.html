@@ -203,12 +203,7 @@
             gap: 3rem;
             margin-bottom: 5rem;
         }
-        .card {
-    min-height: 0; /* Override any default min-height */
-    height: auto; /* Allow card to shrink to content size */
-    display: flex;
-    flex-direction: column;
-}
+  
 
         .card {
             background-color: var(--card-bg);
@@ -402,30 +397,6 @@
             color: var(--tertiary-color);
         }
 
-        /* Footer */
-        .footer {
-            background-color: rgba(26, 26, 36, 0.8);
-            padding: 3rem 0;
-            text-align: center;
-            margin-top: 5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer p {
-            color: var(--text-color);
-            font-size: 1rem;
-            opacity: 0.7;
-        }
-
-        .footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--secondary-color);
-        }
 
         /* Responsive */
         @media (max-width: 1200px) {
@@ -467,14 +438,6 @@
                 font-size: 1.8rem;
             }
             
-            .presentation-container {
-                padding: 2.5rem;
-            }
-            
-            .presentation-container h2 {
-                font-size: 2rem;
-            }
-            
             .image-container {
                 flex: 1 1 100%;
             }
@@ -508,15 +471,17 @@
         }
 
         .card::after {
-            content: "0" counter(card-counter);+
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.05);
-            z-index: 0;
-        }
+            content: "0" counter(card-counter)+1;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 3rem;
+                font-weight: 700;
+                color: rgba(255, 255, 255, 0.05);
+                z-index: 0;
+            }
+        
+    
     </style>
 </head>
 <body>
@@ -698,12 +663,6 @@
                     <p>Overall, I enjoyed how the first module allowed for solo learning and experimentation. I delved into optimization techniques, explored flocking behaviors, and experimented with procedural content generation. These projects not only enhanced my technical skills but also showcasses my passion for creating immersive and dynamic game experiences.</p>
                     <p>I would <strong>recommend</strong> the university if you're looking to do your master's. All the lecturers were friendly and knowledgeable.</p>
                 </div>
-            </div>
-        </section>
-        <section class="presentation-container">
-            <h2>What I Learned During My First Few Months - PowerPoint</h2>
-            <div class="responsive-iframe">
-                <iframe src="https://falmouthac-my.sharepoint.com/personal/dc303354_falmouth_ac_uk/_layouts/15/Doc.aspx?sourcedoc={7b4281a7-63b5-4b08-a921-87ccae9bf9e4}&action=embedview&wdAr=1.7777777777777777"></iframe>
             </div>
         </section>
     </div>
