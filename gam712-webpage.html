@@ -11,8 +11,11 @@
             --accent-color: #fda085;
             --text-color: #333;
             --light-text: #f5f5f5;
-            --background: #f9f9f9;
+            --background: #fbfbfb;
+            --section-bg: #f0f4f8;
         }
+        
+
         
         * {
             margin: 0;
@@ -22,102 +25,110 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             color: var(--text-color);
             background-color: var(--background);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary-color), #0a1e2e);
+            background: linear-gradient(to right, var(--primary-color), #0a1e2e);
             color: var(--light-text);
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
         }
         
         .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            z-index: 2;
         }
         
-        .water-effect {
+        .back-link {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: rgba(36, 90, 125, 0.5);
-            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-            transform: scaleX(1.5);
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .back-link a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link a:hover {
+            color: var(--secondary-color);
+            transform: translateX(-3px);
+        }
+        
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+        
+        .module-info {
+            display: flex;
+            align-items: baseline;
         }
         
         .module-code {
-            font-size: 4rem;
+            font-size: 2rem;
             font-weight: bold;
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
         }
         
         .module-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            font-size: 1.2rem;
+            color: var(--light-text);
         }
         
         section {
-            padding: 4rem 0;
+            padding: 1.5rem 0;
+            margin-bottom: 1.5rem;
         }
         
         .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
+            font-size: 1.5rem;
             color: var(--primary-color);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-            margin: 1rem auto;
-            border-radius: 2px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-color);
         }
         
         .intro-content {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
+            gap: 1.5rem;
+            align-items: flex-start;
         }
         
         .intro-text {
-            flex: 1;
-            min-width: 300px;
+            flex: 2;
         }
         
         .intro-image {
             flex: 1;
-            min-width: 300px;
-            border-radius: 10px;
+            min-width: 200px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
         .intro-image img {
@@ -126,248 +137,266 @@
             display: block;
         }
         
-        .projects {
-            background-color: #f0f4f8;
-        }
-        
-        .project-section {
-            padding: 4rem 0;
-        }
-        
-        .project-section.alternate {
-            background-color: #f0f4f8;
-        }
-        
-        .project-content-full {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .project-image-large {
-            width: 100%;
-            border-radius: 10px;
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
         
-        .project-image-large img {
+        .project-header {
+            background-color: var(--section-bg);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-theme {
+            flex: 1;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .project-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        
+        .project-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
         }
         
-        .project-image-large:hover img {
-            transform: scale(1.02);
+        .project-image:hover img {
+            transform: scale(1.03);
         }
         
         .project-details {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 2;
+            min-width: 250px;
         }
         
-        .project-details h3 {
+        .project-section-title {
             color: var(--primary-color);
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            margin: 0.75rem 0 0.35rem 0;
         }
         
-        .project-details h3:first-child {
+        .project-section-title:first-child {
             margin-top: 0;
         }
         
         .project-details ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
         }
         
         .project-details li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
         }
         
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-        
-        .project-desc {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        .project-details p {
+            margin-bottom: 0.75rem;
         }
         
         footer {
             background-color: var(--primary-color);
             color: var(--light-text);
             text-align: center;
-            padding: 2rem 0;
+            padding: 1rem 0;
+            border-radius: 10px 10px 0 0;
+            font-size: 0.85rem;
+            margin-top: 2rem;
         }
         
-        .footer-content {
-            font-size: 0.9rem;
-        }
-        
-        .footer-content a {
+        footer a {
             color: var(--secondary-color);
             text-decoration: none;
         }
         
         @media (max-width: 768px) {
-            .project-grid {
-                grid-template-columns: 1fr;
+            .back-link {
+                position: static;
+                margin-bottom: 10px;
+                transform: none;
+            }
+            
+            .title-container {
+                flex-direction: column;
             }
             
             h1 {
-                font-size: 2.5rem;
+                margin-right: 0;
+                margin-bottom: 0.5rem;
             }
             
-            .module-code {
-                font-size: 3rem;
+            .intro-content {
+                flex-direction: column;
+            }
+            
+            .intro-image {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .project-content {
+                flex-direction: column;
+            }
+            
+            .project-image {
+                width: 100%;
+                max-width: none;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="water-effect"></div>
-        <div class="container header-content">
-            <h1>FALMOUTH UNIVERSITY</h1>
-            <div class="module-code">GAM712</div>
-            <div class="module-title">MODULE TWO</div>
+        <header>
+        <div class="header-content">
+            <div class="back-link">
+                <a href="index.html">← Back to Homepage</a>
+            </div>
+            <div class="title-container">
+                <h1>FALMOUTH UNIVERSITY</h1>
+                <div class="module-info">
+                    <div class="module-code">GAM712</div>
+                    <div class="module-title">MODULE TWO</div>
+                </div>
+            </div>
         </div>
     </header>
     
     <section id="introduction">
-        <div class="container">
-            <h2 class="section-title">Introduction</h2>
-            <div class="intro-content">
-                <div class="intro-text">
-                    <p>Welcome to my GAM712 Module Two portfolio. This module focused on rapid game design and iteration, providing me with the opportunity to quickly explore and refine innovative approaches while developing my skills as a game designer.<br><br></p>
-                    <p>Throughout the course, I created six prototypes, each focusing on different gameplay mechanics, narrative elements, or design styles. From these, I selected my top three as my final submission, as they either taught me the most or presented the greatest challenges, pushing me to grow as a designer. This process allowed me to experiment, iterate, and focus on areas where I felt I gained the most insight or where I needed to develop.<br><br></p>
-                    <p>The best thing I found on this module was <b>YarnSpinner</b> Its something ive used in a few of my projects now and its a really good narrative tool.</p>
-                </div>
-                
-                <div class="intro-image">
-                    <img src="Rapid.png" alt="Game Development Process">
-                </div>
+        <h2 class="section-title">Introduction</h2>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p>Welcome to my GAM712 Module Two portfolio. This module focused on rapid game design and iteration, providing me with the opportunity to quickly explore and refine innovative approaches while developing my skills as a game designer.</p>
+                <p>Throughout the course, I created six prototypes, each focusing on different gameplay mechanics, narrative elements, or design styles. From these, I selected my top three as my final submission, as they either taught me the most or presented the greatest challenges, pushing me to grow as a designer.</p>
+                <p>The best thing I found on this module was <b>YarnSpinner</b>. It's something I've used in a few of my projects now and it's a really good narrative tool.</p>
+            </div>
+            
+            <div class="intro-image">
+                <img src="Rapid.png" alt="Game Development Process">
             </div>
         </div>
     </section>
     
     <!-- Project 1 -->
-    <section id="project1" class="project-section">
-        <div class="container">
-            <h2 class="section-title">Theme: The illusion of choice</h2>
-            <div class="project-content-full">
-                <div class="project-image-large">
+    <section id="projects">
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-theme">Theme: The illusion of choice</div>
+            </div>
+            <div class="project-content">
+                <div class="project-image">
                     <img src="StarGam712.png" alt="Interactive Narrative Experience">
+                    <img src="StarGam712-1.png" alt="Interactive Narrative Experience">
+                    <img src="StarGam712-2.png" alt="Interactive Narrative Experience">
+
                 </div>
                 <div class="project-details">
-                    <h3>Project Overview</h3>
+                    <h3 class="project-section-title">Project Overview</h3>
                     <p>This project involved creating a narrative-driven game titled "StarStory" which explores the concept of the illusion of choice. Players navigate a tense scenario aboard a starship invaded by aliens, making decisions that appear to influence the story while ultimately leading to a predetermined outcome.</p>
                     
-                    <h3>Development Process</h3>
-                    <p>I started by thinking about how Telltale Games approach their narrative games. Normally, the player can't actually change the outcome but can make smaller in-story decisions. I don't usually create narrative games, so this type of project was a challenge for me. Everyone else was working with Twine, but I wanted to stick with learning Unity. I looked into narrative plugins and found <a href="https://yarnspinner.dev/" target="_blank">Yarn Spinner</a>. It was amazingly easy to use and perfect for someone technical, as you can call methods and link variables in their Yarn script or in your own script.<br><br> 
-                    From there, I started to develop a narrative story. I really like Star Trek, so I wanted to create a plotline that could have happened in the show. The general idea was that aliens have boarded the ship. In the first run of the game, most players would try diplomacy. From that, they would be given secret variables that change how the game plays out, but not the ending itself.<br><br> 
-                    In the next run, players have more information and can quickly figure out what they need to do to end the game. The game goes in an unending loop until the player figures it out.</p>
+                    <h3 class="project-section-title">Development Process</h3>
+                    <p>I started by thinking about how Telltale Games approach their narrative games. Normally, the player can't actually change the outcome but can make smaller in-story decisions. I don't usually create narrative games, so this type of project was a challenge for me. Everyone else was working with Twine, but I wanted to stick with learning Unity. I looked into narrative plugins and found <a href="https://yarnspinner.dev/" target="_blank">Yarn Spinner</a>.</p>
+                    <p>From there, I started to develop a narrative story. I really like Star Trek, so I wanted to create a plotline that could have happened in the show. The general idea was that aliens have boarded the ship. In the first run of the game, most players would try diplomacy. From that, they would be given secret variables that change how the game plays out, but not the ending itself.</p>
                     
-                    <h3>Key Features</h3>
+                    <h3 class="project-section-title">Key Features</h3>
                     <ul>
                         <li>Character relationship mechanics that influence game outcomes</li>
                         <li>Dynamic dialogue options based on previous player choices</li>
                     </ul>
-                    
-                    <h3>Technical Implementation</h3>
-                    <p>The narrative system was built using a prebuilt dialogue manager that tracks state changes and triggers appropriate story branches. Player choices are stored in a persistent data structure, allowing for complex decision trees and callback references to earlier choices.</p>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Project 2 -->
-    <section id="project2" class="project-section alternate">
-        <div class="container">
-            <h2 class="section-title">Theme: large scale small scope</h2>
-            <div class="project-content-full">
-                <div class="project-image-large">
-                    <img src="ForgeGam712-4.png" alt="Procedural World Generator">
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-theme">Theme: Large scale small scope</div>
+            </div>
+            <div class="project-content">
+                <div class="project-image">
+                    <img src="ForgeGam712-4.png" alt="Forge map">
+                    <img src="ForgeGam712.png" alt="Hammering">
+                    <img src="ForgeGam712-1.png" alt="Quenching">
+                    <img src="ForgeGam712-2.png" alt="Sharpening">
+                    <img src="ForgeGam712-3.png" alt="Enchanting">
                 </div>
                 <div class="project-details">
-                    <h3>Project Overview</h3>
-                    <p>This project required me to create a game that had a large scale but was small in scope. </p>
-                    <h3>Development Process</h3>
-                    <p>This project required me to create a game that had a large scale but was small in scope. I interpreted this as making a game with a small setting that has the potential to feel larger. My setting was a blacksmith who forges swords. The sword's creation is based on mini-games such as forging, quenching, sharpening, and enchanting, which determine its stats and influence a kingdom-level combat system.<br><br>
-                    During development, I focused on creating engaging mini-games that felt rewarding and intuitive. Each mini-game was designed to represent a specific aspect of the blacksmithing process, ensuring variety and depth. While I initially planned to implement a full kingdom combat system, time constraints led me to create a simplified sword vs. sword display to showcase the impact of the player's choices.<br><br>
-                    Additionally, I utilized Yarn Spinner to provide interactive tutorials and guidance for players, building on my experience from the previous project. This allowed me to create a more immersive and user-friendly experience while maintaining a consistent narrative tone.</p>
+                    <h3 class="project-section-title">Project Overview</h3>
+                    <p>This project required me to create a game that had a large scale but was small in scope. I interpreted this as making a game with a small setting that has the potential to feel larger.</p>
                     
-                    <h3>Key Features</h3>
+                    <h3 class="project-section-title">Development Process</h3>
+                    <p>My setting was a blacksmith who forges swords. The sword's creation is based on mini-games such as forging, quenching, sharpening, and enchanting, which determine its stats and influence a kingdom-level combat system.</p>
+                    <p>During development, I focused on creating engaging mini-games that felt rewarding and intuitive. Each mini-game was designed to represent a specific aspect of the blacksmithing process, ensuring variety and depth. While I initially planned to implement a kingdom combat system where the player could see the sword they made being used, time constraints led me to create a simplified sword vs. sword display.</p>
+                    <P>I think this project had goods bones to be taken foward and developed into a playable game, I was inspired by flash games like <i>JackSmith</i> along with having some practical experience forging myself. </P>
+                    
+                    <h3 class="project-section-title">Mini Games</h3>
+                    <ul>
+                        <li>Forging: Hit the spots when they turn green and before they go away (Reaction)</li>
+                        <li>Quenching: Make sure the sword enters the bucket perfectly stright to avoid warping (Reaction)</li>
+                        <li>Sharpening: Make sure the sword stays in the green zone (Reaction)</li>
+                        <li>Enchanting: Enchant the sword by figuring out a lights on puzzle (Logic Based)</li>
+                    </ul>
+
+                    <h3 class="project-section-title">Key Features</h3>
                     <ul>
                         <li>Multi mini-games</li>
-                        <li>influences something larger than the blacksmith itself</li>
+                        <li>Influences something larger than the blacksmith itself</li>
                     </ul>
-                    
-                    <h3>Technical Implementation</h3>
-                    <p>Mini games built with unity UI.</p>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Project 3 -->
-    <section id="project3" class="project-section">
-        <div class="container">
-            <h2 class="section-title">Theme: metaphor</h2>
-            <div class="project-content-full">
-                <div class="project-image-large">
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+            <div class="project-header">
+                <div class="project-theme">Theme: Metaphor</div>
+            </div>
+            <div class="project-content">
+                <div class="project-image">
                     <img src="HellGam712.png" alt="Experimental Game Mechanics">
+                    <img src="HellGam712-1.png" alt="Experimental Game Mechanics">
                 </div>
                 <div class="project-details">
-                    <h3>Project Overview</h3>
-                    <p>I had to create a game based on the theme of metaphor, I decided to take that quite literally and use the metaphor of standing on the shoulders of giants.</p>
+                    <h3 class="project-section-title">Project Overview</h3>
+                    <p>I had to create a game based on the theme of metaphor. I decided to take that quite literally and use the metaphor of "standing on the shoulders of giants."</p>
                     
-                    <h3>Development Process</h3>
-                    <p>I initially struggled to come up with a solid idea for this project. I experimented with a penguin puzzle game (though I honestly had no clear direction for it), then moved on to creating a physics-based game, but nothing seemed to click. I even tried developing a simple platformer, but it still felt uninspired.<br><br>
-                    Eventually, I had a breakthrough: I decided to use the player's previous platform runs as a progression mechanic. This concept gave the platformer a unique twist and a sense of purpose. I themed the game around a hellish landscape, which added a fitting atmosphere to the mechanics. While the graphics were quite basic due to time constraints, the gameplay felt engaging and had the potential to evolve into a larger, more polished game in the future. The metaphor was that in academics, we use research others have already done for us, so I was thinking that the player would be standing on the shoulders of giants that have already started to lay out the path for them, allowing them to escape.</p>
+                    <h3 class="project-section-title">Development Process</h3>
+                    <p>I initially struggled to come up with a solid idea for this project. I experimented with a penguin puzzle game, then moved on to creating a physics-based game, but nothing seemed to click.</p>
+                    <p>Eventually, I had a breakthrough: I decided to use the player's previous platform runs as a progression mechanic. This concept gave the platformer a unique twist and a sense of purpose. I themed the game around a hellish landscape, which added a fitting atmosphere to the mechanics.</p>
                     
-                    <h3>Key Features</h3>
+                    <h3 class="project-section-title">Key Features</h3>
                     <ul>
                         <li>Player progression mechanics based on previous platform runs</li>
                         <li>Physics-based interactions that enhance platforming challenges</li>
                         <li>Dynamic level design influenced by player actions</li>
                     </ul>
-                    
-                    <h3>Technical Implementation</h3>
-                    <p>The progression mechanic was implemented by recording player movements and replaying them as interactive elements in subsequent runs. Custom physics systems were developed to ensure smooth interactions between the player and the environment. Additionally, procedural level adjustments were introduced to adapt to the player's progression and maintain engagement.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <footer>
-        <div class="container footer-content">
-            <p>&copy; 2025 Declan Cullen. All rights reserved.</p>
-            <p>Game Designer | <a href="mailto:contact@declancullen.com">contact@declancullen.com</a></p>
-        </div>
+        <p>&copy; 2025 Declan Cullen. All rights reserved.</p>
+        <p>Game Designer | <a href="mailto:contact@declancullen.com">contact@declancullen.com</a></p>
     </footer>
 </body>
 </html>
