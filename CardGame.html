@@ -3,364 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Game Development Journey</title>
+    <meta name="description" content="Blackjack game development">
+    <title>CardGames</title>
     <style>
         :root {
-            --primary: #0ea5e9;
-            --primary-dark: #0284c7;
-            --slate-50: #f8fafc;
-            --slate-100: #f1f5f9;
-            --slate-600: #475569;
-            --slate-900: #0f172a;
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --light-text: #ffffff;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.5;
-            background: linear-gradient(to bottom, var(--slate-50), var(--slate-100));
-            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
         }
-
-        .hero {
+        
+        header {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
             position: relative;
-            background-color: var(--slate-900);
-            color: white;
-            padding: 6rem 2rem;
-            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('/api/placeholder/1200/400') center/cover;
-            opacity: 0.1;
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
-
-        .hero-content {
-            position: relative;
-            max-width: 80rem;
+        
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            z-index: 1;
+            padding: 0 1.5rem;
         }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
+        
+        .header-container {
+            position: relative;
+        }
+        
+        .home-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .home-button:hover {
+            background-color: #c0392b;
+            text-decoration: none;
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        .intro-section {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .intro-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .intro-section p {
+            font-size: 1.1rem;
             margin-bottom: 1rem;
         }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #cbd5e1;
-            max-width: 40rem;
-        }
-
-        .container {
-            max-width: 80rem;
-            margin: 0 auto;
+        
+        .dev-section {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 2rem;
+            margin-bottom: 3rem;
         }
-
-        .tabs {
+        
+        .dev-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .dev-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             margin: 2rem 0;
         }
-
-        .tab-list {
-            display: flex;
-            gap: 1rem;
-            border-bottom: 2px solid #e2e8f0;
+        
+        .image-item {
+            flex: 0 0 48%;
             margin-bottom: 2rem;
         }
-
-        .tab-button {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--slate-600);
-            border-bottom: 2px solid transparent;
-            margin-bottom: -2px;
-            transition: all 0.3s ease;
-        }
-
-        .tab-button.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            padding: 1.5rem;
-        }
-img {
-    width: 50%;              /* Set a default width for all images */
-    max-width: 100%;         /* Changed back to 100% to prevent overflow */
-    height: auto;            /* Maintain aspect ratio */
-    display: block;          /* Remove any inline-block space */
-    margin: 0;               /* Reset margin to ensure it's not centered */
-    border-radius: 25rem;    /* Large rounded corners for a circular look */
-    object-fit: cover;       /* Cover the area while maintaining aspect ratio */
-    
-    /* Align image to the left */
-    float: left;             /* Float the image left */
-    margin-right: 1rem;      /* Add some space to the right of the image */
-}
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-item::before {
-            content: '→';
-            color: #22c55e;
-        }
-
-        .game-embed {
+        
+        .image-item img {
             width: 100%;
-            height: 800px;
-            border-radius: 0.5rem;
-            border: none;
-            margin-top: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
-
-        .learning-grid {
+        
+        .image-item img:hover {
+            transform: scale(1.03);
+        }
+        
+        .image-item p {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .games-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
-
-        .learning-section h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+        
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .game-card h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .game-card p {
+            font-size: 1rem;
             margin-bottom: 1rem;
         }
-
-        .learning-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .code-preview img {
+        
+        .game-card img {
             width: 100%;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-.sticky-header {
-    position: sticky;
-    top: 0;
-    background-color: var(--slate-900);
-    color: white;
-    padding: 1rem;
-    z-index: 10;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.home-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.home-link:hover {
-    color: var(--primary);
-}
-
+        
+        .cta-button {
+            display: block;
+            text-align: center;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+            text-decoration: none;
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 1.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            .games-container {
+                grid-template-columns: 1fr;
             }
-
-            .tab-list {
-                flex-wrap: wrap;
+            
+            .image-item {
+                flex: 0 0 100%;
             }
-
-            .tab-button {
-                flex: 1 1 auto;
-                text-align: center;
+            
+            .home-button {
+                position: static;
+                display: inline-block;
+                margin-top: 1rem;
             }
         }
     </style>
- <header class="sticky-header">
-        <a href="index.html" class="home-link">Back to Portfolio</a>
-    </header>
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Card Games</h1>
-            <p>I wanted to challange myself to recreate how these games work</p>
+    <header>
+        <div class="container header-container">
+            <h1>Card Game Development</h1>
+            <a href="index.html" class="home-button">Return to Homepage</a>
         </div>
-    </div>
-
-    <div class="container">
-        <div class="tabs">
-            <div class="tab-list">
-                <button class="tab-button active" data-tab="overview">Overview</button>
-                <button class="tab-button" data-tab="code">Code</button>
-                <button class="tab-button" data-tab="Blackjack">Blackjack</button>
-                <button class="tab-button" data-tab="HighLow">Hi-Lo</button>
+    </header>
+    
+    <main class="container">
+        <section class="intro-section">
+            <h2>Planning</h2>
+            <p>Details about the planning phase of the card game development.</p>
+            <p>I was inspired to recreate Blackjack after visiting Las Vegas. I wanted to practice basic strategy while improving my programming skills. I researched the rules online and set out to recreate what I learned.</p>
+        </section>
+        
+        <section class="intro-section">
+            <h2>High-Low Gameplay</h2>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <iframe frameborder="0" src="https://itch.io/embed-upload/12225841?color=457733" allowfullscreen="" width="640" height="380"><a href="https://declancullen.itch.io/hi-lo">Play Hi-Lo on itch.io</a></iframe>
             </div>
-
-            <div class="tab-content active" id="overview">
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-title">Blackjack</h3>
-                        <p>A complete casino-style Blackjack implementation featuring dealer AI, betting system, and authentic game rules.</p>
-                        <ul class="feature-list">
-                            <li class="feature-item">Complex dealer decision-making logic</li>
-                            <li class="feature-item">Card counting and hand evaluation</li>
-                            <li class="feature-item">Smooth animations with doTween</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 class="card-title">Hi-Lo</h3>
-                        <p>A streamlined card prediction game that served as an initial exploration into card game mechanics and Unity development.</p>
-                        <ul class="feature-list">
-                            <li class="feature-item">Probability-based gameplay</li>
-                            <li class="feature-item">Deck management system</li>
-                            <li class="feature-item">Intuitive UI/UX design</li>
-                        </ul>
-                    </div>
+        </section>
+            
+        <section class="dev-section">
+            <h2>Development</h2>
+            <p>I started by creating scriptable objects for the cards. I decided to recreate Hi-Lo as a starter game to ensure the cards were randomly drawn from the deck and to familiarize myself with handling card values. This would serve as a foundation for developing a more complex game like Blackjack. Setting up a card deck system with the ability to use multiple decks was straightforward with scriptable objects. The real challenge was experimenting with DOTween for card animations, which turned out to be quite fun.</p>
+            
+            <div class="image-container">
+                <div class="image-item">
+                    <img src="DeckOfCards.png" alt="Deck of Cards">
+                    <p>Scriptable deck of cards.</p>
+                </div>
+                <div class="image-item">
+                    <img src="CardScriptableObject.png" alt="Scriptable Cards">
+                    <p>Basic card values.</p>
                 </div>
             </div>
-
-
-            <div class="tab-content" id="code">
-   <div class="card">
-                    <div class="learning-grid">
-                        <div class="learning-section">
-                            <h3>Key Learnings</h3>
-                            <div class="learning-item">
-                                <span>💡</span>
-                                <p>Implemented ScriptableObjects for efficient card and deck management, enabling easy modification and reuse across different game modes.</p>
-                            </div>
-                            <div class="learning-item">
-                                <span>💡</span>
-                                <p>Learned doTween animation system for creating smooth card movements and chip spawning.</p>
-                            </div>
-                            <div class="learning-item">
-                                <span>💡</span>
-                                <p>Developed modular code structure that allowed for easy expansion from Hi-Lo to the more complex Blackjack implementation.</p>
-                            </div>
-                        </div>
-                        <div class="learning-section">
-                            <h3>Technical Challenges</h3>
-                            <div class="learning-item">
-                                <span>🔧</span>
-                                <p>Implementing dealer AI logic with appropriate delays for natural gameplay flow.</p>
-                            </div>
-                            <div class="learning-item">
-                                <span>🔧</span>
-                                <p>Synchronizing animations with game state changes to prevent race conditions.</p>
-                            </div>
-                            <div class="learning-item">
-                                <span>🔧</span>
-                                <p>Creating a flexible card system that could be easily adapted for different games.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="card-title">Code Architecture</h3>
-                    <div class="code-preview">
-                        <img src="CardScriptableObject.png" alt="Card ScriptableObject">
-                        <img src="DeckOfCards.png" alt="CardDeck ScriptableObject">
-                        <h4>ScriptableObject Implementation</h4>
-                        <p>Cards and decks are implemented as ScriptableObjects, providing a flexible foundation for both games. This approach allows for easy modification of card properties and quick creation of different deck configurations and offers the possiblitys to make sidebets.</p>
-                    </div>
-                </div>
-
- <div class="card">
-                    <h3 class="card-title">Dealer Logic</h3>
-                    <div class="code-preview">
-                        <img src="DealerLogic.png" alt="CardDeck ScriptableObject">
-                        <h4>ScriptableObject Implementation</h4>
-                        <p>Ensuring the dealer Hits on a 16, giving the player a chance for the dealer to bust.</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="tab-content" id="Blackjack">
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-title">Blackjack Game</h3>
-                        <iframe class="game-embed" src="https://itch.io/embed-upload/12171567?color=457733" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
+        </section>
+        
+        <div class="games-container">
+            <div class="game-card">
+                <h2>Hi-Lo</h2>
+                <p>An overview of the Hi-Lo card game and its rules.</p>
+                <p>Hi-Lo is a simple card game where the player guesses whether the next card will be higher or lower than the current card. The game continues until the player makes an incorrect guess.</p>
+                <p>In this game, I implemented a simple UI that displays the current card and allows the player to make their guess. The game keeps track of the player's score and provides feedback on their guesses. It also shows the probability of the next card being higher or lower based on predictions.</p>
+                <p>To make the game more engaging, I added animations using DOTween for card transitions and a simple scoring system to track the player's performance.</p>
+                <p>You can play the game here on this page or on Itch.io.</p>
+                <img src="Hilow.png" alt="High-Low Gameplay">
+                <a href="https://declancullen.itch.io/hi-lo" class="cta-button">Play Hi-Lo</a>
             </div>
             
-            <div class="tab-content" id="HighLow">
-                <div class="card-grid">
-                    <div class="card">
-                        <h3 class="card-title">Hi-Lo Game</h3>
-                        <iframe class="game-embed" src="https://itch.io/embed-upload/12225841?color=457733" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
+            <div class="game-card">
+                <h2>Blackjack</h2>
+                <p>A description of the Blackjack game and how it is implemented.</p>
+                <p>Blackjack is a popular card game where the goal is to get as close to 21 as possible without going over. The player competes against the dealer, and the game involves strategy and decision-making.</p>
+                <p>In my implementation of Blackjack, I created a simple UI that displays the player's hand, the dealer's hand, and the current score. The player can choose to hit or stand based on the rules of the game.</p>
+                <p>Unfortunately, I forgot to implement features like doubling down or splitting. If I were to recreate the project, I would ensure these key features are included.</p>
+                <p>To enhance the experience, I added sound effects and animations for card dealing and player actions. Chips are stacked and spawned with a smooth fade-in effect.</p>
+                <p>For the dealer, I implemented a simple AI that follows the basic rules of Blackjack, such as hitting on 16 or less and standing on 17 or more.</p>
+                <img src="DealerLogic.png" alt="Dealer Logic">
+                <p>Dealer logic for the game.</p>
+                <p>You can play the game on Itch.io.</p>
+                <a href="https://declancullen.itch.io/blackjack" class="cta-button">Play Blackjack</a>
             </div>
         </div>
-    </div>
-
-    <script>
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and content
-                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
-                document.getElementById(button.dataset.tab).classList.add('active');
-            });
-        });
-    </script>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
