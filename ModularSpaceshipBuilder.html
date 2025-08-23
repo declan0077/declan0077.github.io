@@ -3,35 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modular Spaceship Builder - Game Design Document</title>
+    <title>Modular Spaceship Project - Game Design Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="CSS/ModularSpaceshipCSS.css">
-</head>
-<style>
-      .hero {
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #0a0a23 0%, #1a1a3b 100%);
+            color: #e0e0ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 35, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(74, 74, 255, 0.3);
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4a4aff;
+            text-transform: uppercase;
+        }
+
+        .navbar .nav-links a {
+            color: #e0e0ff;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #4a4aff;
+        }
+
+        .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('DockedStation.png') no-repeat center/cover;
+            background: url('NewHero.png') no-repeat center/cover;
             position: relative;
         }
-</style>
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(74, 74, 255, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tags {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #4a4aff;
+            color: #ffffff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            box-shadow: 0 0 10px rgba(74, 74, 255, 0.5);
+        }
+
+        .steam-link {
+            display: inline-block;
+            margin-top: 2rem;
+            text-decoration: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 0 20px rgba(74, 74, 255, 0.5);
+        }
+
+        .steam-link:hover {
+            transform: scale(1.05);
+        }
+
+        .steam-link img {
+            width: 400px;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #4a4aff;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #4a4aff;
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: rgba(26, 26, 62, 0.9);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 0 25px rgba(74, 74, 255, 0.2);
+            border: 1px solid #4a4aff;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .steam-link img {
+                width: 300px;
+            }
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 1rem;
+            background: rgba(15, 15, 31, 0.7);
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            position: relative;
+            border-left: 5px solid #4a4aff;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li i {
+            margin-right: 0.5rem;
+            color: #4a4aff;
+        }
+
+        .screenshot-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .screenshot {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #4a4aff;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        .status-badge {
+            background: #4a4aff;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 10, 35, 0.95);
+            border-top: 1px solid #4a4aff;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #4a4aff;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #3636cc;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
 <body>
     <nav class="navbar">
-        <div class="logo">Modular Spaceship Builder</div>
+        <div class="logo">Modular Spaceship Project</div>
         <div class="nav-links">
             <a href="#overview">Overview</a>
-            <a href="#gameplay">Gameplay</a>
-            <a href="#technical">Technical</a>
+            <a href="#requirements">System Requirements</a>
             <a href="#media">Media</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Modular Spaceship Builder</h1>
+            <h1>Modular Spaceship Project</h1>
             <p>A physics-based space adventure where creativity meets strategy in the vastness of the cosmos</p>
             <div class="tags">
                 <span class="tag">2D Space</span>
@@ -39,7 +319,9 @@
                 <span class="tag">Combat</span>
                 <span class="tag">Factions</span>
             </div>
-            <a href="#media" class="btn">See Gameplay Demo</a> <!-- Added CTA button -->
+            <a href="https://store.steampowered.com/app/3933370/Modular_Spaceship_Project/" class="steam-link" target="_blank">
+                <img src="StoreHeader.png" alt="Get it on Steam">
+            </a>
         </div>
     </section>
 
@@ -49,86 +331,45 @@
             <div class="grid-2">
                 <div class="card">
                     <h3>About the Game</h3>
-                    <p>"Modular Spaceship Builder" is an evolved 2D space game where players design and pilot custom spacecraft using a modular component system. Engage in dynamic combat, manage resources, and navigate faction relationships in a procedurally generated universe.</p>
+                    <p>"Modular Spaceship Project" is an evolved 2D space game where players design and pilot custom spacecraft using a modular component system. Engage in dynamic combat, manage resources, and navigate faction relationships in a procedurally generated universe.</p>
                     <p>Inspired by classics like Captain Forever, this reimagined version introduces advanced ship mechanics, faction dynamics, and resource management, built from the ground up with lessons learned from my previous attempt.</p>
                 </div>
                 <div class="card">
                     <h3>Game Details</h3>
                     <ul class="feature-list">
-                        <li><i class="fas fa-desktop"></i> <strong>Platform:</strong> Web Browser</li>
+                        <li><i class="fas fa-desktop"></i> <strong>Platform:</strong> PC (Steam)</li>
                         <li><i class="fas fa-cogs"></i> <strong>Engine:</strong> Unity</li>
-                        <li><i class="fas fa-hourglass-half"></i> <strong>Status:</strong> In Active Development</li>
-                        <li><i class="fas fa-gamepad"></i> <strong>Controls:</strong> Mouse (Drag/Connect), Space (Thrust), M (Mirror), Q/E (Rotate), Right Click (Collect Cargo), left Click (Weapons), S (Shields), Right Click (AI AutoBattle)</li>
+                        <li><i class="fas fa-hourglass-half"></i> <strong>Status:</strong> Coming Soon</li>
+                        <li><i class="fas fa-gamepad"></i> <strong>Controls:</strong> Mouse (Drag/Connect), Space (Thrust), M (Mirror), Q/E (Rotate), Right Click (Collect Cargo), Left Click (Weapons), S (Shields)</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="gameplay">
-            <h2 class="section-title">Gameplay Mechanics</h2>
-            <div class="grid-3">
+        <section class="section" id="requirements">
+            <h2 class="section-title">System Requirements</h2>
+            <div class="grid-2">
                 <div class="card">
-                    <h3>Ship Construction</h3>
-                    <p>Build unique spacecraft using a snap-based modular system, tailoring your ship’s design to your playstyle:</p>
+                    <h3>Minimum Requirements</h3>
                     <ul class="feature-list">
-                        <li><i class="fas fa-wrench"></i> Drag-and-drop ship parts with connection points for intuitive assembly</li>
-                        <li><i class="fas fa-cogs"></i> Dynamic physics-based assembly ensures realistic movement and stability</li>
-                        <li><i class="fas fa-box"></i> Modules: Thrusters, Weapons, Shields, Cargo Bays—each with unique functions</li>
-                        <li><i class="fas fa-industry"></i> Station construction with trading capabilities to establish your presence in space</li>
-                        <li><i class="fas fa-rocket"></i> Attach thrusters strategically for precise control</li>
-                        <li><i class="fas fa-sliders-h"></i> Customize thruster placement to balance speed and agility</li>
+                        <li><i class="fas fa-desktop"></i> <strong>OS:</strong> Windows 10</li>
+                        <li><i class="fas fa-microchip"></i> <strong>Processor:</strong> Intel Core i3-2100 / AMD FX-6300</li>
+                        <li><i class="fas fa-memory"></i> <strong>Memory:</strong> 4 GB RAM</li>
+                        <li><i class="fas fa-tv"></i> <strong>Graphics:</strong> DirectX 11 compatible</li>
+                        <li><i class="fas fa-hdd"></i> <strong>DirectX:</strong> Version 11</li>
+                        <li><i class="fas fa-save"></i> <strong>Storage:</strong> 2 GB available space</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>Combat System</h3>
-                    <p>Engage in tactical space battles where strategy and skill determine victory:</p>
+                    <h3>Recommended Requirements</h3>
                     <ul class="feature-list">
-                        <li><i class="fas fa-crosshairs"></i> Multiple weapon types (Lasers, Turrets, Missiles)</li>
-                        <li><i class="fas fa-running"></i> Mobility-focused combat with thruster-driven movement</li>
-                        <li><i class="fas fa-shield-alt"></i> Shield and energy management for survival</li>
-                        <li><i class="fas fa-brain"></i> Faction-based AI with dynamic responses</li>
-                        <li><i class="fas fa-robot"></i> AI behavior switching based on faction goals</li>
-                        <li><i class="fas fa-bolt"></i> Critical energy allocation for weapons and shields</li>
+                        <li><i class="fas fa-desktop"></i> <strong>OS:</strong> Windows 10 or newer</li>
+                        <li><i class="fas fa-microchip"></i> <strong>Processor:</strong> Intel Core i5-4590 / AMD Ryzen 3 1200</li>
+                        <li><i class="fas fa-memory"></i> <strong>Memory:</strong> 8 GB RAM</li>
+                        <li><i class="fas fa-tv"></i> <strong>Graphics:</strong> GTX 1050 / RX 560 or equivalent</li>
+                        <li><i class="fas fa-hdd"></i> <strong>DirectX:</strong> Version 11</li>
+                        <li><i class="fas fa-save"></i> <strong>Storage:</strong> 4 GB available space</li>
                     </ul>
-                </div>
-                <div class="card">
-                    <h3>Faction & Resources (WIP)</h3>
-                    <p>Interact with a living universe where factions and resources shape your journey:</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-users"></i> Faction relationships influence AI behavior</li>
-                        <li><i class="fas fa-exchange-alt"></i> Cargo trading and refinery systems</li>
-                        <li><i class="fas fa-brain"></i> Dynamic faction-based AI ships</li>
-                        <li><i class="fas fa-space-shuttle"></i> Ship spawning via trader stations</li>
-                        <li><i class="fas fa-robot"></i> AI ships collect cargo and defend stations</li>
-                        <li><i class="fas fa-industry"></i> Adaptive stations for refining or defense</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="technical">
-            <h2 class="section-title">Technical Overview</h2>
-            <div class="card">
-                <h3>Core Systems</h3>
-                <p>The game leverages Unity's 2D physics engine with custom implementations:</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-users"></i> <strong>Faction System:</strong> Dictionary-based relationship management</li>
-                    <li><i class="fas fa-space-shuttle"></i> <strong>Ship Mechanics:</strong> Modular component system</li>
-                    <li><i class="fas fa-cogs"></i> <strong>Physics:</strong> Rigidbody2D with custom logic</li>
-                    <li><i class="fas fa-brain"></i> <strong>AI:</strong> Responsive faction-based behaviors</li>
-                </ul>
-                <h3>Development Challenges</h3>
-                <p>Key improvements from the original version:</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-link"></i> Replaced unstable spring joints with rigid connections</li>
-                    <li><i class="fas fa-tachometer-alt"></i> Optimized module caching for performance</li>
-                    <li><i class="fas fa-tachometer-alt"></i> Interfaces for cleaner more abstracted code</li>
-                    <li><i class="fas fa-users-cog"></i> Smarter AI less rammy</li>
-                </ul>
-                <h3>Class Diagrams</h3> <!-- Moved here from Media -->
-                <div class="screenshot-grid">
-                    <img src="ShipDiagram.png" alt="Ship Diagram" class="screenshot" loading="lazy">
-                    <img src="ShipPartDiagram.png" alt="Ship Parts Diagram" class="screenshot" loading="lazy">
                 </div>
             </div>
         </section>
@@ -136,20 +377,10 @@
         <section class="section" id="media">
             <h2 class="section-title">Media</h2>
             <div class="card">
-                <h3>Gameplay Demo</h3>
-                <div class="video-container">
-<iframe frameborder="0" src="https://itch.io/embed-upload/14124430?color=0a0a0a" allowfullscreen="" width="1920" height="1080"><a href="https://declancullen.itch.io/modular-spaceship">Play Modular Spaceship on itch.io</a></iframe>                </div>
-            </div>
-            <div class="card">
-                <h3>Current Development Screenshots</h3>
+                <h3>Ship Construction</h3>
                 <div class="screenshot-grid">
-                    <img src="PlantBattle.png" alt="PlantBattle" class="screenshot" loading="lazy">
-                    <img src="Rock.png" alt="RockArea" class="screenshot" loading="lazy">
-                    <img src="Drills.png" alt="Ship with Drills" class="screenshot" loading="lazy">
-                    <img src="ExtendedShip.png" alt="Weapon Upgrades" class="screenshot" loading="lazy">
-                    <img src="BuiltShip.png" alt="Ship" class="screenshot" loading="lazy">
-                    <img src="Map.png" alt="map" class="screenshot" loading="lazy">
-                    <img src="WhaleAttack.png" alt="BioCreatures" class="screenshot" loading="lazy">
+                    <img src="ShipConstruction.gif" alt="Ship Construction Process" class="screenshot" loading="lazy">
+                    <img src="StoreScreenshot.png" alt="Steam Store Screenshot" class="screenshot" loading="lazy">
                 </div>
             </div>
             <div class="card">
@@ -173,13 +404,11 @@
                 </div>
             </div>
         </section>
-
-    
     </div>
 
     <footer>
-        <p>© 2025 Modular Spaceship Builder | Developed with Unity | Designed by Declan Cullen</p>
-        <a href="#" class="btn">Back to Top</a> <!-- Added back-to-top button -->
+        <p>© 2025 Modular Spaceship Project | Developed with Unity | Designed by Declan Cullen</p>
+        <a href="#" class="btn">Back to Top</a>
     </footer>
 
     <script>
@@ -217,6 +446,13 @@
                 if (e.key === 'Escape') {
                     modal.style.display = 'none';
                 }
+            });
+
+            // Back to top functionality
+            const backToTopBtn = document.querySelector('footer .btn');
+            backToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
