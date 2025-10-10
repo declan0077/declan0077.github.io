@@ -1,267 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arkcarmic Descent | Game Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="CSS/ArkcarmicDescentCSS.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arkcarmic Descent | Game Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/ArkcarmicDescentCSS.css">
 </head>
 <style>
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.8)),
+      url('Screenshot.png') center/cover;
+    padding: 2rem;
+  }
+</style>
 
-.hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.8)),
-                        url('Screenshot.png') center/cover;
-            padding: 2rem;
-        }
-  </style>
 <body>
-    <header class="header">
-        <nav class="nav container">
-            <a href="#" class="logo">Arkcarmic Descent</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#overview">Overview</a>
-                <a href="#gameplay">Gameplay</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#team">Team</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="logo">Arkcarmic Descent</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#gameplay">Gameplay</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Arkcarmic Descent</h1>
-            <p>A first-person adventure action game inspired by cult classics, featuring physics-based gameplay and immersive world interaction.</p>
-        </div>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Arkcarmic Descent</h1>
+      <p>A first-person adventure action game inspired by cult classics, featuring physics-based gameplay and immersive
+        world interaction.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="gameplay">
+      <h2 class="section-title">Gameplay Showcase</h2>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/NZiu5HbadkI" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <iframe frameborder="0"
+          src="https://itch.io/embed/2664826?border_width=0&bg_color=1a1a1a&fg_color=ffffff&link_color=fa5c5c&border_color=a08040"
+          width="550" height="165"></iframe>
+      </div>
     </section>
 
-    <main class="container">
-        <section id="gameplay">
-            <h2 class="section-title">Gameplay Showcase</h2>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/NZiu5HbadkI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <iframe frameborder="0" src="https://itch.io/embed/2664826?border_width=0&bg_color=1a1a1a&fg_color=ffffff&link_color=fa5c5c&border_color=a08040" width="550" height="165"></iframe>
-            </div>
-        </section>
+    <section id="overview" class="overview">
+      <div>
+        <h2 class="section-title">Overview and my role</h2>
+        <p>As lead designer for Arkcarmic Descent, I spearheaded the development of the overall game design along with
+          the technical systems and prototyped the initial IK enemy walking, I was inspired to go back to when games
+          pushed the boundaries of player interaction and environmental storytelling.<br> In addition to coding, I also
+          directed and created all of the animated cutscenes, which required elements such as rigging, keyframing and
+          screenshaking. <br> The project showcases gameplay mechanics through:</p>
+        <ul class="feature-list">
+          <li>physics system for object interaction</li>
+          <li>Destructible environments (secret rooms)</li>
+          <li>Creative problem-solving opportunities (Ropes snap, barrels explode walls)</li>
+          <li>Mutidirectional Combat</li>
+        </ul>
+        <p>This vertical slice demonstrates the potential for a larger game that combines intense action with
+          environmental kills, we envisioned a rich magic system where the player awakens with a mechanical arm,
+          gradually unlocking magical powers through orbs. While we implemented one magical element for you to try out,
+          its current implementation feels somewhat disconnected from the overall design.</p>
+      </div>
+      <img src="KnightCharacter.png" alt="Knight Character">
+    </section>
+    <section id="comparison" class="card">
+      <h2 class="section-title">Before and After Comparison</h2>
+      <p>I made a simple mock up, showing we could create some cutscenes and add to the polish of our game. This
+        involved creating animations, setting up camera angles, and integrating these sequences seamlessly into the
+        gameplay. The goal was to enhance the narrative experience and provide players with a more immersive and
+        cinematic feel. By comparing the before and after videos, you can see the significant improvements in visuals
+        after the art pass.</p>
+      <div class="video-comparison">
+        <div class="video-wrapper">
+          <h3>Before</h3>
+          <video controls>
+            <source src="VideoBefore.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-wrapper">
+          <h3>After</h3>
+          <video controls>
+            <source src="VideoAfter.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
 
-        <section id="overview" class="overview">
-            <div>
-                <h2 class="section-title">Overview and my role</h2>
-                <p>As lead designer for Arkcarmic Descent, I spearheaded the development of the overall game design along with the technical systems and prototyped the initial IK enemy walking, I was inspired to go back to when games pushed the boundaries of player interaction and environmental storytelling.<br> In addition to coding, I also directed and created all of the animated cutscenes, which required elements such as rigging, keyframing and screenshaking. <br> The project showcases gameplay mechanics through:</p>
-               <ul class="feature-list">
-                    <li>physics system for object interaction</li>
-                    <li>Destructible environments (secret rooms)</li>
-                    <li>Creative problem-solving opportunities (Ropes snap, barrels explode walls)</li>
-                    <li>Mutidirectional Combat</li>
-                </ul>
-                <p>This vertical slice demonstrates the potential for a larger game that combines intense action with environmental kills, we envisioned a rich magic system where the player awakens with a mechanical arm, gradually unlocking magical powers through orbs. While we implemented one magical element for you to try out, its current implementation feels somewhat disconnected from the overall design.</p>
-            </div>
-            <img src="KnightCharacter.png" alt="Knight Character">
-        </section>
-        <section id="comparison" class="card">
-          <h2 class="section-title">Before and After Comparison</h2>
-          <p>I made a simple mock up, showing we could create some cutscenes and add to the polish of our game. This involved creating animations, setting up camera angles, and integrating these sequences seamlessly into the gameplay. The goal was to enhance the narrative experience and provide players with a more immersive and cinematic feel. By comparing the before and after videos, you can see the significant improvements in visuals after the art pass.</p>
-          <div class="video-comparison">
-            <div class="video-wrapper">
-              <h3>Before</h3>
-              <video controls>
-                <source src="VideoBefore.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper">
-              <h3>After</h3>
-              <video controls>
-                <source src="VideoAfter.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+    <section>
+      <img src="CoolArk.png" alt="Cool Ark Image" class="ImageStyle">
+    </section>
+
+    <section id="comparison" class="card">
+      <h2 class="section-title">Level Design Progression</h2>
+      <p style="text-align: left; text-justify: inter-word;">I was in charge of designing and creating the environment.
+        I first instructed the artists to create a modular set of cave pieces to act as a base, which allowed me to
+        experiment with materials and the structure of how the player would progress through the levels. <br> In our
+        initial levels, I focused on giving the player the ability to learn about the movement mechanics, as that was
+        what we had in the game. Once the combat and physical interactions were added, I could experiment with giving
+        the mechanics a purpose.</p><br>
+
+      <p style="text-align: left; text-justify: inter-word;">As the project progressed, I began to refine the level
+        design to incorporate more complex interactions and challenges. This included adding environmental hazards such
+        as exploding barrels, secret areas that could be unlocked by the barrels, and puzzles that required the player
+        to use their abilities creatively, such as using flaming arrows to destroy sealed exits. The goal was to create
+        a sense of discovery and reward players for exploring and experimenting with the game mechanics.</p><br>
+
+      <p style="text-align: left; text-justify: inter-word;">One of the key aspects of the level design was ensuring
+        that the environment felt cohesive and immersive. I worked closely with the artists to ensure that the visual
+        style and atmosphere of the levels matched the overall tone of the game. This involved creating detailed
+        lighting setups, adding ambient sounds, and placing props strategically to guide the player's attention and
+        enhance the storytelling.</p><br>
+
+      <p style="text-align: left; text-justify: inter-word;">Throughout the development process, I also gathered
+        feedback from playtesting sessions to identify areas where players struggled or felt frustrated. One such
+        problem was how the testers interacted with ropes; we majorly changed how the player attached themselves. This
+        feedback was invaluable in iterating on the level design and making adjustments to improve the overall player
+        experience. By the end of the project, the levels had evolved significantly from their initial concepts,
+        resulting in a more polished and engaging gameplay experience.</p>
+      <div class="video-comparison">
+        <div class="video-wrapper">
+          <h3>Week 1</h3>
+          <iframe src="https://www.youtube.com/embed/O4DRqJwOqNg" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <p style="text-align: left; text-justify: inter-word;">This was the starting point for the cave levels. We
+            quickly mocked up some modular pieces to get a feel of how the environment might look. You can see we
+            started with old school graphics. I really liked the glowing lichen material I created for the walls.</p>
+        </div>
+        <div class="video-wrapper">
+          <h3>Week 2</h3>
+          <iframe src="https://www.youtube.com/embed/4GmwW8KGHEs" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <p style="text-align: left; text-justify: inter-word;">I started to refine the levels and personally modeled
+            some larger cave pieces so that we could have some space for the combat. As we progressed, we started adding
+            larger and larger rooms, which did remove some of the constriction of levels but added more possible depth.
+          </p>
+        </div>
+        <div class="video-wrapper">
+          <h3>Just before first Demo</h3>
+          <iframe src="https://www.youtube.com/embed/utO4XElcTgQ" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <p style="text-align: left; text-justify: inter-word;">This was just before the first Demo day we had. We were
+            anxious about how it would go, but all of the team could feel that we were starting to make progress. We
+            started to conceptualize a storyline along with an end goal of escaping this dungeon.</p>
+        </div>
+      </div>
+    </section>
+    <section class="card" id="actiongifs">
+      <div class="gallery-container">
+        <div class="gallery-images">
+          <!-- Main image that updates based on the thumbnail clicked -->
+          <img src="Throw.gif" alt="Screenshot 1" class="main-screenshot" id="mainImageAction" />
+          <!-- Thumbnails below the main image -->
+          <div class="thumbnail-grid">
+            <img src="Throw.gif" alt="Screenshot 1" class="thumbnail active"
+              onclick="changeImage(this, 'mainImageAction')" />
+            <img src="Foward.gif" alt="Screenshot 2" class="thumbnail" onclick="changeImage(this, 'mainImageAction')" />
+            <img src="Rise.gif" alt="Screenshot 3" class="thumbnail" onclick="changeImage(this, 'mainImageAction')" />
+            <img src="Break.gif" alt="Screenshot 4" class="thumbnail" onclick="changeImage(this, 'mainImageAction')" />
           </div>
-        </section>
-
-        <section>
-          <img src="CoolArk.png" alt="Cool Ark Image" class="ImageStyle">
-        </section>
-
-<section id="comparison" class="card">
-  <h2 class="section-title">Level Design Progression</h2>
-  <p style="text-align: left; text-justify: inter-word;">I was in charge of designing and creating the environment. I first instructed the artists to create a modular set of cave pieces to act as a base, which allowed me to experiment with materials and the structure of how the player would progress through the levels. <br> In our initial levels, I focused on giving the player the ability to learn about the movement mechanics, as that was what we had in the game. Once the combat and physical interactions were added, I could experiment with giving the mechanics a purpose.</p><br> 
-
-  <p style="text-align: left; text-justify: inter-word;">As the project progressed, I began to refine the level design to incorporate more complex interactions and challenges. This included adding environmental hazards such as exploding barrels, secret areas that could be unlocked by the barrels, and puzzles that required the player to use their abilities creatively, such as using flaming arrows to destroy sealed exits. The goal was to create a sense of discovery and reward players for exploring and experimenting with the game mechanics.</p><br>
-
-  <p style="text-align: left; text-justify: inter-word;">One of the key aspects of the level design was ensuring that the environment felt cohesive and immersive. I worked closely with the artists to ensure that the visual style and atmosphere of the levels matched the overall tone of the game. This involved creating detailed lighting setups, adding ambient sounds, and placing props strategically to guide the player's attention and enhance the storytelling.</p><br>
-
-  <p style="text-align: left; text-justify: inter-word;">Throughout the development process, I also gathered feedback from playtesting sessions to identify areas where players struggled or felt frustrated. One such problem was how the testers interacted with ropes; we majorly changed how the player attached themselves. This feedback was invaluable in iterating on the level design and making adjustments to improve the overall player experience. By the end of the project, the levels had evolved significantly from their initial concepts, resulting in a more polished and engaging gameplay experience.</p>
-  <div class="video-comparison">
-    <div class="video-wrapper">
-      <h3>Week 1</h3>
-      <iframe src="https://www.youtube.com/embed/O4DRqJwOqNg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <p style="text-align: left; text-justify: inter-word;">This was the starting point for the cave levels. We quickly mocked up some modular pieces to get a feel of how the environment might look. You can see we started with old school graphics. I really liked the glowing lichen material I created for the walls.</p>
-    </div>
-    <div class="video-wrapper">
-      <h3>Week 2</h3>
-      <iframe src="https://www.youtube.com/embed/4GmwW8KGHEs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <p style="text-align: left; text-justify: inter-word;">I started to refine the levels and personally modeled some larger cave pieces so that we could have some space for the combat. As we progressed, we started adding larger and larger rooms, which did remove some of the constriction of levels but added more possible depth.</p>
-    </div>
-    <div class="video-wrapper">
-      <h3>Just before first Demo</h3>
-      <iframe src="https://www.youtube.com/embed/utO4XElcTgQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <p style="text-align: left; text-justify: inter-word;">This was just before the first Demo day we had. We were anxious about how it would go, but all of the team could feel that we were starting to make progress. We started to conceptualize a storyline along with an end goal of escaping this dungeon.</p>
-    </div>
-  </div>
-</section>
-<section class="card" id="actiongifs">
-  <div class="gallery-container">
-    <div class="gallery-images">
-      <!-- Main image that updates based on the thumbnail clicked -->
-      <img src="Throw.gif" alt="Screenshot 1" class="main-screenshot" id="mainImageAction" />
-      <!-- Thumbnails below the main image -->
-      <div class="thumbnail-grid">
-        <img src="Throw.gif" alt="Screenshot 1" class="thumbnail active" onclick="changeImage(this, 'mainImageAction')" />
-        <img src="Foward.gif" alt="Screenshot 2" class="thumbnail" onclick="changeImage(this, 'mainImageAction')" />
-        <img src="Rise.gif" alt="Screenshot 3" class="thumbnail" onclick="changeImage(this, 'mainImageAction')" />
-        <img src="Break.gif" alt="Screenshot 4" class="thumbnail" onclick="changeImage(this, 'mainImageAction')" />
+        </div>
+        <div class="gallery-text">
+          <h2 class="section-title">Action Gif's</h2>
+          <p>
+            Early on, we decided to emphasize environmental and reaction-based interactions. Players could cut ropes to
+            drop objects onto enemies or take a stealthy approach, avoiding combat through careful planning.
+            <br /><br />
+            While players could still engage in direct combat with a sword and shield, playtesting revealed that users
+            particularly enjoyed using environmental objects to stay safe while dealing damage. For example, barrels
+            would explode when exposed to fire, enabling players to create large chain reactions.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="gallery-text">
-      <h2 class="section-title">Action Gif's</h2>
-      <p>
-        Early on, we decided to emphasize environmental and reaction-based interactions. Players could cut ropes to drop objects onto enemies or take a stealthy approach, avoiding combat through careful planning.
-        <br /><br />
-        While players could still engage in direct combat with a sword and shield, playtesting revealed that users particularly enjoyed using environmental objects to stay safe while dealing damage. For example, barrels would explode when exposed to fire, enabling players to create large chain reactions.
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Example: Gallery (Level Design) -->
-<section id="gallery" class="card" >
-  <div class="gallery-container">
-    <div class="gallery-images">
-      <img src="Screenshot.png" alt="Screenshot 1" class="main-screenshot" id="mainImageGallery" />
-      <div class="thumbnail-grid">
-        <img src="Screenshot.png" alt="Screenshot 1" class="thumbnail active" onclick="changeImage(this, 'mainImageGallery')" />
-        <img src="Screenshot1.png" alt="Screenshot 2" class="thumbnail" onclick="changeImage(this, 'mainImageGallery')" />
-        <img src="Screenshot2.png" alt="Screenshot 3" class="thumbnail" onclick="changeImage(this, 'mainImageGallery')" />
-        <img src="Robot_hand_turn_around_1.png" alt="Screenshot 4" class="thumbnail" onclick="changeImage(this, 'mainImageGallery')" />
+    <!-- Example: Gallery (Level Design) -->
+    <section id="gallery" class="card">
+      <div class="gallery-container">
+        <div class="gallery-images">
+          <img src="Screenshot.png" alt="Screenshot 1" class="main-screenshot" id="mainImageGallery" />
+          <div class="thumbnail-grid">
+            <img src="Screenshot.png" alt="Screenshot 1" class="thumbnail active"
+              onclick="changeImage(this, 'mainImageGallery')" />
+            <img src="Screenshot1.png" alt="Screenshot 2" class="thumbnail"
+              onclick="changeImage(this, 'mainImageGallery')" />
+            <img src="Screenshot2.png" alt="Screenshot 3" class="thumbnail"
+              onclick="changeImage(this, 'mainImageGallery')" />
+            <img src="Robot_hand_turn_around_1.png" alt="Screenshot 4" class="thumbnail"
+              onclick="changeImage(this, 'mainImageGallery')" />
+          </div>
+        </div>
+        <div class="gallery-text">
+          <h2 class="section-title">Gallery</h2>
+          <p>
+            The levels were designed to feel abandoned, with objects scattered throughout, walkways boarded up, and
+            others collapsing. Initially, we drew inspiration from Skyrim's level design, but we wanted our game to have
+            a stronger sci-fi vibe. To achieve this, we incorporated more modern design elements. However, time
+            constraints limited our ambitions.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="gallery-text">
-      <h2 class="section-title">Gallery</h2>
-      <p>
-        The levels were designed to feel abandoned, with objects scattered throughout, walkways boarded up, and others collapsing. Initially, we drew inspiration from Skyrim's level design, but we wanted our game to have a stronger sci-fi vibe. To achieve this, we incorporated more modern design elements. However, time constraints limited our ambitions.
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Example: Experimenting with Art Styles Gallery -->
-<section id="artstyles" class="card">
-  <div class="gallery-container">
-    <div class="gallery-images">
-      <img src="ArkcarmicDescentArtstyle1.png" alt="Screenshot 1" class="main-screenshot" id="mainImageArt" />
-      <div class="thumbnail-grid">
-        <img src="ArkcarmicDescentArtstyle1.png" alt="Screenshot 1" class="thumbnail active" onclick="changeImage(this, 'mainImageArt')" />
-        <img src="BloodFX.png" alt="Screenshot 2" class="thumbnail" onclick="changeImage(this, 'mainImageArt')" />
-        <img src="ArkcarmicDescentArtstyleWhite.png" alt="Screenshot 3" class="thumbnail" onclick="changeImage(this, 'mainImageArt')" />
-        <img src="ArkcarmicDescentArtstyleWhite2.png" alt="Screenshot 4" class="thumbnail" onclick="changeImage(this, 'mainImageArt')" />
+    <!-- Example: Experimenting with Art Styles Gallery -->
+    <section id="artstyles" class="card">
+      <div class="gallery-container">
+        <div class="gallery-images">
+          <img src="ArkcarmicDescentArtstyle1.png" alt="Screenshot 1" class="main-screenshot" id="mainImageArt" />
+          <div class="thumbnail-grid">
+            <img src="ArkcarmicDescentArtstyle1.png" alt="Screenshot 1" class="thumbnail active"
+              onclick="changeImage(this, 'mainImageArt')" />
+            <img src="BloodFX.png" alt="Screenshot 2" class="thumbnail" onclick="changeImage(this, 'mainImageArt')" />
+            <img src="ArkcarmicDescentArtstyleWhite.png" alt="Screenshot 3" class="thumbnail"
+              onclick="changeImage(this, 'mainImageArt')" />
+            <img src="ArkcarmicDescentArtstyleWhite2.png" alt="Screenshot 4" class="thumbnail"
+              onclick="changeImage(this, 'mainImageArt')" />
+          </div>
+        </div>
+        <div class="gallery-text">
+          <h2 class="section-title">Experimenting with Styles</h2>
+          <p>
+            To enhance the game's visual and immersive experience, I experimented with full screen effects. These
+            dynamic visual elements added depth to player interactions—for instance, taking damage triggers a blood
+            screen effect, while underwater environments generate a distinct underwater visual. In addition to full
+            screen shaders, I was also responsible for all of the particle effects.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="gallery-text">
-      <h2 class="section-title">Experimenting with Styles</h2>
-      <p>
-        To enhance the game's visual and immersive experience, I experimented with full screen effects. These dynamic visual elements added depth to player interactions—for instance, taking damage triggers a blood screen effect, while underwater environments generate a distinct underwater visual. In addition to full screen shaders, I was also responsible for all of the particle effects.
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Example: Old Images and WIP Gallery -->
-<section id="old" class="card">
-  <div class="gallery-container">
-    <div class="gallery-images">
-      <img src="oldArk.png" alt="Screenshot 1" class="main-screenshot" id="mainImageOld" />
-      <div class="thumbnail-grid">
-        <img src="oldArk.png" alt="Screenshot 1" class="thumbnail active" onclick="changeImage(this, 'mainImageOld')" />
-        <img src="oldArk1.png" alt="Screenshot 2" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
-        <img src="OldArk2.png" alt="Screenshot 3" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
-        <img src="oldArk3.png" alt="Screenshot 4" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
-        <img src="oldArk5.png" alt="Screenshot 6" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
-        <img src="OldArk6.png" alt="Screenshot 7" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
-        <img src="oldark7.png" alt="Screenshot 8" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
+    <!-- Example: Old Images and WIP Gallery -->
+    <section id="old" class="card">
+      <div class="gallery-container">
+        <div class="gallery-images">
+          <img src="oldArk.png" alt="Screenshot 1" class="main-screenshot" id="mainImageOld" />
+          <div class="thumbnail-grid">
+            <img src="oldArk.png" alt="Screenshot 1" class="thumbnail active"
+              onclick="changeImage(this, 'mainImageOld')" />
+            <img src="oldArk1.png" alt="Screenshot 2" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
+            <img src="OldArk2.png" alt="Screenshot 3" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
+            <img src="oldArk3.png" alt="Screenshot 4" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
+            <img src="oldArk5.png" alt="Screenshot 6" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
+            <img src="OldArk6.png" alt="Screenshot 7" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
+            <img src="oldark7.png" alt="Screenshot 8" class="thumbnail" onclick="changeImage(this, 'mainImageOld')" />
+          </div>
+        </div>
+        <div class="gallery-text">
+          <h2 class="section-title">Old Images and WIP</h2>
+          <p>
+            Here are some early in-progress pictures showcasing what the rooms looked like before adding decorations.
+            You can also see some of the machinery concepts I was considering. At the bottom, there’s a glimpse of our
+            demo level, which we shared during the first round of playtesting. This testing phase taught us a lot about
+            what worked and what players struggled with. For example, our rope climbing system was too finicky, making
+            it difficult for players to engage with. To address this, we enlarged the rope colliders, which
+            significantly improved the experience.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="gallery-text">
-      <h2 class="section-title">Old Images and WIP</h2>
-      <p>
-        Here are some early in-progress pictures showcasing what the rooms looked like before adding decorations. You can also see some of the machinery concepts I was considering. At the bottom, there’s a glimpse of our demo level, which we shared during the first round of playtesting. This testing phase taught us a lot about what worked and what players struggled with. For example, our rope climbing system was too finicky, making it difficult for players to engage with. To address this, we enlarged the rope colliders, which significantly improved the experience.
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="comparison" class="card">
-  <h2 class="section-title">Before and After Comparison</h2>
-  <p style="text-align: left; text-justify: inter-word;">I didn't create the combat system for the game; that was our talented programmer <a href="https://uk.linkedin.com/in/roald-naeri-a40a80216" target="_blank">Roald Naeri</a>. Our combat system changed throughout the project. We started with a more fluid style of combat, allowing the player to change direction swiftly. However, having that kind of advanced combat, which requires many more animations, would have taken too much of our time, and we most likely wouldn't have had a game. So, we simplified it into a Mount and Blade style of directional combat, but still packing a punch and focusing on physical interactions.</p>
-  <div class="video-comparison">
-    <div class="video-wrapper">
-      <h3>Before</h3>
-      <video controls>
-        <source src="ArkActionVideo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p style="text-align: left; text-justify: inter-word;">In this version, the idea was you could make use of simple attacks but also two-sword combat. However, it would also work standalone with a sword and shield.</p>
-    </div>
-    <div class="video-wrapper">
-      <h3>After</h3>
-      <video controls>
-        <source src="ArkActionVideoAfter.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p style="text-align: left; text-justify: inter-word;">Here we refined the combat and added unconventional methods like kicking. You can see that the AI anticipates when the player is going to attack in order to shield.</p>
-    </div>
-  </div>
-</section>
-
-
-<section id="team" class="card"></section>
-  <h2 class="section-title">Team Members</h2>
-  <ul class="feature-list">
-    <li>Declan Cullen - Technical Design</li>
-    <li>Ben Halling - Environmental Artist</li>
-    <li>Roxanne Sadauskas - Prop Artist</li>
-    <li>Kelly Imhanlahimi - UI/UX</li>
-    <li>Roald Naeri - AI Programmer</li>
-  </ul>
-</section>
+    <section id="comparison" class="card">
+      <h2 class="section-title">Before and After Comparison</h2>
+      <p style="text-align: left; text-justify: inter-word;">I didn't create the combat system for the game; that was
+        our talented programmer <a href="https://uk.linkedin.com/in/roald-naeri-a40a80216" target="_blank">Roald
+          Naeri</a>. Our combat system changed throughout the project. We started with a more fluid style of combat,
+        allowing the player to change direction swiftly. However, having that kind of advanced combat, which requires
+        many more animations, would have taken too much of our time, and we most likely wouldn't have had a game. So, we
+        simplified it into a Mount and Blade style of directional combat, but still packing a punch and focusing on
+        physical interactions.</p>
+      <div class="video-comparison">
+        <div class="video-wrapper">
+          <h3>Before</h3>
+          <video controls>
+            <source src="ArkActionVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p style="text-align: left; text-justify: inter-word;">In this version, the idea was you could make use of
+            simple attacks but also two-sword combat. However, it would also work standalone with a sword and shield.
+          </p>
+        </div>
+        <div class="video-wrapper">
+          <h3>After</h3>
+          <video controls>
+            <source src="ArkActionVideoAfter.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p style="text-align: left; text-justify: inter-word;">Here we refined the combat and added unconventional
+            methods like kicking. You can see that the AI anticipates when the player is going to attack in order to
+            shield.</p>
+        </div>
+      </div>
+    </section>
 
 
-<footer>
-  <p>&copy; 2023 Arkcarmic Descent. All rights reserved.</p>
-</footer>
-<!-- JavaScript remains the same -->
-<script>
-  function changeImage(thumbnail, mainId) {
-    const mainImage = document.getElementById(mainId);
-    mainImage.src = thumbnail.src;
-    mainImage.alt = thumbnail.alt;
-    // Remove active class from thumbnails within the same container only
-    const container = thumbnail.parentElement;
-    container.querySelectorAll('.thumbnail').forEach(thumb => {
-      thumb.classList.remove('active');
-    });
-    thumbnail.classList.add('active');
-  }
-</script>
-  </script>
+    <section id="team" class="card"></section>
+    <h2 class="section-title">Team Members</h2>
+    <ul class="feature-list">
+      <li>Declan Cullen - Technical Design</li>
+      <li>Ben Halling - Environmental Artist</li>
+      <li>Roxanne Sadauskas - Prop Artist</li>
+      <li>Kelly Imhanlahimi - UI/UX</li>
+      <li>Roald Naeri - AI Programmer</li>
+    </ul>
+    </section>
+
+
+    <footer>
+      <p>&copy; 2023 Arkcarmic Descent. All rights reserved.</p>
+    </footer>
+    <!-- JavaScript remains the same -->
+    <script>
+      function changeImage(thumbnail, mainId) {
+        const mainImage = document.getElementById(mainId);
+        mainImage.src = thumbnail.src;
+        mainImage.alt = thumbnail.alt;
+        // Remove active class from thumbnails within the same container only
+        const container = thumbnail.parentElement;
+        container.querySelectorAll('.thumbnail').forEach(thumb => {
+          thumb.classList.remove('active');
+        });
+        thumbnail.classList.add('active');
+      }
+    </script>
 </body>
+
 </html>

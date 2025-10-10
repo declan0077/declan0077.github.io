@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Planet - Breaking News</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Georgia", serif;
+      background-color: #ffffff;
+      color: #222;
+      padding-top: 100px;
+
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: rgb(255, 255, 255);
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .Hero-Image {
+      width: 100%;
+      height: 300px;
+      background-image: url('Daily_Planet.webp');
+      background-position: center;
+      background-size: cover;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 20px;
+    }
+
+    .side-box {
+      width: 15%;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .side-box img {
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+
+    .main-article {
+      width: 70%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-article h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .main-article .meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .main-article img {
+      width: 100%;
+      margin: 20px 0;
+      border-radius: 6px;
+    }
+
+    .main-article p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .nested-boxes {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .nested-box {
+      flex: 1;
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .nested-box img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .nested-box button {
+      padding: 10px 20px;
+      background-color: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+
+     .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      z-index: 1000;
+    }
+    
+      .navbar .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      .navbar .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .container {
+        flex-direction: column;
+      }
+
+      .side-box,
+      .main-article {
+        width: 100%;
+      }
+
+      .nested-boxes {
+        flex-direction: column;
+      }
+
+      .toggleMenu {
+        
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Daily Planet</div>
+      <button id="modeToggle" style="justify-content: left; color: white; padding:8px 16px; background: linear-gradient(to bottom, #e819ad, #790f9c);
+border-radius:4px; border:none; cursor:pointer;">🌙 Dark Mode</button>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#">Articles</a>
+        <a href="#">Learn More</a>
+        <a href="#">Write to us</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="Hero-Image"></section>
+
+  <div class="container">
+    <!-- Left Sidebar -->
+    <div class="side-box">
+      <img src="dummy_150x150.png" alt="Ad">
+      <h2>Top Stories</h2>
+      <p>Stay informed with the latest breaking news from Metropolis and beyond.</p>
+      
+    </div>
+
+    <!-- Main Article -->
+    <div class="main-article">
+      <h1>Breaking News: Mysterious Hero Saves City Again</h1>
+      <div class="meta">By <u>louis Lane</u> · September 24, 2025</div>
+
+      <img src="dummy_800x400.png" alt="News Image">
+
+      <p>
+        Early this morning, witnesses reported a mysterious caped figure saving a crowded commuter train from derailing in downtown Metropolis. Though unconfirmed, many believe the hero to be Superman.
+      </p>
+
+      <p>
+        Authorities have not commented on the incident, but citizens are calling the unknown savior a “guardian angel.” Surveillance footage is currently under review.
+      </p>
+
+      <!-- Nested Content Boxes -->
+      <div class="nested-boxes">
+        <div class="nested-box">
+          <img src="dummy_300x200.png" alt="Who is Superman?">
+          <h3>Who is Superman?</h3>
+          <p>Uncover the identity behind the cape. The truth might surprise you.</p>
+          <button>Find Out Now</button>
+        </div>
+
+        <div class="nested-box">
+          <img src="dummy_300x200.png" alt="Exclusive Report">
+          <h3>Exclusive Interview</h3>
+          <p>Reporter Lois Lane speaks with eyewitnesses from the scene.</p>
+          <button>Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="side-box">
+      <img src="dummy_150x150.png" alt="Weather">
+      <h2>Weather</h2>
+      <p>Sunny with a chance of high-speed hero flybys. Stay safe and alert.</p>
+    </div>
+  </div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+  }
+
+  // Dark/Light mode toggle
+  const modeToggle = document.getElementById('modeToggle');
+  let darkMode = false;
+
+  modeToggle.addEventListener('click', function () {
+    darkMode = !darkMode;
+    if (darkMode) {
+      document.body.style.backgroundColor = '#222';
+      document.body.style.color = '#fff';
+      modeToggle.textContent = '☀️ Light Mode';
+      document.querySelector('.navbar').style.backgroundColor = '#111';
+      // Optional: adjust other elements for dark mode
+      document.querySelectorAll('.main-article, .side-box, .nested-box').forEach(el => {
+        el.style.backgroundColor = '#333';
+        el.style.color = '#fff';
+      });
+    } else {
+      document.body.style.backgroundColor = '#fff';
+      document.body.style.color = '#222';
+      modeToggle.textContent = '🌙 Dark Mode';
+      document.querySelector('.navbar').style.backgroundColor = '#333';
+      document.querySelectorAll('.main-article, .side-box, .nested-box').forEach(el => {
+        el.style.backgroundColor = '';
+        el.style.color = '';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
