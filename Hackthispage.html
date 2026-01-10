@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hack This Page</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #101010;
+        color: white;
+        text-align: center;
+        margin: 0;
+    }
+    .header {
+        background-color: #4CAF50;
+        padding: 10px;
+    }
+    .yourname {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    input {
+        padding: 5px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>WELCOME TO HACK THIS PAGE</h1>
+    <p>Can you find the flag?</p>
+</div>
+
+<div class="yourname">
+    <p>Welcome</p>
+    <p id="nameDisplay"></p>
+</div>
+
+<div class="input">
+    <input type="text" id="codeInput" placeholder="Enter your name">
+    <button onclick="checkCode()">Submit</button>
+</div>
+
+<script>
+    // 🚩 FLAG (hidden from normal users)
+    const FLAG = "FLAG{dom_xss_is_dangerous}";
+
+    function checkCode() {
+        let name = document.getElementById("codeInput").value;
+
+        // ❌ INTENTIONALLY UNSAFE
+        document.getElementById("nameDisplay").innerHTML = name;
+    }
+</script>
+
+</body>
+</html>

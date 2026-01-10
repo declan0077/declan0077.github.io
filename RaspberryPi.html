@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raspberry Pi Projects</title>
+
+<style>
+:root {
+    --primary: #c51a4a;
+    --primary-dark: #a5153b;
+    --accent: #75b843;
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #333;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* Layout */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+}
+
+header h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    opacity: 0.95;
+    max-width: 600px;
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.home-link:hover {
+    background: rgba(255,255,255,0.35);
+}
+
+/* Section Cards */
+.card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+/* Project Button */
+.project-link {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.project-link:hover {
+    background: #5fa030;
+    transform: translateY(-2px);
+}
+
+/* Lists */
+ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+/* Images */
+figure {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+figure img:hover {
+    transform: scale(1.02);
+}
+
+figcaption {
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    color: #666;
+}
+
+/* Side-by-side images */
+.sidebyside {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.sidebyside figure {
+    flex: 1;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sidebyside {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>Raspberry Pi Projects</h1>
+        <p>A collection of Raspberry Pi and Pico projects exploring hardware, sensors, and web interfaces.</p>
+        <a href="index.html" class="home-link">← Back to Home</a>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="card">
+        <h2>Projects</h2>
+        <p>Explore my Raspberry Pi based builds and experiments.</p>
+        <a href="#room-temperature-monitor" class="project-link">Room Temperature Monitor</a>
+    </section>
+
+    <section id="room-temperature-monitor" class="card">
+        <h2>Room Temperature Monitor</h2>
+        <p>
+            A Raspberry Pi Pico 2 project that logs room temperature using an MCP9808 sensor and displays
+            real-time data and graphs through a web interface.
+        </p>
+
+        <h3>Components</h3>
+        <ul>
+            <li>Raspberry Pi Pico 2</li>
+            <li>Adafruit MCP9808 Temperature Sensor</li>
+            <li>Jumper Wires</li>
+            <li>Power Supply</li>
+        </ul>
+
+        <h3>Software</h3>
+        <ul>
+            <li>MicroPython</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Chart.js</li>
+        </ul>
+
+        <h3>Project Images</h3>
+
+        <figure>
+            <img src="picoTEMP.jpg" alt="Raspberry Pi Pico temperature setup">
+            <figcaption>Pico 2 connected to MCP9808 temperature sensor</figcaption>
+        </figure>
+
+        <div class="sidebyside">
+            <figure>
+                <img src="tempChart.png" alt="Temperature chart">
+                <figcaption>Live temperature graph</figcaption>
+            </figure>
+
+            <figure>
+                <img src="CODEPython.png" alt="MicroPython code">
+                <figcaption>MicroPython sensor code</figcaption>
+            </figure>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2024 Raspberry Pi Projects · Built with curiosity and caffeine</p>
+</footer>
+
+</body>
+</html>
